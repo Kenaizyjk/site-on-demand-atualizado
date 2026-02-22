@@ -9,7 +9,7 @@ const nextConfig = {
   // TYPESCRIPT CONFIGURATION
   // ============================================
   typescript: {
-    ignoreBuildErrors: true, // ✅ Build seguro - não ignorar erros
+    ignoreBuildErrors: false, // ✅ Detectar erros de TypeScript
   },
 
   // ============================================

@@ -2,7 +2,7 @@
 import { BLOG_ARTICLES_LIST } from "@/lib/blog-data"
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ondemand.digital"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ondemanddigital.com.br"
 
   const rssContent = generateRSSFeed(BLOG_ARTICLES_LIST, baseUrl)
 
@@ -36,7 +36,7 @@ function generateRSSFeed(articles: typeof BLOG_ARTICLES_LIST, baseUrl: string): 
       <guid>${baseUrl}/blog/${article.slug}</guid>
       <pubDate>${new Date(article.publishedAt).toUTCString()}</pubDate>
       <category>${article.category}</category>
-      <author>davi@ondemand.digital (${article.author})</author>
+      <author>davi@ondemanddigital.com.br (${article.author})</author>
       <content:encoded><![CDATA[
         <p>${article.description}</p>
         <p><a href="${baseUrl}/blog/${article.slug}">Ler artigo completo</a></p>

@@ -67,7 +67,7 @@ export default async function BlogArticlePage({ params }: Props) {
     year: "numeric",
   })
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ondemand.digital"
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ondemanddigital.com.br"
 
   const relatedArticles = BLOG_ARTICLES.filter((item) => item.slug !== article.slug).slice(0, 2)
 
