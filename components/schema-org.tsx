@@ -19,7 +19,7 @@ export function OrganizationSchema() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+55-11-99999-9999",
+      telephone: "+55 31 99696-6686",
       contactType: "Sales",
       areaServed: "BR",
       availableLanguage: ["Portuguese"],

@@ -80,7 +80,7 @@ export default function SobrePage() {
 
                 <p>
                   Durante a graduao, comeou a estudar marketing digital por conta prpria.
-                  YouTube, cursos online e testes com pequenos negÃ³cios. O primeiro cliente mostrou que mÃ©todo e consistÃªncia fazem diferenÃ§a.
+                  YouTube, cursos online e testes com pequenos negócios. O primeiro cliente mostrou que método e consistência fazem diferença.
                 </p>
 
                 <p>
@@ -91,8 +91,8 @@ export default function SobrePage() {
 
                 <p className="text-lg font-semibold text-white border-l-4 border-[#00d966] pl-4">
                   "Decidi criar a agncia que eu gostaria que meu pai tivesse contratado.
-                  Uma agÃªncia que trata cada negÃ³cio como se fosse prÃ³prio. Que liga quando o ROI cai.
-                  Que comemora quando o cliente fatura. Que fala a verdade, mesmo quando dÃ³i."
+                  Uma agência que trata cada negócio como se fosse próprio. Que liga quando o ROI cai.
+                  Que comemora quando o cliente fatura. Que fala a verdade, mesmo quando dói."
                 </p>
 
                 <p>
@@ -244,7 +244,7 @@ export default function SobrePage() {
                 {
                   icon: Users,
                   title: "4. Parceria de Longo Prazo",
-                  description: "92% dos clientes renovam porque tratamos seu negÃ³cio como nosso. NÃ£o somos 'mais uma agÃªncia' - somos extensÃ£o do seu time comercial. Seu crescimento Ã© nosso KPI.",
+                  description: "92% dos clientes renovam porque tratamos seu negócio como nosso. Não somos 'mais uma agência' - somos extensão do seu time comercial. Seu crescimento é nosso KPI.",
                   color: "#9d4edd"
                 },
               ].map((value, idx) => (

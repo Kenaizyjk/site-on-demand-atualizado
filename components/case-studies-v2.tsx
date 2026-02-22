@@ -768,10 +768,10 @@ export default function CaseStudiesV2() {
             onChange={(e) => setSelectedTime(e.target.value)}
             className="px-4 py-2 bg-[#161B22] border border-[#30363D] rounded text-[#E6E6FA] text-sm hover:border-[#ff006e] transition cursor-pointer focus:outline-none focus:border-[#ff006e]"
           >
-            <option value="all">Todos Perodos</option>
-            <option value="short">&lt; 3 mÃªses</option>
-            <option value="medium">3-6 mÃªses</option>
-            <option value="long">&gt; 6 mÃªses</option>
+            <option value="all">Todos Períodos</option>
+            <option value="short">&lt; 3 meses</option>
+            <option value="medium">3-6 meses</option>
+            <option value="long">&gt; 6 meses</option>
           </select>
 
           {compareCases.length > 0 && (
