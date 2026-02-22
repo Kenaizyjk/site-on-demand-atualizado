@@ -1,0 +1,6 @@
+{
+  "root": "Ondemand-2.0-07fa4c71e765761d1c4680170a78848548c5bf13",
+  "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install --legacy-peer-deps"
+}
