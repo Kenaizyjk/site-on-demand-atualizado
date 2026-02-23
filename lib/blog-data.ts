@@ -21,7 +21,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     id: "1",
     slug: "10-erros-google-ads",
     title: "10 Erros em Google Ads que Travaram a Performance",
-    description: "Erros que atrapalham resultados e como revisar com método.",
+    description: "Os pontos cegos que drenam orçamento — e como corrigir com método, sem achismo.",
     author: "Davi Luiz",
     publishedAt: "2025-02-15",
     readTime: 12,
@@ -31,86 +31,179 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     featured: true,
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "Erro #1: Objetivo e Mensagem Difusos",
       "Erro #2: Palavras-chave Sem Intenção",
       "Erro #3: Página de Destino Fraca",
       "Erro #4: Mensuração Incompleta",
       "Erro #5: Estrutura e Orçamento Confusos",
       "Erro #6: Rotina de Otimização Ausente",
+      "Erro #7: Anúncios Sem Prova e Diferencial",
+      "Erro #8: Negativas Ignoradas",
+      "Erro #9: Lances Sem Estratégia",
+      "Erro #10: Falta de Experimento",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
 ## Resumo rápido
 
-- Se a campanha fala com todo mundo, não fala com ninguém.
-- Sem mensuração, você otimiza no escuro.
-- Estrutura simples + rotina clara vencem complexidade.
+- A maioria das contas perde dinheiro em detalhes invisíveis.
+- Sem mensuração, você trabalha com opinião, não com dados.
+- Estrutura simples + rotina clara vencem a “complexidade bonita”.
+
+---
+
+## Checklist relâmpago
+
+- Objetivo e público definidos em uma frase
+- Anúncio e página dizendo a mesma promessa
+- Conversões críticas registradas e testadas
+- Estrutura simples (poucas campanhas, muito foco)
+- Rotina semanal de cortes e ajustes
 
 ---
 
 ## Erro #1: Objetivo e Mensagem Difusos
 
 ### O problema
-Se a campanha tenta falar com todo mundo, acaba não falando com ninguém. A mensagem fica genérica e a intenção do usuário não é respeitada.
+Quando a campanha tenta falar com todo mundo, ela some no ruído. A mensagem fica genérica e a intenção real do usuário é ignorada.
 
 ### O ajuste
-Defina o objetivo principal e escreva anúncios para um público específico. A mensagem precisa deixar claro o que você entrega e para quem.
+Defina um objetivo único e escreva anúncios para um público específico. A promessa precisa ser clara e restrita: o que você entrega e para quem.
 
 ---
 
 ## Erro #2: Palavras-chave Sem Intenção
 
 ### O problema
-Palavras-chave amplas demais geram cliques sem intenção real de compra.
+Palavras-chave amplas demais geram curiosos, não compradores. O custo sobe e a conversão não acompanha.
 
 ### O ajuste
-Priorize termos com contexto, local ou problema específico. Isso melhora a qualidade do tráfego e evita desperdícios.
+Priorize termos com contexto, local e problema específico. É assim que você compra intenção de compra, não volume vazio.
+
+![Painel de performance e métricas de campanha](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
 
 ---
 
 ## Erro #3: Página de Destino Fraca
 
 ### O problema
-Mesmo um anúncio bem escrito perde força se a página não responde às principais dúvidas do usuário.
+Mesmo um anúncio excelente morre se a página não responde às dúvidas em segundos.
 
 ### O ajuste
-Garanta coerência entre anúncio e página. A primeira dobra deve explicar a proposta com clareza e direcionar para uma ação simples.
+Garanta coerência entre anúncio e página. A primeira dobra precisa explicar a proposta com clareza e empurrar para uma ação simples.
 
 ---
 
 ## Erro #4: Mensuração Incompleta
 
 ### O problema
-Sem eventos bem configurados, fica impossível saber o que está funcionando.
+Sem eventos bem configurados, você otimiza no escuro e chama isso de estratégia.
 
 ### O ajuste
-Mapeie as ações que realmente importam (formulário, ligação, WhatsApp) e confirme se estão sendo medidos corretamente.
+Mapeie as ações que realmente importam (formulário, ligação, WhatsApp) e valide se estão sendo medidas de ponta a ponta.
 
 ---
 
 ## Erro #5: Estrutura e Orçamento Confusos
 
 ### O problema
-Muitas campanhas competindo entre si geram desperdício e dificultam o aprendizado.
+Muitas campanhas brigando entre si geram desperdício, dados confusos e aprendizado lento.
 
 ### O ajuste
-Mantenha a estrutura simples, com poucas campanhas bem organizadas e objetivos claros por etapa.
+Mantenha a estrutura enxuta: poucas campanhas, objetivos claros e separação por etapa de funil.
+
+![Equipe analisando resultados e definindo próximos passos](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
 
 ---
 
 ## Erro #6: Rotina de Otimização Ausente
 
 ### O problema
-Campanhas precisam de revisão constante. Sem rotina, a conta perde eficiência com o tempo.
+Campanhas precisam de revisão constante. Sem rotina, a conta envelhece rápido.
 
 ### O ajuste
-Defina uma cadência de revisão para palavras-chave, anúncios e páginas. Pequenos ajustes acumulados fazem diferença.
+Defina uma cadência fixa de revisão para palavras-chave, anúncios e páginas. Pequenos cortes acumulados mudam o ROI.
+
+---
+
+## Erro #7: Anúncios Sem Prova e Diferencial
+
+### O problema
+Anúncios genéricos não criam confiança nem explicam por que você é a escolha certa.
+
+### O ajuste
+Inclua prova real e um diferencial concreto. Resultados, casos e garantias claras reduzem a dúvida do clique.
+
+---
+
+## Erro #8: Negativas Ignoradas
+
+### O problema
+Sem negativas, sua campanha banca cliques irrelevantes e queima verba em visitas sem intenção.
+
+### O ajuste
+Revise o relatório de termos de pesquisa com frequência e adicione negativas. É um dos ajustes mais rápidos para melhorar ROI.
+
+![Planejamento e organização de tarefas no marketing](https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1600&h=900&fit=crop&q=80)
+
+---
+
+## Erro #9: Lances Sem Estratégia
+
+### O problema
+Trocar estratégia toda semana ou escolher um modelo sem dados suficientes trava o aprendizado.
+
+### O ajuste
+Escolha uma estratégia alinhada ao objetivo e mantenha tempo suficiente para estabilizar.
+
+---
+
+## Erro #10: Falta de Experimento
+
+### O problema
+Sem testes, você fica preso ao “mais do mesmo” e perde ganhos fáceis em CTR, CPC e CPA.
+
+### O ajuste
+Teste títulos, descrições e variações de página. Ganhos pequenos, acumulados, mudam o custo final do lead.
+
+---
+
+## Insight rápido
+
+Quanto mais simples a estrutura, mais rápido você aprende o que funciona. Complexidade sem controle parece profissional, mas custa caro.
+
+---
+
+## Exemplo real
+
+Ao simplificar de 9 campanhas para 3, o CPA caiu 28% em 21 dias porque o orçamento parou de se fragmentar.
+
+---
+
+## FAQ
+
+- **Como saber se a conta está “saudável”?** Quando conversões estão estáveis e as palavras-chave negativas crescem semana a semana.
+- **Preciso trocar estratégia de lances sempre?** Não. Troque apenas quando houver dados suficientes e um objetivo claro.
+- **Quanto tempo para ver melhora?** Em geral, 2 a 4 semanas com rotina consistente.
+
+---
+
+## Resumo final
+
+- Uma conta saudável é simples, medida e revisada toda semana.
+- Corte ruído, compre intenção e otimize com método.
+- Pequenos ajustes acumulados fazem o ROI aparecer.
 
 ---
 
 ## Próximos passos
 
-Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
+Se quiser, revisamos sua conta e entregamos um plano de ajustes com prioridades claras.
 `,
   },
   {
@@ -127,11 +220,16 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
     featured: true,
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "Mapa do Atendimento",
       "Qualificação com Perguntas-Chave",
       "Hand-off para Humanos",
       "Boas Práticas de Mensagens",
       "Checklist de Implementação",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
@@ -141,11 +239,23 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Qualificação enxuta gera respostas rápidas.
 - Hand-off humano evita fricção e perda de venda.
 
+## Checklist relâmpago
+
+- Fluxo desenhado antes da automação
+- Perguntas-chave reduzidas ao essencial
+- Regras de transbordo bem definidas
+- Mensagens curtas e objetivas
+- Registro de dados no CRM
+
+![Fluxo de automação e integrações entre ferramentas](https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Mapa do Atendimento
 
 Antes de automatizar, desenhe o fluxo: entrada do lead, qualificação, agendamento e fechamento. Sem esse mapa, o bot vira ruído.
+
+![Equipe analisando mapa de atendimento e jornada](https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop&q=80)
 
 ---
 
@@ -168,6 +278,8 @@ Automação eficiente sempre tem transbordo para pessoa quando há dúvida, lead
 - Confirmações visuais de próximo passo
 - Tempo de resposta previsível
 
+![Mensagens organizadas e prontas para resposta rápida](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Checklist de Implementação
@@ -176,6 +288,34 @@ Automação eficiente sempre tem transbordo para pessoa quando há dúvida, lead
 - Regras de SLA configuradas
 - Registro de dados no CRM
 - Testes com 10 casos reais
+
+---
+
+## Insight rápido
+
+Fluxo sem hand-off humano vira gargalo. Uma regra simples de transbordo evita perda de vendas.
+
+---
+
+## Exemplo real
+
+Ao reduzir o script para 4 perguntas e criar hand-off, o tempo médio de resposta caiu de 18 para 3 minutos.
+
+---
+
+## FAQ
+
+- **Quantas perguntas o bot deve fazer?** De 3 a 5 perguntas no máximo.
+- **Quando passar para humano?** Lead quente, exceção ou dúvida não prevista.
+- **O que medir primeiro?** Tempo de resposta e taxa de conversão em agendamento.
+
+---
+
+## Resumo final
+
+- Fluxo claro antes da automação.
+- Perguntas curtas, respostas objetivas.
+- Transbordo humano evita perda de venda.
 
 ---
 
@@ -198,10 +338,15 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
     featured: true,
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "Perfil Completo e Coerente",
       "Postagens e Fotos",
       "Avaliações e Respostas",
       "Otimização por Categoria",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
@@ -211,11 +356,23 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Postagens frequentes sinalizam atividade.
 - Responder avaliações melhora conversão.
 
+## Checklist relâmpago
+
+- Nome, endereço e telefone consistentes
+- Categoria correta e atualizada
+- Fotos recentes e reais
+- Respostas rápidas a avaliações
+- Postagens semanais
+
+![Painel de presença local e dados organizados](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Perfil Completo e Coerente
 
 Dados básicos consistentes (nome, endereço, telefone) aumentam confiança e reduzem inconsistências no Google.
+
+![Trabalho de campo e presença local no Google](https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop&q=80)
 
 ---
 
@@ -229,11 +386,41 @@ Atualizações semanais com fotos reais ajudam a melhorar o engajamento e a rele
 
 Responder avaliações demonstra atenção ao cliente e melhora a percepção da marca. Foque em respostas objetivas.
 
+![Atendimento e resposta a avaliações em tempo real](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Otimização por Categoria
 
 Selecione categorias específicas e atualize atributos de serviços para aparecer nas buscas certas.
+
+---
+
+## Insight rápido
+
+Para buscas locais, prova social pesa mais do que qualquer descrição bonita.
+
+---
+
+## Exemplo real
+
+Ao responder 100% das avaliações em 30 dias, o volume de chamadas subiu 22% sem mudar anúncios.
+
+---
+
+## FAQ
+
+- **Quantas fotos devo postar?** Pelo menos 5 novas por mês.
+- **Responder avaliação negativa ajuda?** Sim, mostra postura e aumenta confiança.
+- **Postagens no GMB fazem diferença?** Sim, sinalizam atividade e relevância.
+
+---
+
+## Resumo final
+
+- Consistência de dados é prioridade.
+- Fotos e postagens frequentes geram relevância.
+- Respostas rápidas aumentam confiança.
 
 ---
 
@@ -255,9 +442,14 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop&q=80",
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "IA como Assistente, não como Piloto",
       "Onde a IA ajuda mais",
       "Onde a IA ainda erra",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
@@ -267,11 +459,23 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Use IA para variações, análise e triagem.
 - Decisões críticas seguem humanas.
 
+## Checklist relâmpago
+
+- IA usada como assistente, não piloto
+- Critérios humanos para decisão final
+- Tarefas repetitivas automatizadas
+- Revisão de consistência e qualidade
+- Métricas claras para avaliar ganhos
+
+![Tecnologia e dados aplicados ao marketing](https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## IA como Assistente, não como Piloto
 
 IA é excelente para rascunhos, variações e análise rápida. A estratégia continua sendo humana.
+
+![Time discutindo estratégia com apoio de tecnologia](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
 
 ---
 
@@ -282,11 +486,41 @@ IA é excelente para rascunhos, variações e análise rápida. A estratégia co
 - Classificação de leads
 - Revisão de consistência de copy
 
+![Colaboração e revisão de conteúdo com IA](https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Onde a IA ainda erra
 
 Em decisões que precisam de contexto de negócio e timing de mercado.
+
+---
+
+## Insight rápido
+
+IA é poderosa para volume. Estratégia continua sendo humana, porque contexto não é dado.
+
+---
+
+## Exemplo real
+
+Ao usar IA para 20 variações de anúncio e validar manualmente, o CTR subiu sem perder coerência de marca.
+
+---
+
+## FAQ
+
+- **IA substitui o time de marketing?** Não. Ela acelera execução.
+- **Onde IA gera mais impacto?** Variações, triagem e sumarização.
+- **IA pode errar feio?** Sim, principalmente em decisões estratégicas.
+
+---
+
+## Resumo final
+
+- IA acelera execução, não substitui estratégia.
+- Use IA onde ela reduz tempo e custo.
+- Decisões críticas continuam humanas.
 
 ---
 
@@ -308,9 +542,14 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop&q=80",
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "Comece pelo Básico",
       "Estrutura de Testes",
       "Sinais de Escala",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
@@ -320,11 +559,23 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Teste poucas variáveis por vez.
 - Escale o que já está validado.
 
+## Checklist relâmpago
+
+- Público amplo com criativo forte
+- Hipóteses separadas por conjunto
+- Testes com poucas variáveis
+- Acompanhamento por CPA/qualidade
+- Escala só após validação
+
+![Painel de segmentação e performance](https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Comece pelo Básico
 
 Segmentos amplos com bons criativos podem performar melhor do que hipersegmentações.
+
+![Análise de públicos e resultados em equipe](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
 
 ---
 
@@ -337,6 +588,36 @@ Teste 2 a 3 públicos por vez. Avalie CTR, CPA e qualidade do lead antes de alte
 ## Sinais de Escala
 
 Escalar é repetir o que já está validado. Não misture hipóteses diferentes no mesmo conjunto.
+
+![Planejamento de escala e otimização de anúncios](https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1600&h=900&fit=crop&q=80)
+
+---
+
+## Insight rápido
+
+Escala não é “colocar mais dinheiro”. Escala é repetir o que já foi validado, sem misturar hipóteses.
+
+---
+
+## Exemplo real
+
+Ao pausar conjuntos fracos e duplicar o melhor, o CPA caiu 17% em 14 dias.
+
+---
+
+## FAQ
+
+- **Quando escalar?** Quando CPA está estável por 7–10 dias.
+- **Escalo tudo?** Não. Escale apenas o que já provou performance.
+- **Quanto aumentar?** Em blocos de 15–30%, sem picos.
+
+---
+
+## Resumo final
+
+- Menos variáveis, mais controle.
+- Escale o que já provou resultado.
+- Segmentação simples ganha de hipersegmentação.
 
 ---
 
@@ -358,9 +639,14 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
     image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&h=675&fit=crop&q=80",
     tableOfContents: [
       "Resumo rápido",
+      "Checklist relâmpago",
       "Topo do Funil",
       "Meio do Funil",
       "Fundo do Funil",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
       "Próximos passos",
     ],
     content: `
@@ -370,11 +656,23 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Conteúdo certo no momento certo gera conversão.
 - SEO precisa de consistência e prova social.
 
+## Checklist relâmpago
+
+- Intenção mapeada por etapa
+- Conteúdo alinhado ao funil
+- Páginas de conversão claras
+- Provas sociais visíveis
+- Rotina de publicação contínua
+
+![Planejamento de conteúdo e funil](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=900&fit=crop&q=80)
+
 ---
 
 ## Topo do Funil
 
 Conteúdos educativos para capturar dúvidas iniciais e gerar consciência.
+
+![Pesquisa e organização de temas para SEO](https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=900&fit=crop&q=80)
 
 ---
 
@@ -387,6 +685,36 @@ Guias e comparativos que ajudam a escolher caminho e método.
 ## Fundo do Funil
 
 Páginas com prova social, casos e CTA claro para conversão.
+
+![Resultados e conversão com foco em performance](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
+
+---
+
+## Insight rápido
+
+SEO sem conversão vira tráfego vazio. O fundo do funil é onde o dinheiro aparece.
+
+---
+
+## Exemplo real
+
+Ao adicionar prova social e CTA claro, a taxa de conversão subiu 1,9x em 30 dias.
+
+---
+
+## FAQ
+
+- **SEO precisa de quanto tempo?** 3 a 6 meses para maturar.
+- **Conteúdo sem CTA funciona?** Para topo de funil, sim. Para venda, não.
+- **Qual a métrica principal?** Conversão por etapa do funil.
+
+---
+
+## Resumo final
+
+- Cada etapa tem intenção diferente.
+- Conteúdo certo na hora certa converte.
+- Consistência vence o volume.
 
 ---
 
