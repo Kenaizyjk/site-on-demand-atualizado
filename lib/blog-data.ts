@@ -85,7 +85,7 @@ Palavras-chave amplas demais geram curiosos, não compradores. O custo sobe e a 
 ### O ajuste
 Priorize termos com contexto, local e problema específico. É assim que você compra intenção de compra, não volume vazio.
 
-![Painel de performance e métricas de campanha](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
+![Painel de performance e métricas de campanha](/blog/10-erros-01.jpg)
 
 ---
 
@@ -117,7 +117,7 @@ Muitas campanhas brigando entre si geram desperdício, dados confusos e aprendiz
 ### O ajuste
 Mantenha a estrutura enxuta: poucas campanhas, objetivos claros e separação por etapa de funil.
 
-![Equipe analisando resultados e definindo próximos passos](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
+![Equipe analisando resultados e definindo próximos passos](/blog/10-erros-02.jpg)
 
 ---
 
@@ -149,7 +149,7 @@ Sem negativas, sua campanha banca cliques irrelevantes e queima verba em visitas
 ### O ajuste
 Revise o relatório de termos de pesquisa com frequência e adicione negativas. É um dos ajustes mais rápidos para melhorar ROI.
 
-![Planejamento e organização de tarefas no marketing](https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1600&h=900&fit=crop&q=80)
+![Planejamento e organização de tarefas no marketing](/blog/10-erros-03.jpg)
 
 ---
 
@@ -247,7 +247,7 @@ Se quiser, revisamos sua conta e entregamos um plano de ajustes com prioridades 
 - Mensagens curtas e objetivas
 - Registro de dados no CRM
 
-![Fluxo de automação e integrações entre ferramentas](https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=900&fit=crop&q=80)
+![Fluxo de automação e integrações entre ferramentas](/blog/whatsapp-01.jpg)
 
 ---
 
@@ -255,7 +255,7 @@ Se quiser, revisamos sua conta e entregamos um plano de ajustes com prioridades 
 
 Antes de automatizar, desenhe o fluxo: entrada do lead, qualificação, agendamento e fechamento. Sem esse mapa, o bot vira ruído.
 
-![Equipe analisando mapa de atendimento e jornada](https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop&q=80)
+![Equipe analisando mapa de atendimento e jornada](/blog/whatsapp-02.jpg)
 
 ---
 
@@ -278,7 +278,7 @@ Automação eficiente sempre tem transbordo para pessoa quando há dúvida, lead
 - Confirmações visuais de próximo passo
 - Tempo de resposta previsível
 
-![Mensagens organizadas e prontas para resposta rápida](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop&q=80)
+![Mensagens organizadas e prontas para resposta rápida](/blog/whatsapp-03.jpg)
 
 ---
 
@@ -364,7 +364,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Respostas rápidas a avaliações
 - Postagens semanais
 
-![Painel de presença local e dados organizados](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=900&fit=crop&q=80)
+![Painel de presença local e dados organizados](/blog/gmb-01.jpg)
 
 ---
 
@@ -372,7 +372,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 
 Dados básicos consistentes (nome, endereço, telefone) aumentam confiança e reduzem inconsistências no Google.
 
-![Trabalho de campo e presença local no Google](https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop&q=80)
+![Trabalho de campo e presença local no Google](/blog/gmb-02.jpg)
 
 ---
 
@@ -386,7 +386,7 @@ Atualizações semanais com fotos reais ajudam a melhorar o engajamento e a rele
 
 Responder avaliações demonstra atenção ao cliente e melhora a percepção da marca. Foque em respostas objetivas.
 
-![Atendimento e resposta a avaliações em tempo real](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
+![Atendimento e resposta a avaliações em tempo real](/blog/gmb-03.jpg)
 
 ---
 
@@ -467,7 +467,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Revisão de consistência e qualidade
 - Métricas claras para avaliar ganhos
 
-![Tecnologia e dados aplicados ao marketing](https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&h=900&fit=crop&q=80)
+![Tecnologia e dados aplicados ao marketing](/blog/ia-01.jpg)
 
 ---
 
@@ -475,7 +475,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 
 IA é excelente para rascunhos, variações e análise rápida. A estratégia continua sendo humana.
 
-![Time discutindo estratégia com apoio de tecnologia](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
+![Time discutindo estratégia com apoio de tecnologia](/blog/ia-02.jpg)
 
 ---
 
@@ -486,7 +486,7 @@ IA é excelente para rascunhos, variações e análise rápida. A estratégia co
 - Classificação de leads
 - Revisão de consistência de copy
 
-![Colaboração e revisão de conteúdo com IA](https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=1600&h=900&fit=crop&q=80)
+![Colaboração e revisão de conteúdo com IA](/blog/ia-03.jpg)
 
 ---
 
@@ -567,7 +567,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Acompanhamento por CPA/qualidade
 - Escala só após validação
 
-![Painel de segmentação e performance](https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&h=900&fit=crop&q=80)
+![Painel de segmentação e performance](/blog/meta-01.jpg)
 
 ---
 
@@ -575,7 +575,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 
 Segmentos amplos com bons criativos podem performar melhor do que hipersegmentações.
 
-![Análise de públicos e resultados em equipe](https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&h=900&fit=crop&q=80)
+![Análise de públicos e resultados em equipe](/blog/meta-02.jpg)
 
 ---
 
@@ -589,7 +589,7 @@ Teste 2 a 3 públicos por vez. Avalie CTR, CPA e qualidade do lead antes de alte
 
 Escalar é repetir o que já está validado. Não misture hipóteses diferentes no mesmo conjunto.
 
-![Planejamento de escala e otimização de anúncios](https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1600&h=900&fit=crop&q=80)
+![Planejamento de escala e otimização de anúncios](/blog/meta-03.jpg)
 
 ---
 
@@ -664,7 +664,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 - Provas sociais visíveis
 - Rotina de publicação contínua
 
-![Planejamento de conteúdo e funil](https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=900&fit=crop&q=80)
+![Planejamento de conteúdo e funil](/blog/funil-01.jpg)
 
 ---
 
@@ -672,7 +672,7 @@ Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução
 
 Conteúdos educativos para capturar dúvidas iniciais e gerar consciência.
 
-![Pesquisa e organização de temas para SEO](https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=900&fit=crop&q=80)
+![Pesquisa e organização de temas para SEO](/blog/funil-02.jpg)
 
 ---
 
@@ -686,7 +686,7 @@ Guias e comparativos que ajudam a escolher caminho e método.
 
 Páginas com prova social, casos e CTA claro para conversão.
 
-![Resultados e conversão com foco em performance](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop&q=80)
+![Resultados e conversão com foco em performance](/blog/funil-03.jpg)
 
 ---
 
