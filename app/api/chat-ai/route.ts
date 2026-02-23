@@ -3,9 +3,42 @@ import { NextRequest, NextResponse } from 'next/server'
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY
 const OPENAI_ORG_ID = process.env.OPENAI_ORG_ID
 
+type ChatRole = 'user' | 'assistant'
+type ChatMessage = { role: ChatRole; content: string }
+
+const MEMORY_TTL_MS = 1000 * 60 * 60 * 6 // 6 hours
+const MEMORY_MAX_TURNS = 20
+
+const memoryStore = new Map<string, { updatedAt: number; messages: ChatMessage[] }>()
+
+function getSessionId(request: NextRequest, body: { sessionId?: string }) {
+  return body.sessionId?.trim() || request.headers.get('x-chat-session-id') || 'anonymous'
+}
+
+function readMemory(sessionId: string): ChatMessage[] {
+  const entry = memoryStore.get(sessionId)
+  if (!entry) return []
+  if (Date.now() - entry.updatedAt > MEMORY_TTL_MS) {
+    memoryStore.delete(sessionId)
+    return []
+  }
+  return entry.messages
+}
+
+function writeMemory(sessionId: string, messages: ChatMessage[]) {
+  const trimmed = messages.slice(-MEMORY_MAX_TURNS * 2)
+  memoryStore.set(sessionId, { updatedAt: Date.now(), messages: trimmed })
+}
+
+function appendMemory(sessionId: string, role: ChatRole, content: string) {
+  const existing = readMemory(sessionId)
+  writeMemory(sessionId, [...existing, { role, content }])
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { message } = await request.json()
+    const { message, sessionId: bodySessionId } = await request.json()
+    const sessionId = getSessionId(request, { sessionId: bodySessionId })
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json(
@@ -25,6 +58,8 @@ export async function POST(request: NextRequest) {
       })
     }
 
+    const memory = readMemory(sessionId)
+
     // Fazer requisição à API OpenAI
     const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -40,6 +75,7 @@ export async function POST(request: NextRequest) {
             role: 'system',
             content: 'Você é um assistente de marketing digital da On Demand Digital. Responda em português de forma concisa e profissional sobre serviços de marketing, automação e IA.',
           },
+          ...memory,
           {
             role: 'user',
             content: message,
@@ -61,6 +97,9 @@ export async function POST(request: NextRequest) {
 
     const data = await openaiResponse.json()
     const assistantMessage = data.choices[0]?.message?.content || 'Desculpe, não consegui gerar uma resposta.'
+
+    appendMemory(sessionId, 'user', message)
+    appendMemory(sessionId, 'assistant', assistantMessage)
 
     return NextResponse.json(
       {
