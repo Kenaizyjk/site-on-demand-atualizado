@@ -1,7 +1,6 @@
 ﻿"use client"
 
 import { TrendingUp, Target, Zap, Users, Cpu, Network, Sparkles } from "lucide-react"
-import Image from "next/image"
 import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 
@@ -274,12 +273,13 @@ export default function AIStackProfessional() {
                     <div className="relative group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
                       <div className={`absolute -inset-3 ${config.bg} rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-all duration-500`} />
                       <div className="relative w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-xl flex items-center justify-center border-2 border-white/20 shadow-xl group-hover:shadow-2xl transition-shadow duration-500">
-                        <Image
+                        <img
                           src={tool.logo}
                           alt={`Logo do ${tool.name}, inteligência artificial usada para marketing digital na On Demand Digital`}
                           width={80}
                           height={80}
                           className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
+                          loading="lazy"
                         />
                       </div>
                     </div>
