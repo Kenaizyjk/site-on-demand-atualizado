@@ -1,7 +1,6 @@
 "use client"
 
 import { Zap, Play, X, CheckCircle2, Mail, Database, Bot } from "lucide-react"
-import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -144,7 +143,7 @@ function SimulationModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
               <div className="h-14 border-b border-[#2d2d2d] bg-[#1a1b23] flex items-center justify-between px-4 z-20">
                 <div className="flex items-center gap-3">
                   <div className="w-6 h-6 bg-red-500 rounded flex items-center justify-center shadow-[0_0_10px_rgba(239,68,68,0.4)]">
-                    <Image src="/N8n-logo-new.svg" alt="n8n" width={16} height={16} className="invert brightness-0" />
+                    <img src="/N8n-logo-new.svg" alt="n8n" width={16} height={16} className="invert brightness-0" loading="lazy" />
                   </div>
                   <span className="text-gray-200 text-sm font-semibold">On Demand B2B Flow</span>
                 </div>
@@ -383,10 +382,11 @@ export default function AutomationN8NShowcase() {
           {/* Header Esquerda */}
           <div className="w-full lg:w-1/2 text-center lg:text-left od-reveal">
             <div className="inline-flex items-center gap-2 sm:gap-3 bg-[#18181b] border border-[#27272a] px-4 py-2 sm:px-6 sm:py-3 rounded-full mb-6 sm:mb-8 shadow-xl">
-              <Image src="/N8n-logo-new.svg" alt="N8N Logo" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <img src="/N8n-logo-new.svg" alt="N8N Logo" width={24} height={24} className="w-5 h-5 sm:w-6 sm:h-6" loading="lazy" />
               <span className="text-[#a1a1aa] font-semibold text-xs sm:text-sm uppercase tracking-wider">
                 Infraestrutura de Automação
               </span>
+              <img src="/automation-infra.svg" alt="" width={120} height={24} className="hidden sm:block h-5 w-auto opacity-80" loading="lazy" />
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">

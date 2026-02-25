@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "Como funciona a consultoria personalizada?",
-    answer: "Cada cliente recebe um plano sob medida após uma análise detalhada do negócio, objetivos e mercado. Definimos juntos as estratégias, prioridades e metas — sem pacotes genéricos."
+    answer: "Cada cliente recebe um plano sob medida após uma análise detalhada do negócio, objetivos e mercado. Definimos juntos as estratégias, prioridades e metas sem pacotes genéricos."
   },
   {
     question: "Vocês trabalham com qual tipo de empresa?",

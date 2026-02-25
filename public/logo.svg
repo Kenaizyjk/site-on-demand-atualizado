@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="200" fill="transparent" />
+  <text x="20" y="115" font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="url(#logoGrad)">
+    On Demand Digital
+  </text>
+</svg>

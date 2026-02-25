@@ -37,6 +37,6 @@ export const SEO_DEFAULTS = {
     'minas gerais',
     'agência marketing bh',
   ],
-  ogImage: `${WEBSITE_URL}/og-image.jpg`,
-  twitterImage: `${WEBSITE_URL}/twitter-image.jpg`,
+  ogImage: `${WEBSITE_URL}/og-image.svg`,
+  twitterImage: `${WEBSITE_URL}/twitter-image.svg`,
 } as const

@@ -47,7 +47,7 @@ export const BlogArticleSchema: FC<BlogArticleSchemaProps> = ({
     },
     image: {
       "@type": "ImageObject",
-      url: image || `${process.env.NEXT_PUBLIC_SITE_URL}/og-image.png`,
+      url: image || `${process.env.NEXT_PUBLIC_SITE_URL}/og-image.svg`,
       width: 1200,
       height: 630,
     },
@@ -56,7 +56,7 @@ export const BlogArticleSchema: FC<BlogArticleSchemaProps> = ({
       name: "On Demand Digital",
       logo: {
         "@type": "ImageObject",
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.svg`,
         width: 250,
         height: 60,
       },
@@ -88,7 +88,7 @@ export const BlogCollectionSchema = () => {
       name: "On Demand Digital",
       logo: {
         "@type": "ImageObject",
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/logo.svg`,
         width: 250,
         height: 60,
       },

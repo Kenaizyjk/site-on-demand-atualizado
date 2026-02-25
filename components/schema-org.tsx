@@ -10,7 +10,7 @@ export function OrganizationSchema() {
     name: "On Demand Digital",
     description: "Agência de marketing digital com foco em estratégia, automação e conteúdo.",
     url: "https://ondemanddigital.com.br",
-    logo: "https://ondemanddigital.com.br/logo.png",
+    logo: "https://ondemanddigital.com.br/logo.svg",
     foundingDate: "2022",
     founder: {
       "@type": "Person",
@@ -44,7 +44,7 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "On Demand Digital - Agência de Marketing",
-    image: "https://ondemanddigital.com.br/og-image.jpg",
+    image: "https://ondemanddigital.com.br/og-image.svg",
     description: "Agência boutique de marketing digital focada em estratégia e execução responsável.",
     address: {
       "@type": "PostalAddress",
