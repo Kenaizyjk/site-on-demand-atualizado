@@ -8,7 +8,6 @@ import { OrganizationSchema, LocalBusinessSchema, ServiceSchema } from '@/compon
 import CookieConsent from '@/components/cookie-consent'
 import AnalyticsTracker from '@/components/analytics-tracker'
 import RootClientLayout from '@/components/root-client-layout'
-import RetargetingPixels from '@/components/retargeting-pixels'
 import {
   COMPANY_NAME,
   WHATSAPP_NUMBER,
@@ -151,8 +150,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-        {/* Retargeting Pixels - Facebook, Google Ads, Hotjar, LinkedIn, TikTok */}
-        <RetargetingPixels />
+        {/* Retargeting Pixels removidos temporariamente */}
 
         {/* Google Tag Manager */}
         <script
