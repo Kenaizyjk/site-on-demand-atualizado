@@ -79,11 +79,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com;
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net;
               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-              img-src 'self' data: https: blob:;
+              img-src 'self' data: https: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com;
               font-src 'self' data: https://fonts.gstatic.com;
-              connect-src 'self' https://fonts.googleapis.com https://www.google-analytics.com https://analytics.google.com;
+              connect-src 'self' https://fonts.googleapis.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net;
               frame-src 'self' https://www.youtube.com https://www.google.com;
               object-src 'none';
               base-uri 'self';
