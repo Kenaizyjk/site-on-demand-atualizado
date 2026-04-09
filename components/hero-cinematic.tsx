@@ -85,8 +85,8 @@ export default function HeroCinematic() {
           }}
         />
 
-        {/* Mobile — 75% opacity veil for guaranteed readability */}
-        <div className="absolute inset-0 bg-[#09090b]/75 lg:hidden" />
+        {/* Mobile — 82% opacity veil for guaranteed readability + eyebrow contrast */}
+        <div className="absolute inset-0 bg-[#09090b]/82 lg:hidden" />
       </motion.div>
 
       {/* ─── Neon accent mark — 1px sharp, editorial ─── */}
@@ -124,7 +124,7 @@ export default function HeroCinematic() {
       {/* ─── Main content (flex column, padded) ─── */}
       <div
         className="relative z-10 flex flex-col px-6 sm:px-10 lg:px-20"
-        style={{ minHeight: "100svh", paddingTop: "5.5rem", paddingBottom: "8rem" }}
+        style={{ minHeight: "100svh", paddingTop: "5.5rem", paddingBottom: "max(10rem, 22svh)" }}
       >
         {/* Eyebrow */}
         <motion.p
@@ -137,8 +137,7 @@ export default function HeroCinematic() {
 
         {/* ── Headline — extreme size contrast ── */}
         <h1
-          className="font-display font-black leading-none mb-7 sm:mb-9"
-          style={{ maxWidth: "min(640px, 55vw)" }}
+          className="font-display font-black leading-none mb-7 sm:mb-9 lg:[max-width:min(640px,55vw)]"
         >
           <motion.span
             {...fadeUp(0.22)}
@@ -201,7 +200,7 @@ export default function HeroCinematic() {
           {...fadeUp(0.48)}
           className="text-zinc-400 mb-10 sm:mb-12"
           style={{
-            fontSize: "clamp(13px, 1vw, 16px)",
+            fontSize: "clamp(14px, 1.1vw, 16px)",
             maxWidth: 360,
             lineHeight: 1.8,
           }}
@@ -218,7 +217,7 @@ export default function HeroCinematic() {
             rel="noopener noreferrer"
             data-track="hero-cinematic-cta"
             className="od-hero-cta group inline-flex items-center gap-3 font-semibold rounded-lg"
-            style={{ fontSize: "clamp(13px, 0.95vw, 15px)" }}
+            style={{ fontSize: "clamp(14px, 1vw, 16px)" }}
           >
             Marcar diagnóstico gratuito
             <ArrowRight
