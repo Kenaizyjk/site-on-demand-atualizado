@@ -1,87 +1,55 @@
-﻿/**
- * Página Principal (Home) - Design Limpo e Profissional
- * Nova Paleta: Slate + Cyan | Modelo: Consultoria Personalizada
- *
- * Estrutura otimizada com fluxo lógico:
- * 1. Navigation (glassmorphism)
- * 2. Hero Section (gradiente aurora)
- * 3. Serviços - O QUE FAZEMOS
- * 4. Valores/Diferencial
- * 5. AI Stack (4 ferramentas de IA)
- * 6. Automações n8n (3 fluxos)
- * 7. GMB Showcase (leads gratuitos)
- * 8. Minha História (fundador)
- * 9. ChatBot Inteligente (demo interativa)
- * 10. Depoimentos (prova social)
- * 11. FAQ (accordion)
- * 12. CTA Final
- * 13. Footer (minimalista)
- */
-
 import Navigation from "@/components/navigation"
-import HeroPremium from "@/components/hero-premium"
-import ValueProposition from "@/components/value-proposition"
+import HeroCinematic from "@/components/hero-cinematic"
 import ServicesSimple from "@/components/services-simple"
-import AIStackProfessional from "@/components/ai-stack-professional"
-import AutomationN8NShowcase from "@/components/automation-n8n-showcase"
+import ManifestoStrip from "@/components/manifesto-strip"
+import TechStack from "@/components/tech-stack"
 import GMBShowcase from "@/components/gmb-showcase"
-import FounderStory from "@/components/founder-story"
-import ChatbotLiveSection from "@/components/chatbot-live-section"
-
 import BlogPreviewHome from "@/components/blog-preview-home"
+import NewsletterSection from "@/components/newsletter-section"
 import FAQ from "@/components/faq"
+import ContactForm from "@/components/contact-form"
 import FinalCTA from "@/components/final-cta"
 import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
+import NewsletterPopup from "@/components/newsletter-popup"
 
 export default function Home() {
   return (
     <main className="od-page">
       <Navigation />
 
-      {/* 1. Hero - Promessa clara + Botão CTA */}
-      <HeroPremium />
+      {/* 1. Hero */}
+      <HeroCinematic />
 
-      {/* 2. Serviços - O QUE FAZEMOS (contexto imediato) */}
+      {/* 2. Serviços */}
       <ServicesSimple />
 
-      {/* 3. Valores/Diferencial - Por que escolher a On Demand */}
-      <ValueProposition />
+      {/* 3. Como Trabalhamos */}
+      <ManifestoStrip />
+      <TechStack />
 
-      {/* 4. AI Stack - Ferramentas de Inteligência Artificial */}
-      <AIStackProfessional />
-
-      {/* 5. Automações - Fluxos n8n com GIFs */}
-      <AutomationN8NShowcase />
-
-      {/* 6. GMB Showcase - Google Meu Negócio */}
+      {/* 4. Google Meu Negócio */}
       <GMBShowcase />
 
-      {/* 7. Minha História - Quem sou e por que faço isso */}
-      <FounderStory />
-
-      {/* 8. ChatBot Inteligente - Demo Interativa */}
-      <ChatbotLiveSection />
-
-
-      {/* 9. Blog Preview - Artigos Recentes */}
+      {/* 5. Blog */}
       <BlogPreviewHome />
 
-      {/* 10. FAQ - Perguntas frequentes */}
+      {/* 6. Newsletter */}
+      <NewsletterSection />
+
+      {/* 7. Dúvidas */}
       <FAQ />
 
-      {/* 11. CTA Final - Último empurrão para conversão */}
+      {/* 8. Contato */}
+      <ContactForm />
+
+      {/* 9. CTA Final */}
       <FinalCTA />
 
-      {/* 12. Footer - Minimalista */}
+      <hr className="od-divider" />
       <Footer />
-
-      {/* WhatsApp Flutuante */}
       <WhatsAppFloat />
-
-      {/* Chat AI Demo removed (floating IA button removed) */}
+      <NewsletterPopup />
     </main>
   )
 }
-
-

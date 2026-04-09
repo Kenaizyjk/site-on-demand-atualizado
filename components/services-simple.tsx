@@ -1,157 +1,188 @@
-﻿"use client"
+"use client"
 
-import { Megaphone, Search, GitBranch, Target, BrainCircuit, LineChart, Activity } from "lucide-react"
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { ArrowRight } from "lucide-react"
+
+const services = [
+  {
+    number: "01",
+    title: "Tráfego Pago",
+    tagline: "Campanhas que geram clientes, não só cliques.",
+    description:
+      "Gerenciamos Google Ads e Meta Ads com estrutura de testes, segmentação por intenção de compra e acompanhamento semanal para que cada real investido faça sentido.",
+    deliverables: [
+      "Criação e gestão de campanhas no Google e Meta",
+      "Testes de criativos, audiências e páginas de destino",
+      "Relatórios semanais com ajustes baseados em dados",
+    ],
+    platforms: ["Google Ads", "Meta Ads"],
+    accent: "#06b6d4",
+    accentMuted: "rgba(6,182,212,0.12)",
+  },
+  {
+    number: "02",
+    title: "SEO Local e Google Business",
+    tagline: "Encontrado por quem já busca o que você oferece.",
+    description:
+      "Otimizamos seu perfil no Google Business e estruturamos conteúdo local para que seu negócio apareça quando alguém pesquisa o que você faz na sua região.",
+    deliverables: [
+      "Otimização do perfil no Google Business Profile",
+      "Conteúdo local com palavras-chave geográficas",
+      "Monitoramento de posicionamento e visitas orgânicas",
+    ],
+    platforms: ["Google Business", "Google Search"],
+    accent: "#10b981",
+    accentMuted: "rgba(16,185,129,0.12)",
+  },
+  {
+    number: "03",
+    title: "Automação com IA",
+    tagline: "Fluxos que qualificam e atendem enquanto você trabalha.",
+    description:
+      "Construímos automações com n8n que conectam WhatsApp, CRM e e-mail em fluxos que qualificam leads e eliminam tarefas repetitivas do seu time.",
+    deliverables: [
+      "Fluxos n8n para qualificação e encaminhamento de leads",
+      "Integração entre WhatsApp, CRM e planilhas",
+      "Chatbots treinados com as informações do seu negócio",
+    ],
+    platforms: ["n8n", "WhatsApp API", "IA"],
+    accent: "#8b5cf6",
+    accentMuted: "rgba(139,92,246,0.12)",
+  },
+  {
+    number: "04",
+    title: "Estratégia Digital",
+    tagline: "Um plano com metas reais e cronograma definido.",
+    description:
+      "Organizamos canais, definimos prioridades e montamos um plano de ação com metas claras para que cada iniciativa digital tenha propósito e direção.",
+    deliverables: [
+      "Diagnóstico dos canais e oportunidades mapeadas",
+      "Planejamento com metas e cronograma definidos",
+      "Acompanhamento mensal com revisão de estratégia",
+    ],
+    platforms: ["Analytics", "Consultoria"],
+    accent: "#f59e0b",
+    accentMuted: "rgba(245,158,11,0.12)",
+  },
+]
 
 export default function ServicesSimple() {
-
-  const services = [
-    {
-      icon: Target,
-      title: "Tráfego Pago",
-      description: "Planejamento e gestão de campanhas em Meta e Google Ads com objetivos claros, testes estruturados e monitoramento contínuo.",
-      color: "from-[#06b6d4] to-[#3b82f6]",
-      tag: "Ads & Escala",
-      delay: 0.1
-    },
-    {
-      icon: GitBranch,
-      title: "Automação com IA (n8n)",
-      description: "Fluxos automatizados que organizam, qualificam e encaminham conversas no WhatsApp com critérios definidos.",
-      color: "from-[#8b5cf6] to-[#ec4899]",
-      tag: "Sistemas & Robôs",
-      delay: 0.2
-    },
-    {
-      icon: Search,
-      title: "SEO Local & Conteúdo",
-      description: "Estruturas de conteúdo e otimização local para organizar a presença orgânica e facilitar o encontro no Google.",
-      color: "from-[#10b981] to-[#059669]",
-      tag: "Busca Orgânica",
-      delay: 0.3
-    },
-    {
-      icon: BrainCircuit,
-      title: "Chatbots e IA",
-      description: "Atendentes de IA treinados com seus dados para responder dúvidas, orientar o cliente e apoiar o time.",
-      color: "from-[#f59e0b] to-[#ea580c]",
-      tag: "Inteligência Artificial",
-      delay: 0.4
-    },
-    {
-      icon: LineChart,
-      title: "Web Analytics & Growth",
-      description: "Dashboards e acompanhamento para decisões mais consistentes e alinhadas aos objetivos do negócio.",
-      color: "from-[#6366f1] to-[#4338ca]",
-      tag: "Business Intelligence",
-      delay: 0.5
-    },
-    {
-      icon: Megaphone,
-      title: "Gestão de Marca & Copy",
-      description: "Criativos e copy alinhados ao posicionamento e ao perfil do público, com foco em clareza e intenção.",
-      color: "from-[#ec4899] to-[#be185d]",
-      tag: "Conversão",
-      delay: 0.6
-    }
-  ]
+  const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <section id="servicos" className="od-section lg:py-32 bg-[#09090b] relative overflow-hidden">
-      {/* Background Energy Lines */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none flex justify-center">
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#06b6d4] to-transparent absolute left-[20%] animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#8b5cf6] to-transparent absolute left-[50%] animate-pulse" style={{ animationDuration: '7s' }} />
-        <div className="w-px h-full bg-gradient-to-b from-transparent via-[#06b6d4] to-transparent absolute right-[20%] animate-pulse" style={{ animationDuration: '5s' }} />
-      </div>
+    <section id="servicos" className="relative bg-[#09090b] py-24 lg:py-36 overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-      <div className="od-container px-4 relative z-10">
-
-        {/* Header Header */}
-        <div className="text-center mb-16 lg:mb-24 od-reveal">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#18181b] border border-[#27272a] od-subtitle text-sm font-semibold mb-6 shadow-xl"
-          >
-            <Activity className="w-4 h-4 text-[#06b6d4]" />
-            O QUE NÓS FAZEMOS
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black od-title mb-6 tracking-tight text-white"
-          >
-            Estrutura certa para <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]">
-              crescer com consistência
+        {/* Header */}
+        <div className="mb-20 lg:mb-24">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">
+            O que fazemos
+          </p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.05]">
+            Serviços com<br />
+            <span className="text-[#06b6d4]">
+              entrega clara.
             </span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="od-subtitle max-w-3xl mx-auto text-lg sm:text-xl px-4 leading-relaxed"
-          >
-            Organizamos aquisição, automação e conteúdo para dar clareza ao que funciona e ao que precisa ser ajustado.
-          </motion.p>
+          </h2>
         </div>
 
-        {/* Services Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 od-reveal od-reveal-delay-2">
-          {services.map((service, index) => {
-            const Icon = service.icon
-                        return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: service.delay }}
-                className="group relative od-card-hover bg-[#18181b] border border-[#27272a] rounded-3xl p-8 hover:bg-[#18181b] transition-all duration-500 overflow-hidden transform-gpu hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)] cursor-pointer h-full flex flex-col"
-              >
-                {/* Dynamic Gradient Background Reveal */}
+        {/* Service list */}
+        <div>
+          {services.map((s, i) => (
+            <div
+              key={s.number}
+              onMouseEnter={() => setHovered(s.number)}
+              onMouseLeave={() => setHovered(null)}
+              className="group relative transition-all duration-300"
+              style={{
+                borderTop: "1px solid rgba(255,255,255,0.07)",
+                borderBottom: i === services.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                backgroundColor: hovered === s.number ? "rgba(255,255,255,0.018)" : "transparent",
+              }}
+            >
+              <div className="py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-[96px_1fr_1fr] gap-6 lg:gap-12 items-start">
+
+                {/* Number */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none`}
-                />
-
-                {/* Glowing Orb */}
-                <div className={`absolute -right-20 -top-20 w-40 h-40 bg-gradient-to-br ${service.color} rounded-full blur-[60px] opacity-10 group-hover:opacity-30 transition-opacity duration-700`} />
-
-                {/* Top Section */}
-                <div className="relative z-10 mb-8 flex justify-between items-start">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-[#09090b] shadow-inner border border-[#27272a] group-hover:border-transparent transition-colors duration-300 relative overflow-hidden`}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
-                    <Icon className={`w-7 h-7 text-[#a1a1aa] group-hover:text-white transition-colors duration-300 z-10 relative`} />
-                  </div>
-
-                  <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-[#27272a] text-[#71717a] group-hover:border-[#3f3f46] group-hover:text-[#a1a1aa] transition-colors duration-300`}>
-                    {service.tag}
-                  </span>
+                  className="font-black text-6xl lg:text-7xl leading-none select-none transition-colors duration-300"
+                  style={{
+                    color: hovered === s.number ? s.accent : "rgba(255,255,255,0.05)",
+                    fontVariantNumeric: "tabular-nums",
+                  }}
+                  aria-hidden="true"
+                >
+                  {s.number}
                 </div>
 
-                {/* Content Section */}
-                <div className="relative z-10 flex-grow">
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-tight">
-                    {service.title}
+                {/* Title + description */}
+                <div>
+                  <h3 className="text-2xl lg:text-3xl font-black text-white mb-3 leading-snug">
+                    {s.title}
                   </h3>
-                  <p className="text-[#a1a1aa] leading-relaxed group-hover:text-[#e4e4e7] transition-colors duration-300">
-                    {service.description}
+                  <p
+                    className="text-base font-semibold mb-4 transition-colors duration-300"
+                    style={{ color: hovered === s.number ? s.accent : "#94a3b8" }}
+                  >
+                    {s.tagline}
                   </p>
+                  <p className="text-[#b4b4bc] text-sm leading-relaxed max-w-md">
+                    {s.description}
+                  </p>
+
+                  {/* Platforms */}
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {s.platforms.map((p) => (
+                      <span
+                        key={p}
+                        className="text-xs font-semibold px-2.5 py-1 rounded-full border transition-all duration-300"
+                        style={{
+                          color: hovered === s.number ? s.accent : "#52525b",
+                          borderColor: hovered === s.number ? `${s.accent}33` : "rgba(255,255,255,0.06)",
+                          backgroundColor: hovered === s.number ? s.accentMuted : "transparent",
+                        }}
+                      >
+                        {p}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
+                {/* Deliverables */}
+                <div className="flex flex-col justify-between h-full">
+                  <ul className="space-y-3 mb-8">
+                    {s.deliverables.map((d) => (
+                      <li key={d} className="flex items-start gap-3">
+                        <span
+                          className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors duration-300"
+                          style={{ backgroundColor: hovered === s.number ? s.accent : "#52525b" }}
+                          aria-hidden="true"
+                        />
+                        <span className="text-sm text-[#b4b4bc] leading-relaxed">{d}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-              </motion.div>
-            )
-          })}
+                  <a
+                    href={`https://wa.me/5531996966686?text=Olá%2C+quero+saber+mais+sobre+${encodeURIComponent(s.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group/link"
+                    style={{ color: hovered === s.number ? s.accent : "#71717a" }}
+                    data-track={`services-${s.number}-cta`}
+                  >
+                    Saiba mais
+                    <ArrowRight
+                      className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   )

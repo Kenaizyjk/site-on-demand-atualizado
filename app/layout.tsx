@@ -1,19 +1,30 @@
 import type React from 'react'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
+import { inter, plusJakarta } from './fonts'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { OrganizationSchema, LocalBusinessSchema, ServiceSchema } from '@/components/schema-org'
-import CookieConsent from '@/components/cookie-consent'
 import AnalyticsTracker from '@/components/analytics-tracker'
-import RootClientLayout from '@/components/root-client-layout'
+import WhatsAppStickyBar from '@/components/whatsapp-sticky-bar'
 import {
   COMPANY_NAME,
-  WHATSAPP_NUMBER,
   WEBSITE_URL,
   SEO_DEFAULTS,
 } from '@/lib/constants'
+import CursorGlow from '@/components/cursor-glow'
+
+// ============================================
+// VIEWPORT (exported separately per Next.js spec)
+// ============================================
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#09090b',
+}
 
 // ============================================
 // SEO METADATA
@@ -94,16 +105,17 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
 
-  // Verification (add your codes)
+  // Verification (hardcoded)
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
-    // yandex: 'your-yandex-verification',
-    // bing: 'your-bing-verification',
+    google: 'IhBhsG-FRPI0CXrm5uWXdCOWJjH3Kmz8F_E8c_v5H5k',
   },
 
   // Alternates
   alternates: {
     canonical: WEBSITE_URL,
+    types: {
+      'application/rss+xml': `${WEBSITE_URL}/blog/feed.xml`,
+    },
   },
 
   // Other
@@ -132,53 +144,25 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${inter.variable} ${plusJakarta.variable}`}>
       <head>
-        {/* Viewport otimizado para mobile */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
-        <meta name="google-site-verification" content="IhBhsG-FRPI0CXrm5uWXdCOWJjH3Kmz8F_E8c_v5H5k" />
         {/* Preconnect para recursos externos */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        
-        {/* RSS Feed para Blog */}
-        <link rel="alternate" type="application/rss+xml" title={`${COMPANY_NAME} Blog`} href="/blog/feed.xml" />
         <link rel="preconnect" href="https://i.ibb.co" />
 
         {/* DNS Prefetch */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-        {/* Retargeting Pixels removidos temporariamente */}
-
         {/* Google Tag Manager */}
-        <script
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5NJ3XP3G');`,
-          }}
-        />
-
-        {/* Google tag (gtag.js) */}
-        <Script
-          id="gtag-src"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0TW8KVEPS9"
-        />
-        <Script
-          id="gtag-inline"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);} 
-              gtag('js', new Date());
-              gtag('config', 'G-0TW8KVEPS9');
-            `,
           }}
         />
 
@@ -194,106 +178,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
 
-        {/* Google Analytics */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <Script
-              id="ga-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-                `,
-              }}
-            />
-          </>
-        )}
-
-        {/* Block Floating Widgets Script */}
-        <Script id="block-widgets" strategy="afterInteractive">
-          {`
-            (function() {
-              const removeFloatingWidgets = () => {
-                const selectors = [
-                  '[class*="notification"]',
-                  '[class*="popup"]',
-                  '[class*="toast"]',
-                  '[class*="widget"]',
-                  '[class*="floating"]',
-                  '[class*="social-proof"]',
-                  '[class*="testimonial-popup"]',
-                  '[class*="review-widget"]',
-                  '[id*="notification"]',
-                  '[id*="popup"]',
-                  '[id*="widget"]',
-                  '[data-widget]',
-                  '[data-notification]',
-                ];
-
-                selectors.forEach(selector => {
-                  try {
-                    document.querySelectorAll(selector).forEach(el => {
-                      const htmlEl = el;
-                      if (!htmlEl.closest('main') && !htmlEl.id.startsWith('__next')) {
-                        const computedStyle = window.getComputedStyle(htmlEl);
-                        const isFloating =
-                          computedStyle.position === 'fixed' ||
-                          computedStyle.position === 'absolute';
-                        const bottom = parseInt(computedStyle.bottom) || 0;
-                        const right = parseInt(computedStyle.right) || 0;
-                        const isBottomRight = bottom < 100 && right < 100;
-
-                        if (isFloating && isBottomRight) {
-                          // Removing floating widget
-                          htmlEl.remove();
-                        }
-                      }
-                    });
-                  } catch (error) {
-                    // Widget removal failed silently
-                  }
-                });
-              };
-
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', removeFloatingWidgets);
-              } else {
-                removeFloatingWidgets();
-              }
-
-              setInterval(removeFloatingWidgets, 2000);
-
-              const observer = new MutationObserver(removeFloatingWidgets);
-              observer.observe(document.body, {
-                childList: true,
-                subtree: true
-              });
-            })();
-          `}
-        </Script>
-
-        {/* WhatsApp Link Metadata */}
-        <meta property="whatsapp:phone" content={WHATSAPP_NUMBER} />
       </head>
       <body className="font-sans antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NJ3XP3G"
         height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
+        <CursorGlow />
         <ErrorBoundary>
           {children}
-          {/* FloatingReviews removido - poluio visual */}
+          <WhatsAppStickyBar />
         </ErrorBoundary>
         <Analytics />
         <AnalyticsTracker />
-        <CookieConsent />
-        <RootClientLayout />
       </body>
     </html>
   )

@@ -11,11 +11,14 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
     const [activeCategory, setActiveCategory] = useState("Todos")
     const sealMap: Record<string, { label: string; className: string }> = {
         "Google Ads": { label: "Selo Performance", className: "text-[#7dd3fc] border-[#225070]" },
-        "Automação": { label: "Selo Automação", className: "text-[#a7f3d0] border-[#1f3a2e]" },
+        "Automacao": { label: "Selo Automacao", className: "text-[#a7f3d0] border-[#1f3a2e]" },
         "SEO Local": { label: "Selo Local", className: "text-[#fcd34d] border-[#4b3b1a]" },
         "IA & Marketing": { label: "Selo IA", className: "text-[#c4b5fd] border-[#3a2e5a]" },
         "Meta Ads": { label: "Selo Escala", className: "text-[#60a5fa] border-[#1f3352]" },
         "SEO": { label: "Selo SEO", className: "text-[#86efac] border-[#1f3a2b]" },
+        "Trafego Pago": { label: "Selo Trafego", className: "text-[#f97316] border-[#4b2e1a]" },
+        "Estrategia": { label: "Selo Estrategia", className: "text-[#a78bfa] border-[#3a2e5a]" },
+        "Redes Sociais": { label: "Selo Social", className: "text-[#fb7185] border-[#4b1a2e]" },
     }
     const getSeal = (category: string) =>
         sealMap[category] ?? { label: "Selo Editorial", className: "text-[#94a3b8] border-[#233246]" }
@@ -42,12 +45,12 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
 
     // Filtrar os outros artigos (excluindo o destaque se estiver no topo, ou não)
     const filteredArticles = useMemo(() => {
-        let filtered = articles.filter((a) => a.id !== featuredArticle.id)
+        let filtered = articles.filter((a) => a.slug !== featuredArticle.slug)
         if (activeCategory !== "Todos") {
             filtered = filtered.filter((a) => a.category === activeCategory)
         }
         return filtered
-    }, [articles, activeCategory, featuredArticle])
+    }, [articles, activeCategory, featuredArticle.slug])
 
     return (
         <div className="w-full">
@@ -86,7 +89,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                     {/* Image Part */}
                                     <div className="relative lg:w-3/5 overflow-hidden order-1 lg:order-2 aspect-video lg:aspect-auto">
                                         <Image
-                                            src={featuredArticle.image}
+                                            src={featuredArticle.coverImage}
                                             alt={featuredArticle.title}
                                             fill
                                             priority
@@ -115,7 +118,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                         </h2>
 
                                         <p className="od-subtitle text-base lg:text-lg mb-8 line-clamp-3 text-[#cbd5e1]">
-                                            {featuredArticle.description}
+                                            {featuredArticle.excerpt}
                                         </p>
 
                                         <div className="flex items-center justify-between mt-auto pt-5 border-t border-[#1f2a3a]/70">
@@ -160,7 +163,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                         {filteredArticles.map((article, idx) => (
-                            <React.Fragment key={article.id}>
+                            <React.Fragment key={article.slug}>
                                 {/* Injete o Lead Magnet após o 2º card (idx === 2) no grid */}
                                 {idx === 2 && activeCategory === "Todos" && (
                             <div className="col-span-1 md:col-span-2 lg:col-span-3 rounded-3xl bg-[#0b111a]/80 border border-[#1f2a3a]/70 p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 my-6 relative overflow-hidden">
@@ -190,7 +193,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                         />
                                         <button
                                             type="button"
-                                            onClick={() => window.open('https://wa.me/553196966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
+                                            onClick={() => window.open('https://wa.me/5531996966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
                                             className="px-6 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-xl transition-colors whitespace-nowrap shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2"
                                         >
                                             Receber Guia
@@ -214,7 +217,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                     <Link href={`/blog/${article.slug}`} className="blog-surface group h-full flex flex-col hover:border-cyan-500/50 overflow-hidden transition-all duration-300 hover:-translate-y-1">
                                         <div className="relative aspect-[4/3] overflow-hidden">
                                             <Image
-                                                src={article.image}
+                                                src={article.coverImage}
                                                 alt={article.title}
                                                 fill
                                                 sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
@@ -241,7 +244,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                             </h3>
 
                                             <p className="text-slate-400 text-sm mb-6 line-clamp-2 flex-grow">
-                                                {article.description}
+                                                {article.excerpt}
                                             </p>
 
                                             <div className="pt-4 mt-auto border-t border-[#1f2a3a]/70 flex items-center justify-between">

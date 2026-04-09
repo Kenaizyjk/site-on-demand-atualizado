@@ -1,222 +1,281 @@
 "use client"
 
-import { ArrowRight, CheckCircle2 } from "lucide-react"
-import { useEffect, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { ArrowRight, CheckCircle2, Zap, Target, BarChart3, ShieldCheck } from "lucide-react"
+import { motion, useReducedMotion } from "framer-motion"
+import type { MotionProps } from "framer-motion"
+
+// Static variants hoisted outside component per rendering-hoist-jsx rule
+const PROCESS_STEPS = [
+  {
+    icon: Target,
+    label: "Diagnóstico",
+    desc: "Mapeamos o cenário real do negócio antes de gastar um centavo em mídia",
+    color: "zinc" as const,
+  },
+  {
+    icon: Zap,
+    label: "Execução",
+    desc: "Tráfego pago, SEO local e automações com IA rodando em paralelo, sem silos",
+    color: "cyan" as const,
+  },
+  {
+    icon: BarChart3,
+    label: "Resultado",
+    desc: "Acompanhamento direto e contínuo. Dados reais, sem relatório de vaidade.",
+    color: "zinc" as const,
+  },
+] as const
+
+const DIFFERENTIALS = [
+  "Seu orçamento tratado como se fosse nosso. Sem desperdício.",
+  "Atendimento direto com quem executa, sem intermediários",
+  "Tráfego pago, SEO local e automação com IA integrados em uma só estratégia",
+] as const
+
+const WA_URL =
+  "https://wa.me/5531996966686?text=Olá%2C+vim+pelo+site+e+quero+entender+como+funciona"
 
 export default function HeroPremium() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const prefersReducedMotion = useReducedMotion()
 
-  // Cinemactic scroll effects
-  const { scrollY } = useScroll()
-  const heroContentY = useTransform(scrollY, [0, 800], [0, 150])
-  const heroContentOpacity = useTransform(scrollY, [0, 500], [1, 0])
-  const bgScale = useTransform(scrollY, [0, 800], [1, 1.1])
-  const energyLinesY = useTransform(scrollY, [0, 800], [0, -100])
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    // Set canvas size
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+  function fadeUp(delay: number): MotionProps {
+    if (prefersReducedMotion) return { initial: false }
+    return {
+      initial: { opacity: 0, y: 24 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] },
     }
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+  }
 
-    // Particle system
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      size: number
-      opacity: number
-    }> = []
-
-    for (let i = 0; i < 50; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      })
+  function fadeIn(delay: number): MotionProps {
+    if (prefersReducedMotion) return { initial: false }
+    return {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.7, delay },
     }
-
-    const animate = () => {
-      ctx.fillStyle = 'rgba(9, 9, 11, 0.1)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      particles.forEach((particle) => {
-        particle.x += particle.vx
-        particle.y += particle.vy
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
-
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(6, 182, 212, ${particle.opacity})`
-        ctx.fill()
-      })
-
-      requestAnimationFrame(animate)
-    }
-    animate()
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas)
-    }
-  }, [])
+  }
 
   return (
     <section
       id="home"
-      className="od-section relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-[#09090b]"
+      className="od-section relative min-h-[100vh] flex items-center overflow-hidden bg-[#09090b]"
+      aria-label="Hero principal"
     >
-      {/* Animated Canvas Background */}
-      <motion.canvas
-        ref={canvasRef}
-        className="absolute inset-0 z-0"
-        style={{ opacity: 0.6, scale: bgScale }}
+      {/* Ambient glow blob */}
+      <div
+        className="absolute bottom-1/4 right-[-8%] w-[400px] h-[400px] bg-cyan-500/12 rounded-full blur-[140px] pointer-events-none"
+        aria-hidden="true"
+      />
+      {/* Subtle radial vignette at top for nav readability */}
+      <div
+        className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#09090b]/60 to-transparent pointer-events-none"
+        aria-hidden="true"
       />
 
-      {/* Background Energy Lines (Cinematic) */}
-      <motion.div
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none flex justify-center"
-        style={{ y: energyLinesY }}
-      >
-        <div className="w-px h-[200%] bg-gradient-to-b from-transparent via-[#06b6d4] to-transparent absolute left-[20%] animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="w-px h-[200%] bg-gradient-to-b from-transparent via-[#8b5cf6] to-transparent absolute left-[50%] animate-pulse" style={{ animationDuration: '7s' }} />
-        <div className="w-px h-[200%] bg-gradient-to-b from-transparent via-[#06b6d4] to-transparent absolute right-[20%] animate-pulse" style={{ animationDuration: '5s' }} />
-      </motion.div>
+      <div className="relative z-10 od-container px-4 w-full pt-24 pb-16 sm:pt-32 sm:pb-20">
+        {/* Split layout: text left / process visual right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      {/* Gradiente Aurora Radial em Cyan - MAIS INTENSO */}
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-[#06b6d4]/30 via-[#09090b] to-[#8b5cf6]/20" style={{ scale: bgScale }}></motion.div>
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#06b6d4]/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          {/* ── LEFT COLUMN: Copy + CTAs ── */}
+          <div className="flex flex-col items-start text-left">
 
-      <motion.div
-        className="relative z-10 od-container px-4 py-8 sm:py-12 w-full text-center"
-        style={{ y: heroContentY, opacity: heroContentOpacity }}
-      >
-        <div className="max-w-5xl mx-auto">
-          {/* Badge Superior - APENAS DESKTOP */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hidden sm:inline-flex items-center gap-3 bg-[#18181b]/80 border border-[#27272a] px-6 py-2.5 rounded-full mb-10 backdrop-blur-md shadow-lg shadow-black/50 hover:border-[#06b6d4]/50 transition-colors duration-300"
-          >
-            <div className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse" />
-            <span className="text-[#a1a1aa] font-medium text-sm tracking-wide">
-              Estratégia clara, execução consistente e foco no que importa
-            </span>
-          </motion.div>
+            {/* Eyebrow tag */}
+            <motion.div {...fadeUp(0.05)}>
+              <span className="od-badge mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                Agência de marketing digital
+              </span>
+            </motion.div>
 
-          {/* Headline Principal - MOBILE FIRST */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black od-title mb-6 sm:mb-8 leading-[0.9] tracking-tighter px-2 uppercase"
-          >
-            <span className="block text-white">Marketing</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] via-cyan-300 to-[#8b5cf6]">
-              com Método
-            </span>
-          </motion.h1>
-
-          {/* Subttulo - MOBILE OPTIMIZED */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="text-lg sm:text-xl md:text-2xl od-subtitle mb-10 sm:mb-14 font-medium leading-relaxed max-w-3xl mx-auto px-4"
-          >
-            Mais clareza, menos ruído. Diagnóstico, execução e otimização contínua para estruturar seu marketing com responsabilidade e foco no que traz valor real.
-          </motion.p>
-
-          {/* CTA Principal - MOBILE OPTIMIZED */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12 sm:mb-16 px-4"
-          >
-            <a
-              href="https://wa.me/553196966686?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20entender%20como%20voc%C3%AAs%20trabalham."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group px-8 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-[#06b6d4] to-[#0891b2] text-white font-bold text-base sm:text-lg rounded-lg hover:from-[#0891b2] hover:to-[#06b6d4] transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl shadow-cyan-500/50 hover:shadow-cyan-600/70 hover:scale-105 transform active:scale-95"
+            {/* Headline — leads with transformation, closes with philosophy */}
+            <motion.h1
+              {...fadeUp(0.12)}
+              className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl leading-[1.06] tracking-tighter mb-6"
             >
-              <span>Agendar Conversa</span>
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-all duration-300" />
-            </a>
+              <span className="block text-white">
+                Mais clientes.
+              </span>
+              <span className="block text-[#06b6d4] tracking-wider">
+                Menos desperdício.
+              </span>
+              <span className="block text-white">
+                Marketing que entrega.
+              </span>
+            </motion.h1>
 
-            <a
-              href="#servicos"
-              className="px-8 py-4 sm:px-10 sm:py-5 bg-[#09090b] border border-[#27272a] text-[#f8fafc] font-bold text-base sm:text-lg rounded-lg hover:bg-[#18181b] hover:border-[#06b6d4]/50 transition-all duration-300 flex items-center justify-center transform active:scale-95"
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" })
-              }}
+            {/* Subheadline */}
+            <motion.p
+              {...fadeUp(0.22)}
+              className="text-base sm:text-lg od-subtitle leading-relaxed mb-8 max-w-xl"
             >
-              Ver Como Trabalhamos
-            </a>
+              Tráfego pago, SEO local e automação com IA executados por quem
+              realmente entende do seu negócio.{" "}
+              <span className="text-white font-semibold">
+                Sem camadas, sem enrolação.
+              </span>
+            </motion.p>
+
+            {/* Differentials — outcome language */}
+            <motion.ul
+              {...fadeUp(0.3)}
+              className="flex flex-col gap-3 mb-10"
+              aria-label="Diferenciais"
+            >
+              {DIFFERENTIALS.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-zinc-300">
+                  <CheckCircle2
+                    className="w-5 h-5 text-cyan-500 shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
+                  {item}
+                </li>
+              ))}
+            </motion.ul>
+
+            {/* CTAs */}
+            <motion.div
+              {...fadeUp(0.38)}
+              className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+            >
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="hero-whatsapp-cta"
+                className="group od-cta-button inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-white font-bold text-base"
+              >
+                Marcar diagnóstico gratuito
+                <ArrowRight
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                  aria-hidden="true"
+                />
+              </a>
+
+              <a
+                href="#servicos"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl border border-zinc-700 text-zinc-300 font-semibold text-base hover:border-cyan-500/40 hover:text-white hover:bg-cyan-500/5 transition-all duration-300 active:scale-[0.97]"
+              >
+                Ver os serviços
+              </a>
+            </motion.div>
+
+            {/* Micro trust line — icon instead of emoji for a11y */}
+            <motion.p
+              {...fadeIn(0.52)}
+              className="mt-6 text-xs text-zinc-500 flex items-center gap-2"
+            >
+              <ShieldCheck
+                className="w-3.5 h-3.5 text-zinc-500 shrink-0"
+                aria-hidden="true"
+              />
+              <span>Atendimento direto e personalizado desde o primeiro contato</span>
+            </motion.p>
+          </div>
+
+          {/* ── RIGHT COLUMN: Process Flow Visual ── */}
+          <motion.div
+            {...fadeIn(0.18)}
+            className="relative flex flex-col gap-4 lg:pl-6"
+            aria-label="Nosso processo em 3 etapas"
+          >
+            {/* Connecting line — visible on sm+ */}
+            <div
+              className="absolute left-[1.85rem] top-[3.5rem] bottom-[7.5rem] w-px bg-zinc-700/50 hidden sm:block pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {PROCESS_STEPS.map((step, index) => {
+              const Icon = step.icon
+              const isViolet = step.color === "zinc"
+              return (
+                <motion.div
+                  key={step.label}
+                  {...(prefersReducedMotion
+                    ? { initial: false }
+                    : {
+                        initial: { opacity: 0, x: 28 },
+                        animate: { opacity: 1, x: 0 },
+                        transition: {
+                          duration: 0.55,
+                          delay: 0.28 + index * 0.12,
+                          ease: [0.22, 1, 0.36, 1],
+                        },
+                      })}
+                  className="relative od-card-soft od-card-hover p-5 sm:p-6 rounded-2xl group cursor-default"
+                >
+                  <div className="flex items-start gap-4">
+                    {/* Icon bubble */}
+                    <div
+                      className="relative shrink-0 w-12 h-12 rounded-xl flex items-center justify-center bg-zinc-800/60 border border-zinc-700/50 group-hover:border-zinc-600/60 transition-colors duration-300"
+                      aria-hidden="true"
+                    >
+                      <Icon
+                        className={`w-5 h-5 ${!isViolet ? "text-cyan-400" : "text-zinc-300"}`}
+                      />
+                      {/* Step number */}
+                      <span
+                        className="absolute -top-2 -right-2 w-5 h-5 rounded-full text-[10px] font-black flex items-center justify-center bg-zinc-700 text-zinc-300"
+                      >
+                        {index + 1}
+                      </span>
+                    </div>
+
+                    {/* Text */}
+                    <div>
+                      <h3
+                        className={`font-display font-bold text-base mb-1 ${
+                          !isViolet ? "text-cyan-300" : "text-zinc-200"
+                        }`}
+                      >
+                        {step.label}
+                      </h3>
+                      <p className="text-sm text-zinc-400 leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Hover glow accent line */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-px rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-zinc-600/50"
+                    aria-hidden="true"
+                  />
+                </motion.div>
+              )
+            })}
+
+            {/* Bottom trust badge — icon-based, no emoji */}
+            <motion.div
+              {...(prefersReducedMotion
+                ? { initial: false }
+                : {
+                    initial: { opacity: 0, y: 12 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { duration: 0.5, delay: 0.68 },
+                  })}
+              className="mt-2 flex items-start gap-3 px-4 py-4 rounded-xl bg-zinc-900/60 border border-zinc-800/70"
+              aria-label="Compromisso com o cliente"
+            >
+              <div
+                className="shrink-0 w-8 h-8 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center mt-0.5"
+                aria-hidden="true"
+              >
+                <ShieldCheck className="w-4 h-4 text-zinc-400" />
+              </div>
+              <div>
+                <p className="text-sm text-white font-semibold leading-snug mb-0.5">
+                  Sem fidelidade forçada
+                </p>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Continuamos porque os resultados justificam — não por contrato ou multa de saída.
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Social Proof Simples / Features Reta */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 mt-8 text-sm sm:text-base text-[#a1a1aa] font-medium"
-          >
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#06b6d4]" />
-              <span>Processo claro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#06b6d4]" />
-              <span>Automação aplicada ao dia a dia</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#06b6d4]" />
-              <span>Métricas acompanhadas</span>
-            </div>
-          </motion.div>
         </div>
-      </motion.div>
-
-      {/* CSS para animao do gradiente */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% {
-            background-position: 0% center;
-          }
-          50% {
-            background-position: 100% center;
-          }
-          100% {
-            background-position: 0% center;
-          }
-        }
-        .animate-gradient {
-          animation: gradient 3s linear infinite;
-        }
-      `}</style>
+      </div>
     </section>
   )
 }

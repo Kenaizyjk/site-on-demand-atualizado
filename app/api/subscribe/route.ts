@@ -1,97 +1,55 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
 
-const BREVO_API_KEY = process.env.BREVO_API_KEY
-const BREVO_LIST_ID = process.env.BREVO_LIST_ID || '2' // Lista padrão em produção
+const subscribeSchema = z.object({
+  email: z.string().email('Email invalido'),
+  source: z.string().optional().default('unknown'),
+})
 
-export async function POST(request: NextRequest) {
+async function submitToBrevo(email: string, source: string, apiKey: string, listId: string): Promise<void> {
+  const res = await fetch('https://api.brevo.com/v3/contacts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'api-key': apiKey,
+    },
+    body: JSON.stringify({
+      email,
+      listIds: [parseInt(listId)],
+      attributes: { SOURCE: source, SIGNUP_DATE: new Date().toISOString() },
+      updateEnabled: true,
+    }),
+  })
+
+  if (!res.ok && res.status !== 204) {
+    const error = await res.json().catch(() => ({}))
+    // "Contact already exist" is not a real error
+    if (error?.code !== 'duplicate_parameter') {
+      console.error('Brevo error:', error)
+    }
+  }
+}
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const { email, firstName, lastName } = await request.json()
+    const body = await req.json()
+    const { email, source } = subscribeSchema.parse(body)
 
-    if (!email || typeof email !== 'string' || !email.includes('@')) {
-      return NextResponse.json(
-        { error: 'Valid email is required' },
-        { status: 400 }
-      )
+    const apiKey = process.env.BREVO_API_KEY
+    const listId = process.env.BREVO_LIST_ID
+
+    if (apiKey && listId) {
+      await submitToBrevo(email, source, apiKey, listId)
+    } else {
+      console.log(`[Newsletter] New subscriber: ${email} (source: ${source})`)
     }
 
-    // Verificar se a chave de API está configurada
-    if (!BREVO_API_KEY) {
-      console.warn('⚠️ BREVO_API_KEY não configurada. Usando armazenamento local de leads.')
-      // Em desenvolvimento, armazena localmente
-      console.log(`📧 Novo lead capturado: ${email} (${firstName || 'sem nome'})`)
-      return NextResponse.json(
-        {
-          success: true,
-          message: 'Lead capturado com sucesso',
-          email,
-          isPlaceholder: true,
-          timestamp: new Date().toISOString(),
-        },
-        { status: 200 }
-      )
+    return NextResponse.json({ success: true })
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return NextResponse.json({ error: err.errors[0].message }, { status: 400 })
     }
-
-    // Integração real com Brevo API
-    // https://developers.brevo.com/reference/createcontact
-    const brevoResponse = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': BREVO_API_KEY,
-      },
-      body: JSON.stringify({
-        email: email,
-        attributes: {
-          FIRSTNAME: firstName || 'Lead',
-          LASTNAME: lastName || 'Anônimo',
-          SOURCE: 'Site On Demand',
-        },
-        listIds: [parseInt(BREVO_LIST_ID)],
-        updateEnabled: true, // Atualiza se já existir
-      }),
-    })
-
-    // Tratamento de erros específicos do Brevo
-    if (!brevoResponse.ok) {
-      const error = await brevoResponse.json().catch(() => ({}))
-      
-      // Código 400 com "Email already exists" é considerado sucesso
-      if (brevoResponse.status === 400 && error.message?.includes('already exists')) {
-        console.log(`📧 Email já cadastrado: ${email}`)
-        return NextResponse.json(
-          {
-            success: true,
-            message: 'Email já está inscrito',
-            email,
-            timestamp: new Date().toISOString(),
-          },
-          { status: 200 }
-        )
-      }
-
-      console.error('Brevo API Error:', error)
-      return NextResponse.json(
-        { error: 'Erro ao adicionar email à lista', details: error },
-        { status: brevoResponse.status }
-      )
-    }
-
-    console.log(`✅ Lead adicionado ao Brevo: ${email}`)
-
-    return NextResponse.json(
-      {
-        success: true,
-        message: 'Subscripted successfully',
-        email,
-        timestamp: new Date().toISOString(),
-      },
-      { status: 200 }
-    )
-  } catch (error) {
-    console.error('Subscribe API Error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
-      { status: 500 }
-    )
+    console.error('Subscribe error:', err)
+    return NextResponse.json({ error: 'Erro interno' }, { status: 500 })
   }
 }

@@ -1,63 +1,138 @@
 /**
- * Track Google Analytics events
- * Includes automatic error handling and consent checking
+ * Typed GA4 event helpers — On Demand Digital
+ *
+ * Rules:
+ * - Safe for SSR (typeof window check)
+ * - console.log only in development
+ * - No duplicate events: scroll/time events are handled in analytics-tracker.tsx
  */
+
+// ─── Global type declarations ───────────────────────────────────────────────
+
 declare global {
   interface Window {
-    gtag?: (...args: unknown[]) => void
+    gtag: (...args: unknown[]) => void
+    dataLayer: unknown[]
   }
 }
 
-export const trackEvent = (eventName: string, eventData?: Record<string, unknown>) => {
-  if (typeof window !== "undefined" && window.gtag) {
-    try {
-      window.gtag("event", eventName, eventData || {})
-    } catch (error) {
-      console.error("GA tracking error:", error)
+// ─── Core dispatcher ────────────────────────────────────────────────────────
+
+export const trackEvent = (
+  eventName: string,
+  eventData?: Record<string, unknown>
+) => {
+  if (typeof window === "undefined") return
+  if (typeof window.gtag !== "function") return
+
+  try {
+    window.gtag("event", eventName, eventData ?? {})
+
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.log("[GA4]", eventName, eventData ?? {})
+    }
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.error("[GA4] tracking error:", error)
     }
   }
 }
 
-/**
- * Track scroll depth percentage
- */
-export const trackScrollDepth = (percentage: number) => {
+// ─── Typed event functions ───────────────────────────────────────────────────
+
+/** P0 — WhatsApp link click */
+export function trackWhatsAppClick(source: string) {
+  if (typeof window === "undefined") return
+  trackEvent("whatsapp_click", {
+    event_category: "conversion",
+    event_label: typeof document !== "undefined" ? document.title : "",
+    page_path:
+      typeof window !== "undefined" ? window.location.pathname : "",
+    source,
+  })
+}
+
+/** P0 — Scroll depth milestone (25 / 50 / 75 / 90 / 100) */
+export function trackScrollDepth(depth: number) {
   trackEvent("scroll_depth", {
-    scroll_percentage: percentage,
-    page: window.location.pathname,
+    depth,
+    page: typeof window !== "undefined" ? window.location.pathname : "",
   })
 }
 
-/**
- * Track time on page
- */
-export const trackTimeOnPage = (seconds: number) => {
+/** P1 — Section became visible via IntersectionObserver */
+export function trackSectionView(sectionId: string) {
+  trackEvent("section_viewed", {
+    section_id: sectionId,
+    page: typeof window !== "undefined" ? window.location.pathname : "",
+  })
+}
+
+/** P1 — FAQ accordion item opened */
+export function trackFAQOpen(question: string) {
+  trackEvent("faq_opened", {
+    question,
+    page: typeof window !== "undefined" ? window.location.pathname : "",
+  })
+}
+
+/** P0 — Newsletter form submitted */
+export function trackNewsletterSubmit(source: string) {
+  trackEvent("newsletter_submit", {
+    event_category: "conversion",
+    source,
+    page: typeof window !== "undefined" ? window.location.pathname : "",
+  })
+}
+
+/** P0 — Manual page view (e.g. SPA navigation) */
+export function trackPageView(path: string) {
+  trackEvent("page_view", {
+    page_path: path,
+    page_title: typeof document !== "undefined" ? document.title : "",
+  })
+}
+
+/** P1 — User left page (visibilitychange hidden) */
+export function trackTimeOnPage(seconds: number) {
   trackEvent("time_on_page", {
-    duration_seconds: seconds,
-    page: window.location.pathname,
+    seconds,
+    page: typeof window !== "undefined" ? window.location.pathname : "",
   })
 }
 
-/**
- * Track external link clicks
- */
+/** P0 — First meaningful render / session start */
+export function trackSessionStart() {
+  if (typeof window === "undefined" || typeof document === "undefined") return
+  trackEvent("session_start", {
+    page_title: document.title,
+    referrer: document.referrer || "direct",
+    page_path: window.location.pathname,
+  })
+}
+
+// ─── Legacy helpers (kept for backwards compatibility) ───────────────────────
+
+/** Track external link clicks (non-WhatsApp) */
 export const trackExternalLink = (url: string, linkText?: string) => {
   trackEvent("external_link_click", {
     link_url: url,
-    link_text: linkText || url,
+    link_text: linkText ?? url,
     outbound: true,
   })
 }
 
-/**
- * Track file downloads
- */
+/** Track file downloads */
 export const trackDownload = (fileName: string, fileType: string) => {
   trackEvent("file_download", {
     file_name: fileName,
     file_type: fileType,
   })
 }
+
+// ─── GA_EVENTS constants (used by analytics-tracker and other components) ───
 
 export const GA_EVENTS = {
   // Demo simulator
@@ -85,8 +160,8 @@ export const GA_EVENTS = {
   LEAD_MAGNET_DOWNLOADED: "lead_magnet_downloaded",
 
   // CTAs - Hero
-  CTA_HERO_PRIMARY: "cta_hero_primary_clicked", // "Falar com Especialista"
-  CTA_HERO_SECONDARY: "cta_hero_secondary_clicked", // "Ver Como Funciona"
+  CTA_HERO_PRIMARY: "cta_hero_primary_clicked",
+  CTA_HERO_SECONDARY: "cta_hero_secondary_clicked",
 
   // CTAs - General
   CTA_SERVICES_CLICKED: "cta_services_clicked",
@@ -99,13 +174,13 @@ export const GA_EVENTS = {
   EXIT_INTENT_CONVERTED: "exit_intent_converted",
   EXIT_INTENT_CLOSED: "exit_intent_closed",
 
-  // Engagement - Advanced
+  // Engagement - Scroll
   SCROLL_25: "scroll_25_percent",
   SCROLL_50: "scroll_50_percent",
   SCROLL_75: "scroll_75_percent",
   SCROLL_100: "scroll_100_percent",
 
-  // Page Engagement
+  // Page Engagement - Time
   TIME_ON_PAGE_30S: "time_on_page_30s",
   TIME_ON_PAGE_60S: "time_on_page_60s",
   TIME_ON_PAGE_120S: "time_on_page_120s",
@@ -132,4 +207,4 @@ export const GA_EVENTS = {
   // Error Tracking
   ERROR_OCCURRED: "error_occurred",
   PAGE_NOT_FOUND: "page_not_found",
-}
+} as const

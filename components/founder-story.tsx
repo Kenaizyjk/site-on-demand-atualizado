@@ -12,7 +12,6 @@ export default function FounderStory() {
         }}></div>
       </div>
 
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#8b5cf6]/10 rounded-full blur-3xl"></div>
 
       <div className="od-container px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
@@ -28,40 +27,40 @@ export default function FounderStory() {
 
             {/* Title */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 sm:mb-6 leading-tight">
-              <span className="text-[#e2e8f0]">Da Frustração à </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]">
-                Inovação
+              <span className="text-[#e2e8f0]">Já vi muita empresa boa </span>
+              <span className="text-[#06b6d4]">
+                perder cliente
               </span>
+              <span className="text-[#e2e8f0]"> por causa disso.</span>
             </h2>
 
             {/* Quote Icon */}
             <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#06b6d4]/30 mb-3 sm:mb-4" />
 
             {/* Story Paragraphs */}
-            <div className="space-y-3 sm:space-y-4 text-[#94a3b8] text-base sm:text-lg leading-relaxed">
+            <div className="space-y-4 sm:space-y-5 text-[#94a3b8] text-base sm:text-lg leading-relaxed">
               <p>
-                Comecei minha jornada no marketing digital como muitos: fazendo tudo manualmente,
-                gastando horas em tarefas repetitivas e vendo resultados medianos.
+                Restaurante com boa comida — mesa vazia no almoço. Clínica com ótimo atendimento — agenda
+                pela metade. Loja com produto bom — que ninguém acha no Google.
               </p>
 
               <p className="text-[#e2e8f0] font-semibold">
-                Mas eu sabia que tinha que existir uma forma melhor.
+                Isso não é azar. É falta de presença digital no lugar certo.
               </p>
 
               <p>
-                Foi quando descobri o poder da automação e da inteligência artificial.
-                Comecei a integrar ferramentas, criar fluxos automatizados e usar IAs para
-                potencializar estratégias.
+                Abri a On Demand Digital pra resolver exatamente isso: colocar em ordem o que está errado,
+                atrair o cliente que já está procurando o que você oferece e medir o resultado de verdade.
               </p>
 
               <p>
-                <span className="text-[#06b6d4] font-semibold">Os resultados foram consistentes:</span>
-                {" "}processos mais organizados, atendimento mais ágil e decisões guiadas por dados.
+                <span className="text-[#06b6d4] font-semibold">Sem promessa grande. Sem relatório bonito que não significa nada.</span>
+                {" "}Você fala diretamente com quem executa — do diagnóstico à entrega.
               </p>
 
-              <p className="text-[#e2e8f0]">
-                Hoje, minha missão é ajudar outras empresas a alcançarem esses mesmos resultados,
-                combinando tecnologia de ponta com estratégias comprovadas de marketing digital.
+              <p className="text-[#e2e8f0] border-l-2 border-[#06b6d4]/40 pl-4 italic">
+                &ldquo;A maioria dos donos de negócio que me procura acha que o problema é o produto.
+                Quase sempre, é a visibilidade.&rdquo;
               </p>
             </div>
 
@@ -88,29 +87,29 @@ export default function FounderStory() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-12 mt-10 pt-10 border-t border-[#334155]/50">
-              <div className="flex flex-col items-center text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <TrendingUp className="w-6 h-6 text-[#06b6d4] flex-shrink-0" />
-                  <div className="text-2xl font-black text-[#06b6d4]">Foco</div>
+            <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-[#334155]/50">
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <TrendingUp className="w-4 h-4 text-[#06b6d4] flex-shrink-0" />
+                  <div className="text-2xl sm:text-3xl font-black text-[#06b6d4]">30+</div>
                 </div>
-                <div className="text-sm text-[#94a3b8]">Crescimento Sustentável</div>
+                <div className="text-xs sm:text-sm text-[#94a3b8] leading-snug">negócios locais atendidos em BH</div>
               </div>
 
-              <div className="flex flex-col items-center text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <Users className="w-6 h-6 text-[#8b5cf6] flex-shrink-0" />
-                  <div className="text-2xl font-black text-[#8b5cf6]">Experiência</div>
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Users className="w-4 h-4 text-white flex-shrink-0" />
+                  <div className="text-2xl sm:text-3xl font-black text-white">1:1</div>
                 </div>
-                <div className="text-sm text-[#94a3b8]">Projetos Acompanhados</div>
+                <div className="text-xs sm:text-sm text-[#94a3b8] leading-snug">você fala direto com quem executa</div>
               </div>
 
-              <div className="flex flex-col items-center text-center">
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <Sparkles className="w-6 h-6 text-[#06b6d4] flex-shrink-0" />
-                  <div className="text-2xl font-black text-[#06b6d4]">Presença</div>
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Sparkles className="w-4 h-4 text-[#06b6d4] flex-shrink-0" />
+                  <div className="text-2xl sm:text-3xl font-black text-[#06b6d4]">0</div>
                 </div>
-                <div className="text-sm text-[#94a3b8]">Atuação Contínua</div>
+                <div className="text-xs sm:text-sm text-[#94a3b8] leading-snug">intermediários ou repassadores</div>
               </div>
             </div>
           </div>
@@ -118,11 +117,8 @@ export default function FounderStory() {
           {/* Right Side - Photo */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end od-reveal od-reveal-delay-2">
             <div className="relative group">
-              {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#06b6d4]/20 to-[#8b5cf6]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-
               {/* Photo Container */}
-              <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border-4 border-[#06b6d4]/30 shadow-2xl shadow-cyan-500/20 group-hover:border-[#06b6d4]/50 transition-all duration-300">
+              <div className="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-zinc-700/50 shadow-2xl shadow-black/40 transition-all duration-300">
                 <img
                   src="https://i.ibb.co/HDD72X2D/f54529e5-caf7-4d00-8130-7de0af4bde00.jpg"
                   alt="Davi Honorato, fundador da On Demand Digital, especialista em marketing digital e automação com IA em Belo Horizonte MG"

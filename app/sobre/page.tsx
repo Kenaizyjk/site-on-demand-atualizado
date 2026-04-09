@@ -1,264 +1,157 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowLeft, Target, Users, Heart, TrendingUp, Shield, Award, Lightbulb } from "lucide-react"
-import type { Metadata } from "next"
+import type { Metadata } from 'next'
+import Navigation from '@/components/navigation'
+import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: "Sobre Ns - Histria e Valores | On Demand Digital",
-  description: "Conhea a histria da On Demand Digital, agncia boutique de marketing digital fundada por Davi Honorato. Mximo 30 clientes para garantir excelncia.",
+  title: 'Sobre | On Demand Digital',
+  description:
+    'Conheça a On Demand Digital: agência de marketing digital em BH. Método, transparência e resultado mensurável para negócios locais.',
+  alternates: { canonical: 'https://ondemanddigital.com.br/sobre' },
   openGraph: {
-    title: "Sobre Ns - Nossa Histria e Valores",
-    description: "AgÃªncia boutique de marketing digital com foco absoluto em qualidade e resultados mensurÃ¡veis.",
+    title: 'Sobre | On Demand Digital',
+    description:
+      'Agência de marketing digital em BH. Método, transparência e resultado mensurável para negócios locais.',
+    url: 'https://ondemanddigital.com.br/sobre',
+    locale: 'pt_BR',
+    type: 'website',
   },
 }
 
+const filosofia = [
+  {
+    titulo: 'Transparência total',
+    descricao:
+      'Você vê tudo: campanhas, métricas, custos, resultados. Sem relatório bonito que esconde o que não funcionou.',
+    icone: '🔍',
+  },
+  {
+    titulo: 'Execução focada',
+    descricao:
+      'Menos projetos simultâneos, mais atenção por cliente. Preferimos fazer menos e fazer bem do que pulverizar esforço.',
+    icone: '🎯',
+  },
+  {
+    titulo: 'Resultado mensurável',
+    descricao:
+      'Se não dá para medir, não conta. Toda ação tem KPI definido antes de começar e prestação de contas depois.',
+    icone: '📊',
+  },
+]
+
+const metodologia = [
+  {
+    step: '01',
+    titulo: 'Diagnóstico',
+    descricao:
+      'Entendemos o negócio, o público, a concorrência e o que já foi tentado antes. Sem pular etapas.',
+  },
+  {
+    step: '02',
+    titulo: 'Estratégia',
+    descricao:
+      'Definimos canais, metas e prioridades com base em dados, não em achismos ou modismo.',
+  },
+  {
+    step: '03',
+    titulo: 'Execução',
+    descricao:
+      'Implementamos com atenção a cada detalhe: copy, segmentação, landing page, automação.',
+  },
+  {
+    step: '04',
+    titulo: 'Otimização',
+    descricao:
+      'Analisamos o que funciona, cortamos o que não funciona e iteramos. Marketing é processo, não evento.',
+  },
+]
+
+const numeros = [
+  { valor: '40+', label: 'Clientes atendidos' },
+  { valor: '4 anos', label: 'De experiência' },
+  { valor: '3', label: 'Serviços especializados' },
+  { valor: '4,9★', label: 'Média de satisfação' },
+]
+
+const valores = [
+  {
+    titulo: 'Especialização real',
+    descricao: 'Atuamos em tráfego pago, SEO local e automação com IA. Não tentamos fazer tudo para todo mundo.',
+  },
+  {
+    titulo: 'Parceria de negócio',
+    descricao: 'Cada cliente recebe atenção direta e comprometimento com resultados. Não somos mais uma fornecedora.',
+  },
+  {
+    titulo: 'Conformidade e ética',
+    descricao: 'Comunicamos dentro das normas de cada setor, incluindo CFM, CFO e LGPD. Crescimento sem atalhos.',
+  },
+]
+
 export default function SobrePage() {
   return (
-    <main className="od-page">
+    <div className="od-page">
+      <Navigation />
+
       {/* Hero */}
-      <section className="od-section py-20 bg-gradient-to-b from-[#0D1117] to-[#161B22] border-b border-[#30363D]">
-        <div className="od-container max-w-5xl px-4 od-reveal">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-[#00d9ff] hover:text-[#ff006e] transition mb-8">
-            <ArrowLeft size={16} />
-            Voltar para Home
-          </Link>
-
-          <div className="flex items-center gap-4 mb-6">
-            <Heart className="text-[#ff006e]" size={48} />
-            <h1 className="text-5xl md:text-6xl font-bold">
-              <span className="bg-gradient-to-r from-[#ff006e] to-[#ff1493] bg-clip-text text-transparent">
-                Nossa
-              </span>{" "}
-              <span className="text-white">Histria</span>
-            </h1>
-          </div>
-
-          <p className="text-xl text-[#E6E6FA]/80 leading-relaxed max-w-3xl">
-            De filho de comerciantes a fundador de uma das agncias de marketing mais exclusivas do Brasil.
-            Esta Ã© a histÃ³ria de como a On Demand Digital nasceu de uma frustraÃ§Ã£o genuÃ­na e se tornou referÃªncia em resultados mensurÃ¡veis.
+      <section className="od-section-lg pt-32">
+        <div className="od-container text-center max-w-3xl mx-auto">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
+            Sobre a agência
+          </span>
+          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+            Método. Transparência.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
+              Resultados que você consegue medir.
+            </span>
+          </h1>
+          <p className="text-lg text-zinc-400 leading-relaxed">
+            A On Demand Digital é uma agência de marketing digital em Belo Horizonte
+            focada em pequenas e médias empresas que querem crescer com consistência.
           </p>
         </div>
       </section>
 
-      {/* Histria do Fundador */}
-      <section className="od-section py-16 bg-[#161B22]">
-        <div className="od-container max-w-5xl px-4 od-reveal">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            {/* Foto Davi */}
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-lg overflow-hidden border-2 border-[#ff006e]/30">
-                <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&crop=faces" alt="Davi Honorato - CEO & Fundador On Demand Digital" fill sizes="(min-width: 1024px) 33vw, 80vw" className="object-cover" />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-[#0D1117] border-2 border-[#00d966] rounded-lg p-4">
-                <p className="text-sm text-[#E6E6FA]/70">Fundador & CEO</p>
-                <p className="text-lg font-bold text-white">Davi Honorato</p>
-                <p className="text-sm text-[#00d966]">Belo Horizonte, MG</p>
-              </div>
-            </div>
-
-            {/* Histria */}
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                A Histria de <span className="text-[#ff006e]">Davi Honorato</span>
+      {/* A história */}
+      <section className="od-section">
+        <div className="od-container">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
+                A história
+              </span>
+              <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-6">
+                Por que a On Demand existe
               </h2>
-
-              <div className="space-y-4 text-[#E6E6FA]/80 leading-relaxed">
+              <div className="space-y-4 text-zinc-400 leading-relaxed">
                 <p>
-                  <strong className="text-white">Filho de comerciantes</strong>, Davi cresceu vendo de perto a luta diria de pequenos e mdios empresrios.
-                  Seu pai tinha uma loja de materiais de construÃ§Ã£o na periferia de SÃ£o Paulo, e sua mÃ£e vendia roupas em feiras livres aos finais de semana.
+                  A On Demand nasceu em 2022 para preencher um gap claro no mercado:
+                  PMEs locais tinham acesso apenas a grandes agências que tratavam
+                  cada cliente como mais um número, ou a freelancers generalistas sem método
+                  nem responsabilidade sobre resultados.
                 </p>
-
                 <p>
-                  Presenciou o fechamento da loja do pai. <strong className="text-white">No por falta de qualidade nos produtos,
-                  no por atendimento ruim, mas por falta de clientes</strong>. A loja estava invisvel enquanto grandes redes dominavam as buscas e as redes sociais.
+                  Construímos uma alternativa com foco em especialização, atenção ao cliente
+                  e comprometimento real com resultados. Nada de deck bonito e entrega medíocre.
                 </p>
-
                 <p>
-                  Foi quando Davi teve o <strong className="text-[#00d9ff]">insight que mudaria sua vida</strong>: "Empresas boas esto fechando
-                  porque ningum sabe que elas existem. Marketing no  luxo -  sobrevivncia."
-                </p>
-
-                <p>
-                  Durante a graduao, comeou a estudar marketing digital por conta prpria.
-                  YouTube, cursos online e testes com pequenos negócios. O primeiro cliente mostrou que método e consistência fazem diferença.
-                </p>
-
-                <p>
-                  Com o tempo, passou a gerir oramento de marketing para empresas de diferentes portes.
-                  Mas percebia um padro: <strong className="text-[#ff006e]">agncias grandes tratavam clientes pequenos como nmeros</strong>.
-                  Relatrios bonitos, mtricas de vaidade e pouca evoluo real.
-                </p>
-
-                <p className="text-lg font-semibold text-white border-l-4 border-[#00d966] pl-4">
-                  "Decidi criar a agncia que eu gostaria que meu pai tivesse contratado.
-                  Uma agência que trata cada negócio como se fosse próprio. Que liga quando o ROI cai.
-                  Que comemora quando o cliente fatura. Que fala a verdade, mesmo quando dói."
-                </p>
-
-                <p>
-                  Assim nasceu a <strong className="text-[#ff006e]">On Demand Digital</strong> em 2022.
-                  Uma agncia boutique, limitada a 30 clientes, onde cada projeto recebe ateno de CEO.
+                  Hoje atendemos clínicas, restaurantes e e-commerces em BH e região,
+                  com foco em tráfego pago, SEO local e automação com IA, sempre com
+                  métricas claras e transparência total.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Por que mximo 30 clientes */}
-      <section className="od-section py-16 bg-[#0D1117] border-y border-[#30363D]">
-        <div className="od-container max-w-5xl px-4 od-reveal">
-          <div className="text-center mb-12">
-            <Users className="w-12 h-12 text-[#00d9ff] mx-auto mb-4" />
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Por que <span className="text-[#ff006e]">MÃ¡ximo 30</span> Clientes?
-            </h2>
-            <p className="text-lg text-[#E6E6FA]/70 max-w-2xl mx-auto">
-              Esta  a deciso mais importante que tomamos - e a que mais nos diferencia no mercado.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[#161B22] border border-[#30363D] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="text-[#ff006e] text-4xl">L</span>
-                O que NO fazemos
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  "Atender volume acima da capacidade real do time",
-                  "Delegar tudo para estagirios ou jniores",
-                  "Reunies de 10 minutos 's pra bater ponto'",
-                  "Responder email em 3 dias teis",
-                  "Empurrar pacotes genricos para todos",
-                  "Prometer resultados impossveis s pra fechar",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#ff006e] mt-2 flex-shrink-0"></div>
-                    <span className="text-[#E6E6FA]/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-[#00d966]/10 to-[#00d9ff]/10 border-2 border-[#00d966] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="text-[#00d966] text-4xl"></span>
-                O que priorizamos
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  "ReuniÃ£o semanal de 30-60min com gestor sÃªnior",
-                  "WhatsApp direto (no  chatbot ou 'suporte nvel 1')",
-                  "Ajustes em at 4h teis (no 3 dias)",
-                  "Estratgia personalizada (no template)",
-                  "Liderana presente no dia a dia",
-                  "Se ROI cair, ligamos primeiro - voc no precisa cobrar",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#00d966] mt-2 flex-shrink-0"></div>
-                    <span className="text-white font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-12 p-8 bg-gradient-to-r from-[#ff006e]/10 to-[#00d9ff]/10 border-l-4 border-[#ff006e] rounded-lg">
-            <p className="text-lg text-white leading-relaxed">\n              <strong>A lgica  simples:</strong> com poucos projetos por vez, conseguimos dedicar tempo real a cada cliente.\n              Isso significa decises melhores, comunicao mais clara e evoluo consistente do plano.\n            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Nossa Misso & Valores */}
-      <section className="od-section py-16 bg-[#161B22]">
-        <div className="od-container max-w-5xl px-4 od-reveal">
-          <div className="text-center mb-12">
-            <Target className="w-12 h-12 text-[#ff006e] mx-auto mb-4" />
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Misso, Viso e <span className="text-[#00d9ff]">Valores</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-[#0D1117] border border-[#30363D] rounded-lg p-6">
-              <div className="w-12 h-12 rounded-full bg-[#ff006e]/20 flex items-center justify-center mb-4">
-                <Target className="text-[#ff006e]" size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Misso</h3>
-              <p className="text-[#E6E6FA]/80 leading-relaxed">
-                Democratizar marketing de excelÃªncia para PMEs, oferecendo o mesmo nÃ­vel de estratÃ©gia
-                que antes s grandes corporaes tinham acesso.
-              </p>
-            </div>
-
-            <div className="bg-[#0D1117] border border-[#30363D] rounded-lg p-6">
-              <div className="w-12 h-12 rounded-full bg-[#00d9ff]/20 flex items-center justify-center mb-4">
-                <Lightbulb className="text-[#00d9ff]" size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Viso</h3>
-              <p className="text-[#E6E6FA]/80 leading-relaxed">
-                Ser a agncia de referncia em ROI e transparncia no Brasil,
-                provando que qualidade {'>'} quantidade em Serviços de marketing.
-              </p>
-            </div>
-
-            <div className="bg-[#0D1117] border border-[#30363D] rounded-lg p-6">
-              <div className="w-12 h-12 rounded-full bg-[#00d966]/20 flex items-center justify-center mb-4">
-                <Heart className="text-[#00d966]" size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Propsito</h3>
-              <p className="text-[#E6E6FA]/80 leading-relaxed">
-                Evitar que empresas boas fechem por falta de visibilidade.
-                Cada cliente salvo  uma famlia que continua sustentada.
-              </p>
-            </div>
-          </div>
-
-          {/* Valores Detalhados */}
-          <div className="bg-[#0D1117] border border-[#30363D] rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Nossos <span className="text-[#ff006e]">4 Valores</span> Inegociveis
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Shield,
-                  title: "1. Transparncia Radical",
-                  description: "Dashboard 24/7 com ROI real. Sem 'mÃ©tricas de vaidade'. VocÃª vÃª exatamente quanto investiu e quanto faturou. Se estÃ¡ ruim, falamos PRIMEIRO - vocÃª nÃ£o precisa descobrir sozinho.",
-                  color: "#00d9ff"
-                },
-                {
-                  icon: TrendingUp,
-                  title: "2. Resultados > Serviços",
-                  description: "No vendemos 'posts', 'anncios' ou 'horas de consultoria'. Vendemos LEADS QUALIFICADOS e FATURAMENTO. Se voc no ganhar dinheiro, nosso trabalho no valeu nada.",
-                  color: "#00d966"
-                },
-                {
-                  icon: Award,
-                  title: "3. Anti-Enrolao",
-                  description: "Zero relatÃ³rio com grÃ¡fico bonito mas ROI negativo. Zero reuniÃ£o sÃ³ pra 'marcar presenÃ§a'. Se algo nÃ£o funciona em 30 dias, cortamos e testamos outra estratÃ©gia. Rapidez > ego.",
-                  color: "#ff006e"
-                },
-                {
-                  icon: Users,
-                  title: "4. Parceria de Longo Prazo",
-                  description: "92% dos clientes renovam porque tratamos seu negócio como nosso. Não somos 'mais uma agência' - somos extensão do seu time comercial. Seu crescimento é nosso KPI.",
-                  color: "#9d4edd"
-                },
-              ].map((value, idx) => (
+            {/* Valores institucionais */}
+            <div className="space-y-4">
+              {valores.map((item) => (
                 <div
-                  key={idx}
-                  className="flex items-start gap-4 p-6 bg-[#161B22] rounded-lg border border-[#30363D] hover:border-[#00d9ff]/50 transition"
+                  key={item.titulo}
+                  className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${value.color}20` }}>
-                    <value.icon className="w-6 h-6" style={{ color: value.color }} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-white mb-2">{value.title}</h4>
-                    <p className="text-[#E6E6FA]/80 text-sm leading-relaxed">{value.description}</p>
-                  </div>
+                  <h3 className="font-display font-black text-white text-base mb-2">
+                    {item.titulo}
+                  </h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
                 </div>
               ))}
             </div>
@@ -266,79 +159,116 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* Nmeros & Credibilidade */}
-      <section className="od-section py-16 bg-[#0D1117] border-y border-[#30363D]">
-        <div className="od-container max-w-5xl px-4 od-reveal">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
-            On Demand Digital <span className="text-[#00d9ff]">em Nmeros</span>
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { number: "2022", label: "Ano de Fundao", color: "#ff006e" },
-              { number: "50+", label: "Empresas Atendidas", color: "#00d9ff" },
-              { number: "R$ 2.8M+", label: "Investimento Gerenciado", color: "#00d966" },
-              { number: "6.2x", label: "ROAS MÃ©dio", color: "#9d4edd" },
-              { number: "92%", label: "Taxa de Renovao", color: "#ff006e" },
-              { number: "30", label: "Mximo de Clientes", color: "#00d9ff" },
-              { number: "4h", label: "Tempo Mdio de Resposta", color: "#00d966" },
-              { number: "4.9/5", label: "Avaliao Mdia", color: "#9d4edd" },
-            ].map((stat, idx) => (
+      {/* Filosofia */}
+      <section className="od-section bg-zinc-950/40">
+        <div className="od-container">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
+              Filosofia
+            </span>
+            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+              O que guia cada decisão
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {filosofia.map((item) => (
               <div
-                key={idx}
-                className="bg-[#161B22] border border-[#30363D] rounded-lg p-6 text-center hover:border-[#00d9ff]/50 transition"
+                key={item.titulo}
+                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-violet-500/30 transition-colors"
               >
-                <p className="text-3xl font-bold mb-2" style={{ color: stat.color }}>
-                  {stat.number}
-                </p>
-                <p className="text-sm text-[#E6E6FA]/70">{stat.label}</p>
+                <div className="text-3xl mb-4">{item.icone}</div>
+                <h3 className="font-display font-black text-lg text-white mb-3">
+                  {item.titulo}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12 text-center">
-            <p className="text-lg text-[#E6E6FA]/80 max-w-3xl mx-auto leading-relaxed">
-              Cada nmero aqui representa uma histria real. Uma empresa que deixou de depender de indicao.
-              Um empreendedor que finalmente viu ROI positivo. Uma famlia que pode planejar o futuro com mais segurana.
-            </p>
+      {/* Metodologia */}
+      <section className="od-section">
+        <div className="od-container">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
+              Metodologia
+            </span>
+            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+              Como trabalhamos
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {metodologia.map((item) => (
+              <div key={item.step} className="relative">
+                <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors h-full">
+                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-3 font-display leading-none">
+                    {item.step}
+                  </div>
+                  <h3 className="font-display font-black text-white text-lg mb-2">
+                    {item.titulo}
+                  </h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="od-section py-16 bg-gradient-to-r from-[#ff006e]/10 to-[#00d9ff]/10">
-        <div className="od-container max-w-4xl px-4 text-center od-reveal">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Quer conversar sobre o seu projeto?
-          </h2>
-          <p className="text-xl text-[#E6E6FA]/80 mb-8 leading-relaxed">
-            Atualmente estamos com <strong className="text-white">3 vagas disponveis</strong>.
-            Agende uma anÃ¡lise gratuita e descubra se sua empresa se qualifica para nossa metodologia boutique.
-          </p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#ff1493] to-[#ff006e] text-white font-bold text-lg uppercase tracking-wider rounded-lg hover:shadow-2xl hover:shadow-[#ff006e]/50 transition-all duration-300"
-          >
-            <Users className="w-6 h-6" />
-            Agendar Conversa
-          </Link>
+      {/* Números */}
+      <section className="od-section bg-zinc-950/40">
+        <div className="od-container">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
+              Em números
+            </span>
+            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+              Resultados construídos ao longo do tempo
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {numeros.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 text-center hover:border-cyan-500/30 transition-colors"
+              >
+                <div className="font-display font-black text-4xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-2">
+                  {item.valor}
+                </div>
+                <div className="text-zinc-400 text-sm">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <p className="mt-6 text-sm text-[#E6E6FA]/60">
-            Sem presso  Conversa direta  Alinhamento claro
+      {/* CTA */}
+      <section className="od-section-lg">
+        <div className="od-container text-center max-w-2xl mx-auto">
+          <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+            Quer conversar com nossa equipe?
+          </h2>
+          <p className="text-zinc-400 mb-8">
+            Diagnóstico gratuito de 30 minutos. Sem compromisso. Sem pitch de vendas no
+            primeiro contato.
+          </p>
+          <a
+            href="https://wa.me/5531996966686?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20Sobre%20e%20gostaria%20de%20conversar%20com%20a%20equipe."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="sobre-whatsapp-cta"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-bold rounded-xl shadow-lg hover:opacity-90 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 text-lg"
+          >
+            Conversar com nossa equipe
+          </a>
+          <p className="text-zinc-600 text-sm mt-4">
+            Resposta em até 2 horas em dias úteis
           </p>
         </div>
       </section>
-    </main>
+
+      <Footer />
+    </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-

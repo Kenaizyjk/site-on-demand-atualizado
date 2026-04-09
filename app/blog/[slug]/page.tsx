@@ -1,6 +1,8 @@
 ﻿import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
-import { ArrowLeft, ArrowRight, Calendar, User, Clock, Share2, ChevronRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, ChevronRight } from "lucide-react"
+
+const DAVI_PHOTO = "/davi-honorato.jpg"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound, redirect } from "next/navigation"
@@ -13,6 +15,10 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export async function generateStaticParams() {
+  return BLOG_ARTICLES.map((article) => ({ slug: article.slug }))
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const legacyRedirects: Record<string, string> = {
@@ -23,23 +29,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getBlogArticleBySlug(normalizedSlug)
 
   if (!article) {
-    return {
-      title: "Artigo não encontrado",
-      description: "O artigo que você procura não existe.",
-    }
+    return { title: "Artigo não encontrado" }
   }
 
   return {
-    title: article.title,
-    description: article.description,
-    keywords: article.tags,
+    title: article.metaTitle ?? article.title,
+    description: article.metaDescription ?? article.excerpt.slice(0, 155),
+    keywords: [...(article.keywords ?? []), ...article.tags],
+    robots: article.noindex ? { index: false } : { index: true, follow: true },
+    alternates: { canonical: `https://ondemanddigital.com.br/blog/${article.slug}` },
     openGraph: {
       title: article.title,
-      description: article.description,
+      description: article.excerpt,
       type: "article",
-      locale: "pt_BR",
       publishedTime: article.publishedAt,
+      modifiedTime: article.updatedAt ?? article.publishedAt,
       authors: [article.author],
+      tags: article.tags,
+      url: `https://ondemanddigital.com.br/blog/${article.slug}`,
     },
     authors: [{ name: article.author }],
   }
@@ -73,11 +80,14 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const categorySealMap: Record<string, { label: string; className: string }> = {
     "Google Ads": { label: "Selo Performance", className: "text-[#7dd3fc] border-[#225070]" },
-    "Automação": { label: "Selo Automação", className: "text-[#a7f3d0] border-[#1f3a2e]" },
+    "Automacao": { label: "Selo Automacao", className: "text-[#a7f3d0] border-[#1f3a2e]" },
     "SEO Local": { label: "Selo Local", className: "text-[#fcd34d] border-[#4b3b1a]" },
     "IA & Marketing": { label: "Selo IA", className: "text-[#c4b5fd] border-[#3a2e5a]" },
     "Meta Ads": { label: "Selo Escala", className: "text-[#60a5fa] border-[#1f3352]" },
     "SEO": { label: "Selo SEO", className: "text-[#86efac] border-[#1f3a2b]" },
+    "Trafego Pago": { label: "Selo Trafego", className: "text-[#f97316] border-[#4b2e1a]" },
+    "Estrategia": { label: "Selo Estrategia", className: "text-[#a78bfa] border-[#3a2e5a]" },
+    "Redes Sociais": { label: "Selo Social", className: "text-[#fb7185] border-[#4b1a2e]" },
   }
   const categorySeal = categorySealMap[article.category] ?? {
     label: "Selo Editorial",
@@ -166,13 +176,28 @@ export default async function BlogArticlePage({ params }: Props) {
       <Navigation />
       <ReadingProgress />
 
+      {/* JSON-LD Article Schema */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: article.title,
+        description: article.excerpt,
+        author: { '@type': 'Person', name: article.author },
+        datePublished: article.publishedAt,
+        dateModified: article.updatedAt ?? article.publishedAt,
+        publisher: { '@type': 'Organization', name: 'On Demand Digital', url: 'https://ondemanddigital.com.br' },
+        image: article.coverImage,
+        mainEntityOfPage: `${siteUrl}/blog/${article.slug}`,
+      }) }} />
+
       {/* Schemas */}
       <BlogArticleSchema
         title={article.title}
-        description={article.description}
+        description={article.excerpt}
         author={article.author}
         publishedDate={article.publishedAt}
-        image={article.image}
+        modifiedDate={article.updatedAt}
+        image={article.coverImage}
         slug={article.slug}
         readTime={article.readTime}
       />
@@ -214,14 +239,19 @@ export default async function BlogArticlePage({ params }: Props) {
           </h1>
 
           <p className="text-xl sm:text-2xl od-subtitle leading-relaxed mb-10 max-w-3xl">
-            {article.description}
+            {article.excerpt}
           </p>
 
           <div className="flex items-center gap-4 pt-6 border-t border-[#334155]/40">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#06b6d4] to-[#8b5cf6] flex items-center justify-center p-[2px]">
-              <div className="w-full h-full bg-[#09090b] rounded-full flex items-center justify-center">
-                <User className="w-6 h-6 text-[#94a3b8]" />
-              </div>
+            <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-violet-500/40">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={DAVI_PHOTO}
+                alt="Davi Honorato"
+                width={48}
+                height={48}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <p className="text-white font-bold">{article.author}</p>
@@ -239,7 +269,7 @@ export default async function BlogArticlePage({ params }: Props) {
         <div className="blog-container max-w-5xl">
           <div className="relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden rounded-2xl sm:rounded-3xl border border-[#334155]/40 shadow-2xl">
             <Image
-              src={article.image}
+              src={article.coverImage}
               alt={article.title}
               fill
               priority
@@ -262,7 +292,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 <div className={proseClassName}>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: convertMarkdownToHtml(article.content, ctaHtml),
+                      __html: convertMarkdownToHtml(article.content ?? '', ctaHtml),
                     }}
                   />
                 </div>
@@ -342,10 +372,15 @@ export default async function BlogArticlePage({ params }: Props) {
 
             {/* Author Profile Card */}
             <div className="p-6 bg-[#1e293b]/50 backdrop-blur-md rounded-2xl border border-[#334155]/40 shadow-xl flex flex-col items-center text-center">
-              <div className="w-20 h-20 mb-4 rounded-full border-2 border-[#06b6d4] overflow-hidden p-1">
-                <div className="w-full h-full bg-slate-800 rounded-full flex items-center justify-center overflow-hidden">
-                  <User className="w-10 h-10 text-slate-500" />
-                </div>
+              <div className="w-20 h-20 mb-4 rounded-full border-2 border-[#06b6d4] overflow-hidden ring-4 ring-violet-500/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={DAVI_PHOTO}
+                  alt="Davi Honorato"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <h3 className="font-bold text-white text-lg">{article.author}</h3>
               <p className="text-[#06b6d4] text-xs font-semibold uppercase tracking-wider mb-4">Founder, Especialista Growth & IA</p>
@@ -493,35 +528,35 @@ function convertMarkdownToHtml(markdown: string, ctaHtml: string): string {
     return match
   })
 
-  // Style "Resumo rápido" section as a callout block
+  // Style "Resumo rapido" section as a callout block
   html = html.replace(
-    /<h2 id="section-(\d+)" class="scroll-mt-32">Resumo rápido<\/h2>\s*<ul>([\s\S]*?)<\/ul>/,
+    /<h2 id="section-(\d+)" class="scroll-mt-32">Resumo r[aá]pido<\/h2>\s*<ul>([\s\S]*?)<\/ul>/,
     (_match, id, list) =>
       `<div class="my-8 sm:my-10 rounded-2xl border border-[#334155]/50 bg-[#0b1220]/60 p-6 sm:p-8 shadow-xl">
-        <div class="text-xs uppercase tracking-[0.25em] text-[#94a3b8] mb-3">Resumo rápido</div>
-        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Resumo rápido</h2>
+        <div class="text-xs uppercase tracking-[0.25em] text-[#94a3b8] mb-3">Resumo rapido</div>
+        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Resumo rapido</h2>
         <ul>${list}</ul>
       </div>`
   )
 
-  // Style "Checklist relâmpago" section as a highlighted block
+  // Style "Checklist relampago" section as a highlighted block
   html = html.replace(
-    /<h2 id="section-(\d+)" class="scroll-mt-32">Checklist relâmpago<\/h2>\s*<ul>([\s\S]*?)<\/ul>/,
+    /<h2 id="section-(\d+)" class="scroll-mt-32">Checklist rel[aâ]mpago<\/h2>\s*<ul>([\s\S]*?)<\/ul>/,
     (_match, id, list) =>
       `<div class="my-8 sm:my-10 rounded-2xl border border-[#223246]/70 bg-[#0b1426]/70 p-6 sm:p-8 shadow-xl">
         <div class="text-xs uppercase tracking-[0.25em] text-[#7dd3fc] mb-3">Checklist</div>
-        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-5">Checklist relâmpago</h2>
+        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-5">Checklist relampago</h2>
         <ul class="grid gap-3">${list}</ul>
       </div>`
   )
 
-  // Style "Insight rápido" section as a callout
+  // Style "Insight rapido" section as a callout
   html = html.replace(
-    /<h2 id="section-(\d+)" class="scroll-mt-32">Insight rápido<\/h2>\s*<p>([\s\S]*?)<\/p>/,
+    /<h2 id="section-(\d+)" class="scroll-mt-32">Insight r[aá]pido<\/h2>\s*<p>([\s\S]*?)<\/p>/,
     (_match, id, content) =>
       `<div class="my-10 rounded-2xl border border-[#1f3b4a]/70 bg-[#0b1624]/80 p-6 sm:p-8">
-        <div class="text-xs uppercase tracking-[0.25em] text-[#7dd3fc] mb-3">Insight rápido</div>
-        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Insight rápido</h2>
+        <div class="text-xs uppercase tracking-[0.25em] text-[#7dd3fc] mb-3">Insight rapido</div>
+        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Insight rapido</h2>
         <p class="m-0 text-[#d5deea]">${content}</p>
       </div>`
   )
@@ -590,13 +625,13 @@ function convertMarkdownToHtml(markdown: string, ctaHtml: string): string {
       </section>`
   )
 
-  // Style "Próximos passos" section as a CTA block
+  // Style "Proximos passos" section as a CTA block
   html = html.replace(
-    /<h2 id="section-(\d+)" class="scroll-mt-32">Próximos passos<\/h2>\s*<p>([\s\S]*?)<\/p>/,
+    /<h2 id="section-(\d+)" class="scroll-mt-32">Pr[oó]ximos passos<\/h2>\s*<p>([\s\S]*?)<\/p>/,
     (_match, id, content) =>
       `<div class="my-10 rounded-2xl border border-[#1f3b4a]/70 bg-[#0b1624]/80 p-6 sm:p-8">
-        <div class="text-xs uppercase tracking-[0.25em] text-[#7dd3fc] mb-3">Próximos passos</div>
-        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Próximos passos</h2>
+        <div class="text-xs uppercase tracking-[0.25em] text-[#7dd3fc] mb-3">Proximos passos</div>
+        <h2 id="section-${id}" class="scroll-mt-32 text-white text-2xl font-black mb-4">Proximos passos</h2>
         <p class="m-0 text-[#d5deea]">${content}</p>
       </div>`
   )
@@ -618,12 +653,16 @@ function convertMarkdownToHtml(markdown: string, ctaHtml: string): string {
     (_match, id, title, body) => {
       const normalizedTitle = String(title).trim()
       const skipTitles = new Set([
+        "Resumo rapido",
         "Resumo rápido",
+        "Checklist relampago",
         "Checklist relâmpago",
+        "Insight rapido",
         "Insight rápido",
         "Exemplo real",
         "FAQ",
         "Resumo final",
+        "Proximos passos",
         "Próximos passos",
       ])
       if (normalizedTitle.startsWith("Erro #") || skipTitles.has(normalizedTitle)) {

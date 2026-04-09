@@ -26,11 +26,11 @@
   --secondary-foreground: #06b6d4;
 
   --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  /* Zinc 400 - Texto secundário menos brilhante */
+  --muted-foreground: #b4b4bc;
+  /* Zinc 400+ - Texto secundário, WCAG AA 5.1:1 */
 
-  --accent: #8b5cf6;
-  /* Violet 500 - Highlight secundário solicitado (roxo) */
+  --accent: #06b6d4;
+  /* Cyan 500 - Único acento */
   --accent-foreground: #ffffff;
 
   --destructive: #ef4444;
@@ -42,23 +42,22 @@
   --ring: #06b6d4;
   --radius: 12px;
 
-  /* Constantes de Highlights extras para degradês */
+  /* Constantes de Highlights */
   --highlight-cyan: #06b6d4;
-  --highlight-purple: #8b5cf6;
 
   /* Superfícies e variações consistentes */
   --bg-panel: #0d1117;
   --bg-surface: #161b22;
   --bg-surface-2: #1e293b;
   --border-soft: #27272a;
-  --text-muted: #a1a1aa;
-  --glow-cyan: rgba(6, 182, 212, 0.18);
-  --glow-purple: rgba(139, 92, 246, 0.14);
+  --text-muted: #b4b4bc;
+  --glow-cyan: rgba(6, 182, 212, 0.22);
+  --glow-purple: rgba(6, 182, 212, 0.08);
 
   /* Legacy aliases for compatibility (mapping to new Zinc palette) */
   --primary-blue: #09090b;
   --deep-black: #09090b;
-  --light-gray: #a1a1aa;
+  --light-gray: #b4b4bc;
   --white: #ffffff;
 }
 
@@ -98,6 +97,7 @@
 }
 
 @theme inline {
+  --font-display: var(--font-display);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -151,20 +151,6 @@
     overflow-x: hidden;
   }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: -15% -10% -10% -10%;
-    background:
-      radial-gradient(45% 35% at 20% 10%, var(--glow-cyan), transparent 60%),
-      radial-gradient(35% 30% at 80% 20%, var(--glow-purple), transparent 65%),
-      radial-gradient(30% 35% at 50% 80%, rgba(6, 182, 212, 0.12), transparent 70%);
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 0;
-    animation: aurora 18s ease-in-out infinite;
-  }
-
   body::after {
     content: "";
     position: fixed;
@@ -173,9 +159,24 @@
       linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
     background-size: 48px 48px;
-    opacity: 0.25;
+    opacity: 0.03;
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* Grain noise overlay — textura premium (zero bundle, CSS puro) */
+  html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0%25' y='0%25' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    opacity: 0.018;
+    pointer-events: none;
+    z-index: 9998;
   }
 
   .od-page {
@@ -187,11 +188,11 @@
   }
 
   .od-section {
-    padding: 4rem 1rem;
+    padding: 6rem 1rem;
   }
 
   .od-section-lg {
-    padding: 6rem 1rem;
+    padding: 8rem 1rem;
   }
 
   .od-container {
@@ -257,6 +258,10 @@
     transform: translate3d(0, -6px, 0);
     box-shadow: 0 26px 60px -30px rgba(6, 182, 212, 0.35);
     border-color: rgba(6, 182, 212, 0.35);
+  }
+
+  .font-display {
+    font-family: var(--font-display), system-ui, sans-serif;
   }
 
   .od-title {
@@ -343,19 +348,36 @@ html {
   animation: fade-in 0.3s ease-out forwards;
 }
 
-@keyframes aurora {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0.75;
-  }
-  50% {
-    transform: translate3d(2%, -2%, 0) scale(1.05);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translate3d(-2%, 1%, 0) scale(1);
-    opacity: 0.8;
-  }
+/* Seleção de texto com identidade visual da marca */
+::selection {
+  background: rgba(6, 182, 212, 0.25);
+  color: #f8fafc;
+}
+
+/* Focus visible com anel da marca (acessibilidade + estética) */
+:focus-visible {
+  outline: 2px solid rgba(6, 182, 212, 0.6);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scrollbar customizada (Webkit + Firefox) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.3) #09090b;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.5);
 }
 
 @keyframes od-reveal {
@@ -366,14 +388,287 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before {
-    animation: none;
-  }
-
   .animate-slide-up,
   .animate-fade-in,
   .od-reveal {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
+/* ============================================
+   DESIGN SYSTEM — Utilitários Premium
+   ============================================ */
+
+/* Tipografia Display */
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+/* Cards com efeito 3D no hover */
+.od-card-3d {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+}
+.od-card-3d:hover {
+  transform: translateY(-6px) rotateX(1.5deg) rotateY(-1deg);
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(6, 182, 212, 0.1);
+}
+
+/* Cyan glow proposital */
+.od-glow-cyan {
+  box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.3);
+}
+
+/* Section divider */
+.od-divider {
+  height: 1px;
+  background: #27272a;
+  margin: 0;
+  border: none;
+}
+
+/* Letterspacing editorial para displays */
+.od-display {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* Shimmer on hover */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.od-shimmer-hover:hover {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.06) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+}
+
+/* Workflow animation */
+@keyframes flowDash {
+  from { stroke-dashoffset: 32; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Reduced motion — Premium utilities */
+@media (prefers-reduced-motion: reduce) {
+  .od-card-3d:hover {
+    transform: translateY(-2px);
+  }
+  .od-shimmer-hover:hover {
+    animation: none;
+  }
+}
+
+/* ============================================
+   MOTION DESIGN — Scroll Reveal System
+   ============================================ */
+
+/**
+ * .od-reveal-section
+ * Base state: invisible + shifted down.
+ * JS adds [data-revealed] once the element enters the viewport.
+ * The CSS transition does the rest — no layout shift possible because
+ * opacity + transform never affect surrounding element dimensions.
+ */
+.od-reveal-section {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.od-reveal-section[data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/**
+ * .od-stagger-children
+ * Apply to a list/grid parent. Each direct child gets a staggered delay
+ * via nth-child so they cascade in sequence when the parent is revealed.
+ */
+.od-stagger-children > * {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.od-stagger-children[data-revealed="true"] > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 80ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 160ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 240ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 320ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 400ms; }
+.od-stagger-children[data-revealed="true"] > *:nth-child(n+7) { opacity: 1; transform: none; transition-delay: 480ms; }
+
+/* Fade-scale variant — for cards that "pop in" rather than slide */
+.od-reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translate3d(0, 12px, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.od-reveal-scale[data-revealed="true"] {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0);
+}
+
+/* ============================================
+   CURSOR GLOW
+   ============================================ */
+
+/**
+ * The div is positioned via JS `transform: translate(x,y)`.
+ * Top/left are fixed at 0 so the GPU only composites the transform.
+ */
+.od-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(
+    circle at center,
+    rgba(6, 182, 212, 0.04) 0%,
+    transparent 70%
+  );
+  /* Smooth cursor lag — feels like it's "pulling" toward the cursor */
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  will-change: transform;
+  /* Hide on touch / mobile via media query */
+}
+
+@media (hover: none) {
+  /* Touch-primary devices — hide the glow entirely */
+  .od-cursor-glow {
+    display: none;
+  }
+}
+
+/* ============================================
+   CTA BUTTON — Animated gradient with pulse
+   ============================================ */
+
+.od-cta-button {
+  position: relative;
+  background: #06b6d4;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+  box-shadow:
+    0 0 0 0 rgba(6, 182, 212, 0),
+    0 8px 24px -8px rgba(6, 182, 212, 0.5);
+}
+
+.od-cta-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 0 0 4px rgba(6, 182, 212, 0.15),
+    0 16px 40px -12px rgba(6, 182, 212, 0.55);
+}
+
+.od-cta-button:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* ============================================
+   HERO CINEMATIC CTA — outline ghost button
+   ============================================ */
+
+.od-hero-cta {
+  color: #ffffff;
+  padding: 14px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.od-hero-cta:hover {
+  background-color: #06b6d4;
+  color: #09090b;
+  border-color: #06b6d4;
+}
+
+.od-hero-cta:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   NAV CTA BUTTON
+   ============================================ */
+
+.od-nav-cta {
+  background: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  transition:
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+  box-shadow: 0 4px 16px -6px rgba(6, 182, 212, 0.35);
+}
+
+.od-nav-cta:hover {
+  background: #0891b2;
+  box-shadow: 0 6px 24px -6px rgba(6, 182, 212, 0.5);
+  transform: translateY(-1px);
+}
+
+.od-nav-cta:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   REDUCED MOTION — Animation system overrides
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .od-reveal-section,
+  .od-reveal-scale,
+  .od-stagger-children > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .od-cursor-glow {
+    display: none;
+  }
+
+  .od-cta-button,
+  .od-nav-cta {
+    transition: none;
+  }
+
+  .od-cta-button:hover {
+    transform: none;
+  }
+}

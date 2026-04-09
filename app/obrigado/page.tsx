@@ -122,42 +122,42 @@ export default function ObrigadoPage() {
               </div>
             </Link>
 
-            {/* Cases de Sucesso */}
+            {/* Nossos Serviços */}
             <Link
-              href="/#cases"
+              href="/"
               className="bg-[#0D1117] border border-[#30363D] rounded-lg p-6 hover:border-[#00d966]/50 transition group"
             >
               <div className="w-12 h-12 rounded-full bg-[#00d966]/20 flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-[#00d966]" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00d966] transition">
-                Cases de Sucesso
+                Nossos Serviços
               </h3>
               <p className="text-[#E6E6FA]/80 mb-4 leading-relaxed">
-                3 cases detalhados com ROI comprovado: Clínicas, E-commerce e Restaurantes.
+                Conheça nossas soluções de tráfego pago, SEO, automação e Google Meu Negócio.
               </p>
               <div className="flex items-center gap-2 text-sm text-[#00d966]">
-                <span>Ver Cases</span>
+                <span>Ver Serviços</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
               </div>
             </Link>
 
-            {/* Calculadora ROI */}
+            {/* Fale Conosco */}
             <Link
-              href="/calculadora-roi"
+              href="/#contato"
               className="bg-[#0D1117] border border-[#30363D] rounded-lg p-6 hover:border-[#ff006e]/50 transition group"
             >
               <div className="w-12 h-12 rounded-full bg-[#ff006e]/20 flex items-center justify-center mb-4">
                 <Calendar className="w-6 h-6 text-[#ff006e]" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#ff006e] transition">
-                Calculadora de ROI
+                Fale Conosco
               </h3>
               <p className="text-[#E6E6FA]/80 mb-4 leading-relaxed">
-                Simule quanto sua empresa pode faturar com tráfego pago otimizado.
+                Entre em contato para agendar sua análise gratuita com um especialista.
               </p>
               <div className="flex items-center gap-2 text-sm text-[#ff006e]">
-                <span>Calcular ROI</span>
+                <span>Entrar em Contato</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
               </div>
             </Link>
@@ -180,7 +180,7 @@ export default function ObrigadoPage() {
                 className="bg-[#161B22] border border-[#30363D] rounded-lg overflow-hidden hover:border-[#00d9ff]/50 transition group"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image src={post.image} alt={post.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition duration-500" />
+                  <Image src={post.coverImage} alt={post.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover group-hover:scale-110 transition duration-500" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-[#ff006e]/90 backdrop-blur-sm text-white text-xs font-bold rounded-full">
                       {post.category}
@@ -247,7 +247,7 @@ export default function ObrigadoPage() {
             Fale agora mesmo com um especialista via WhatsApp
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20vim%20da%20p%C3%A1gina%20Obrigado%20e%20gostaria%20de%20agendar%20minha%20an%C3%A1lise%20gratuita"
+            href="https://wa.me/5531996966686?text=Ol%C3%A1%2C%20vim%20da%20p%C3%A1gina%20Obrigado%20e%20gostaria%20de%20agendar%20minha%20an%C3%A1lise%20gratuita"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-[#00d966] text-white font-bold text-lg rounded-lg hover:shadow-2xl hover:shadow-[#00d966]/50 transition-all duration-300"

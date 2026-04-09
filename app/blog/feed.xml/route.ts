@@ -31,14 +31,14 @@ function generateRSSFeed(articles: typeof BLOG_ARTICLES_LIST, baseUrl: string): 
         (article) => `
     <item>
       <title><![CDATA[${article.title}]]></title>
-      <description><![CDATA[${article.description}]]></description>
+      <description><![CDATA[${article.excerpt}]]></description>
       <link>${baseUrl}/blog/${article.slug}</link>
       <guid>${baseUrl}/blog/${article.slug}</guid>
       <pubDate>${new Date(article.publishedAt).toUTCString()}</pubDate>
       <category>${article.category}</category>
       <author>davi@ondemanddigital.com.br (${article.author})</author>
       <content:encoded><![CDATA[
-        <p>${article.description}</p>
+        <p>${article.excerpt}</p>
         <p><a href="${baseUrl}/blog/${article.slug}">Ler artigo completo</a></p>
       ]]></content:encoded>
     </item>

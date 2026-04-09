@@ -289,10 +289,4 @@ export default function CookieConsent() {
   )
 }
 
-// TypeScript declaration for gtag
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-  }
-}
 

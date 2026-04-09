@@ -3,9 +3,9 @@
 import { Star, Quote } from "lucide-react"
 
 const AVATAR_COLORS = [
-  "from-[#06b6d4] to-[#0284c7]",
-  "from-[#8b5cf6] to-[#7c3aed]",
-  "from-emerald-500 to-teal-600",
+  "bg-zinc-700",
+  "bg-zinc-600",
+  "bg-zinc-800",
 ]
 
 function AvatarInitials({ name, colorIdx }: { name: string; colorIdx: number }) {
@@ -17,7 +17,7 @@ function AvatarInitials({ name, colorIdx }: { name: string; colorIdx: number }) 
 
   return (
     <div
-      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br ${AVATAR_COLORS[colorIdx % AVATAR_COLORS.length]} flex items-center justify-center flex-shrink-0 shadow-lg`}
+      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full ${AVATAR_COLORS[colorIdx % AVATAR_COLORS.length]} flex items-center justify-center flex-shrink-0 shadow-lg`}
     >
       <span className="text-white font-bold text-lg sm:text-xl">{initials}</span>
     </div>
@@ -29,28 +29,28 @@ export default function Testimonials() {
     {
       name: "C.M.",
       role: "Diretor Clínico",
-      company: "Clínica de Especialidades — Saúde",
+      company: "Clínica de Especialidades. Saúde",
       story: "O diferencial foi o atendimento próximo e a clareza no que estava sendo feito. O time ajudou a organizar o processo comercial.",
       rating: 5,
     },
     {
       name: "J.C.",
       role: "CEO",
-      company: "E-commerce — Moda",
+      company: "E-commerce. Moda",
       story: "Profissionais sérios e organizados. O trabalho trouxe consistência e mais controle sobre as decisões.",
       rating: 5,
     },
     {
       name: "R.A.",
       role: "Proprietário",
-      company: "Restaurante — Gastronomia",
+      company: "Restaurante. Gastronomia",
       story: "A presença no Google ficou mais clara e o atendimento ficou mais organizado. Comunicação simples e objetiva.",
       rating: 5,
     },
   ]
 
   return (
-    <section className="od-section sm:py-16 lg:py-20 bg-[#1e293b]">
+    <section className="od-section sm:py-16 lg:py-20 bg-[#111113]">
       <div className="od-container px-4">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12 lg:mb-16 od-reveal">
