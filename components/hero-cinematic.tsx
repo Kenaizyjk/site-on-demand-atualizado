@@ -59,29 +59,15 @@ export default function HeroCinematic() {
           style={{ filter: "saturate(0.82) brightness(0.88)" }}
         />
 
-        {/* Left bleed — tighter hold, clean dissolve (18% hard stop → 52% transparent) */}
+        {/* Combined overlay — left bleed + top/bottom vignette + right edge (3→1 div) */}
         <div
           className="absolute inset-0"
           style={{
-            background:
+            background: [
               "linear-gradient(to right, #09090b 0%, #09090b 18%, rgba(9,9,11,0.9) 32%, rgba(9,9,11,0.45) 45%, rgba(9,9,11,0.1) 52%, transparent 62%)",
-          }}
-        />
-
-        {/* Top vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
               "linear-gradient(to bottom, rgba(9,9,11,0.8) 0%, transparent 28%, transparent 62%, #09090b 92%, #09090b 100%)",
-          }}
-        />
-
-        {/* Right edge */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to left, rgba(9,9,11,0.6) 0%, transparent 28%)",
+              "linear-gradient(to left, rgba(9,9,11,0.6) 0%, transparent 28%)",
+            ].join(", "),
           }}
         />
 
@@ -115,6 +101,7 @@ export default function HeroCinematic() {
           height: "30%",
           width: 1,
           transformOrigin: "top center",
+          willChange: "transform",
           background:
             "linear-gradient(to bottom, rgba(6,182,212,0.15) 0%, rgba(6,182,212,0.15) 75%, transparent 100%)",
         }}
@@ -278,6 +265,7 @@ export default function HeroCinematic() {
             width: 1,
             height: 52,
             transformOrigin: "top center",
+            willChange: "transform",
             background: "linear-gradient(to bottom, #3f3f46, transparent)",
           }}
         />
