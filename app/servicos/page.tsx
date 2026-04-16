@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import PageHero from '@/components/page-hero'
 
 export const metadata: Metadata = {
   title: 'Serviços | On Demand Digital',
@@ -120,105 +121,113 @@ export default function ServicosPage() {
     <div className="od-page">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section-lg pt-32">
-        <div className="od-container text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
-            Serviços
-          </span>
-          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+      <PageHero
+        eyebrow="Serviços"
+        title={
+          <>
             O que fazemos{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               e como fazemos diferente
             </span>
-          </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            Especialização focada em cada serviço. Sem tentar fazer tudo para todo mundo.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        subtitle="Especialização focada em cada serviço. Sem tentar fazer tudo para todo mundo."
+      />
 
       {/* Cards de serviços */}
-      <section className="od-section">
-        <div className="od-container max-w-5xl mx-auto space-y-8">
-          {servicos.map((s, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 hover:border-violet-500/30 transition-colors overflow-hidden"
-            >
-              <div className="p-6 md:p-8 grid md:grid-cols-2 gap-8">
-                {/* Esquerda */}
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-4xl">{s.icone}</span>
-                    <div>
-                      <h2 className="font-display font-black text-2xl text-white leading-tight">
-                        {s.titulo}
-                      </h2>
-                      <p className="text-zinc-500 text-sm">{s.subtitulo}</p>
+      <section className="od-section od-reveal-section">
+        <div className="od-container max-w-5xl mx-auto">
+          <div className="space-y-8 od-stagger-children">
+            {servicos.map((s, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 hover:border-violet-500/30 transition-colors overflow-hidden"
+              >
+                <div className="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+                  {/* Esquerda */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-4xl">{s.icone}</span>
+                      <div>
+                        <h2
+                          className="font-display font-black text-white leading-tight"
+                          style={{ fontSize: "var(--text-h2)" }}
+                        >
+                          {s.titulo}
+                        </h2>
+                        <p className="text-zinc-500" style={{ fontSize: "var(--text-small)" }}>{s.subtitulo}</p>
+                      </div>
+                    </div>
+
+                    <span
+                      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${
+                        s.badgeColor === 'cyan'
+                          ? 'bg-cyan-500/10 border border-cyan-500/20 text-cyan-300'
+                          : 'bg-violet-500/10 border border-violet-500/20 text-violet-300'
+                      }`}
+                    >
+                      {s.badge}
+                    </span>
+
+                    <p
+                      className="text-zinc-400 leading-relaxed mb-6"
+                      style={{ fontSize: "var(--text-body)" }}
+                    >
+                      {s.paraQuem}
+                    </p>
+
+                    <div className="rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-4 py-3">
+                      <p className="text-zinc-500 text-xs uppercase tracking-widest mb-1">Resultado esperado</p>
+                      <p className="text-white text-sm font-medium">{s.resultado}</p>
                     </div>
                   </div>
 
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-4 ${
-                      s.badgeColor === 'cyan'
-                        ? 'bg-cyan-500/10 border border-cyan-500/20 text-cyan-300'
-                        : 'bg-violet-500/10 border border-violet-500/20 text-violet-300'
-                    }`}
-                  >
-                    {s.badge}
-                  </span>
+                  {/* Direita */}
+                  <div>
+                    <h3 className="text-zinc-300 font-semibold text-sm uppercase tracking-widest mb-4">
+                      O que está incluso
+                    </h3>
+                    <ul className="space-y-3 mb-6">
+                      {s.inclui.map((item, j) => (
+                        <li key={j} className="flex items-start gap-2 text-zinc-400 text-sm">
+                          <span className="text-cyan-400 mt-0.5 shrink-0">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <p className="text-zinc-400 text-sm leading-relaxed mb-6">{s.paraQuem}</p>
-
-                  <div className="rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-4 py-3">
-                    <p className="text-zinc-500 text-xs uppercase tracking-widest mb-1">Resultado esperado</p>
-                    <p className="text-white text-sm font-medium">{s.resultado}</p>
-                  </div>
-                </div>
-
-                {/* Direita */}
-                <div>
-                  <h3 className="text-zinc-300 font-semibold text-sm uppercase tracking-widest mb-4">
-                    O que está incluso
-                  </h3>
-                  <ul className="space-y-3 mb-6">
-                    {s.inclui.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-zinc-400 text-sm">
-                        <span className="text-cyan-400 mt-0.5 shrink-0">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 px-4 py-3">
-                    <p className="text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-1">
-                      Destaque real
-                    </p>
-                    <p className="text-zinc-300 text-sm">{s.destaque}</p>
+                    <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 px-4 py-3">
+                      <p className="text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-1">
+                        Destaque real
+                      </p>
+                      <p className="text-zinc-300 text-sm">{s.destaque}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Processo */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section bg-zinc-950/40 od-reveal-section">
         <div className="od-container">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
               Processo
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2
+              className="font-display font-black tracking-tight text-white"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Como funciona na prática
             </h2>
-            <p className="text-zinc-400 mt-3 max-w-xl mx-auto">
+            <p className="text-zinc-400 mt-3 max-w-xl mx-auto" style={{ fontSize: "var(--text-body)" }}>
               Para todos os serviços, seguimos o mesmo processo. Consistência gera resultado.
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto od-stagger-children">
             {processo.map((p, i) => (
               <div key={i} className="relative">
                 <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors h-full">
@@ -240,15 +249,18 @@ export default function ServicosPage() {
       </section>
 
       {/* CTA */}
-      <section className="od-section-lg">
+      <section className="od-section-lg od-reveal-section">
         <div className="od-container text-center max-w-2xl mx-auto">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
             Próximo passo
           </span>
-          <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+          <h2
+            className="font-display font-black tracking-tight text-white mb-4"
+            style={{ fontSize: "var(--text-h2)" }}
+          >
             Não sabe qual serviço é certo para você?
           </h2>
-          <p className="text-zinc-400 mb-8">
+          <p className="text-zinc-400 mb-8" style={{ fontSize: "var(--text-body)" }}>
             Me conta o que você quer resolver e a gente te indica qual caminho faz sentido,
             sem tentar vender o que não cabe no seu momento.
           </p>

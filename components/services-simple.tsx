@@ -3,6 +3,10 @@
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 
+const CYAN = "#06b6d4"
+const CYAN_MUTED = "rgba(6,182,212,0.12)"
+const CYAN_BORDER = "rgba(6,182,212,0.33)"
+
 const services = [
   {
     number: "01",
@@ -16,8 +20,6 @@ const services = [
       "Relatórios semanais com ajustes baseados em dados",
     ],
     platforms: ["Google Ads", "Meta Ads"],
-    accent: "#06b6d4",
-    accentMuted: "rgba(6,182,212,0.12)",
   },
   {
     number: "02",
@@ -31,8 +33,6 @@ const services = [
       "Monitoramento de posicionamento e visitas orgânicas",
     ],
     platforms: ["Google Business", "Google Search"],
-    accent: "#10b981",
-    accentMuted: "rgba(16,185,129,0.12)",
   },
   {
     number: "03",
@@ -46,8 +46,6 @@ const services = [
       "Chatbots treinados com as informações do seu negócio",
     ],
     platforms: ["n8n", "WhatsApp API", "IA"],
-    accent: "#8b5cf6",
-    accentMuted: "rgba(139,92,246,0.12)",
   },
   {
     number: "04",
@@ -61,8 +59,6 @@ const services = [
       "Acompanhamento mensal com revisão de estratégia",
     ],
     platforms: ["Analytics", "Consultoria"],
-    accent: "#f59e0b",
-    accentMuted: "rgba(245,158,11,0.12)",
   },
 ]
 
@@ -70,24 +66,30 @@ export default function ServicesSimple() {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <section id="servicos" className="relative bg-[#09090b] py-24 lg:py-36 overflow-hidden">
+    <section id="servicos" className="od-reveal-section relative bg-[#09090b] py-24 lg:py-36 overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="mb-20 lg:mb-24">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <p
+            className="font-bold uppercase text-zinc-500 mb-4"
+            style={{ fontSize: "var(--text-small)", letterSpacing: "0.2em" }}
+          >
             O que fazemos
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.05]">
+          <h2
+            className="font-black tracking-tight text-white leading-[1.05]"
+            style={{ fontSize: "var(--text-h1)" }}
+          >
             Serviços com<br />
-            <span className="text-[#06b6d4]">
+            <span style={{ color: CYAN }}>
               entrega clara.
             </span>
           </h2>
         </div>
 
         {/* Service list */}
-        <div>
+        <div className="od-stagger-children">
           {services.map((s, i) => (
             <div
               key={s.number}
@@ -97,7 +99,8 @@ export default function ServicesSimple() {
               style={{
                 borderTop: "1px solid rgba(255,255,255,0.07)",
                 borderBottom: i === services.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                backgroundColor: hovered === s.number ? "rgba(255,255,255,0.018)" : "transparent",
+                borderLeft: hovered === s.number ? `2px solid ${CYAN}` : "2px solid transparent",
+                backgroundColor: hovered === s.number ? "rgba(6,182,212,0.03)" : "transparent",
               }}
             >
               <div className="py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-[96px_1fr_1fr] gap-6 lg:gap-12 items-start">
@@ -106,7 +109,7 @@ export default function ServicesSimple() {
                 <div
                   className="font-black text-6xl lg:text-7xl leading-none select-none transition-colors duration-300"
                   style={{
-                    color: hovered === s.number ? s.accent : "rgba(255,255,255,0.05)",
+                    color: hovered === s.number ? CYAN : "rgba(255,255,255,0.05)",
                     fontVariantNumeric: "tabular-nums",
                   }}
                   aria-hidden="true"
@@ -116,16 +119,25 @@ export default function ServicesSimple() {
 
                 {/* Title + description */}
                 <div>
-                  <h3 className="text-2xl lg:text-3xl font-black text-white mb-3 leading-snug">
+                  <h3
+                    className="font-black text-white mb-3 leading-snug"
+                    style={{ fontSize: "var(--text-h2)" }}
+                  >
                     {s.title}
                   </h3>
                   <p
-                    className="text-base font-semibold mb-4 transition-colors duration-300"
-                    style={{ color: hovered === s.number ? s.accent : "#94a3b8" }}
+                    className="font-semibold mb-4 transition-colors duration-300"
+                    style={{
+                      fontSize: "var(--text-body)",
+                      color: hovered === s.number ? CYAN : "#94a3b8",
+                    }}
                   >
                     {s.tagline}
                   </p>
-                  <p className="text-[#b4b4bc] text-sm leading-relaxed max-w-md">
+                  <p
+                    className="text-[#b4b4bc] leading-relaxed max-w-md"
+                    style={{ fontSize: "var(--text-body)" }}
+                  >
                     {s.description}
                   </p>
 
@@ -134,11 +146,12 @@ export default function ServicesSimple() {
                     {s.platforms.map((p) => (
                       <span
                         key={p}
-                        className="text-xs font-semibold px-2.5 py-1 rounded-full border transition-all duration-300"
+                        className="font-semibold px-2.5 py-1 rounded-full border transition-all duration-300"
                         style={{
-                          color: hovered === s.number ? s.accent : "#52525b",
-                          borderColor: hovered === s.number ? `${s.accent}33` : "rgba(255,255,255,0.06)",
-                          backgroundColor: hovered === s.number ? s.accentMuted : "transparent",
+                          fontSize: "var(--text-small)",
+                          color: hovered === s.number ? CYAN : "#52525b",
+                          borderColor: hovered === s.number ? CYAN_BORDER : "rgba(255,255,255,0.06)",
+                          backgroundColor: hovered === s.number ? CYAN_MUTED : "transparent",
                         }}
                       >
                         {p}
@@ -154,10 +167,15 @@ export default function ServicesSimple() {
                       <li key={d} className="flex items-start gap-3">
                         <span
                           className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors duration-300"
-                          style={{ backgroundColor: hovered === s.number ? s.accent : "#52525b" }}
+                          style={{ backgroundColor: hovered === s.number ? CYAN : "#52525b" }}
                           aria-hidden="true"
                         />
-                        <span className="text-sm text-[#b4b4bc] leading-relaxed">{d}</span>
+                        <span
+                          className="text-[#b4b4bc] leading-relaxed"
+                          style={{ fontSize: "var(--text-body)" }}
+                        >
+                          {d}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -166,8 +184,11 @@ export default function ServicesSimple() {
                     href={`https://wa.me/5531996966686?text=Olá%2C+quero+saber+mais+sobre+${encodeURIComponent(s.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 group/link"
-                    style={{ color: hovered === s.number ? s.accent : "#71717a" }}
+                    className="inline-flex items-center gap-2 font-semibold transition-all duration-200 group/link"
+                    style={{
+                      fontSize: "var(--text-small)",
+                      color: hovered === s.number ? CYAN : "#71717a",
+                    }}
                     data-track={`services-${s.number}-cta`}
                   >
                     Saiba mais

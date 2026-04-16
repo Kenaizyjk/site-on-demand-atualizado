@@ -56,18 +56,15 @@ export default function HeroCinematic() {
           priority
           className="object-cover object-[center_top]"
           sizes="(max-width: 1024px) 100vw, 60vw"
-          style={{ filter: "saturate(0.82) brightness(0.88)" }}
+          style={{ filter: "saturate(0.95) brightness(0.95) contrast(1.05)" }}
         />
 
-        {/* Combined overlay — left bleed + top/bottom vignette + right edge (3→1 div) */}
+        {/* Vignette — left-to-right fade ensuring text legibility */}
         <div
           className="absolute inset-0"
           style={{
-            background: [
+            background:
               "linear-gradient(to right, #09090b 0%, #09090b 18%, rgba(9,9,11,0.9) 32%, rgba(9,9,11,0.45) 45%, rgba(9,9,11,0.1) 52%, transparent 62%)",
-              "linear-gradient(to bottom, rgba(9,9,11,0.8) 0%, transparent 28%, transparent 62%, #09090b 92%, #09090b 100%)",
-              "linear-gradient(to left, rgba(9,9,11,0.6) 0%, transparent 28%)",
-            ].join(", "),
           }}
         />
 
@@ -111,13 +108,13 @@ export default function HeroCinematic() {
       {/* ─── Main content (flex column, padded) ─── */}
       <div
         className="relative z-10 flex flex-col px-6 sm:px-10 lg:px-20"
-        style={{ minHeight: "100svh", paddingTop: "5.5rem", paddingBottom: "max(10rem, 22svh)" }}
+        style={{ minHeight: "100svh", paddingTop: "5.5rem", paddingBottom: "6rem" }}
       >
         {/* Eyebrow */}
         <motion.p
           {...fadeUp(0.15)}
           className="font-display text-zinc-500 font-semibold mb-8 sm:mb-10 lg:mb-12"
-          style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}
+          style={{ fontSize: "var(--text-small)", letterSpacing: "0.18em", textTransform: "uppercase" }}
         >
           Agência de Marketing Digital · Belo Horizonte
         </motion.p>
@@ -130,7 +127,7 @@ export default function HeroCinematic() {
             {...fadeUp(0.22)}
             className="block text-white"
             style={{
-              fontSize: "clamp(56px, 11vw, 152px)",
+              fontSize: "clamp(2.5rem, 8vw, var(--text-display))",
               letterSpacing: "-0.03em",
               lineHeight: 0.87,
             }}
@@ -142,7 +139,7 @@ export default function HeroCinematic() {
             {...fadeUp(0.3)}
             className="block"
             style={{
-              fontSize: "clamp(56px, 11vw, 152px)",
+              fontSize: "clamp(2.5rem, 8vw, var(--text-display))",
               letterSpacing: "-0.03em",
               lineHeight: 0.87,
               color: "#06b6d4",
@@ -155,7 +152,7 @@ export default function HeroCinematic() {
             {...fadeUp(0.38)}
             className="block text-white/30"
             style={{
-              fontSize: "clamp(18px, 2.8vw, 42px)",
+              fontSize: "clamp(1.125rem, 2.8vw, var(--text-h2))",
               letterSpacing: "0.01em",
               lineHeight: 1.3,
               marginTop: "0.5em",
@@ -187,7 +184,7 @@ export default function HeroCinematic() {
           {...fadeUp(0.48)}
           className="text-zinc-400 mb-10 sm:mb-12"
           style={{
-            fontSize: "clamp(14px, 1.1vw, 16px)",
+            fontSize: "var(--text-body)",
             maxWidth: 360,
             lineHeight: 1.8,
           }}
@@ -204,7 +201,7 @@ export default function HeroCinematic() {
             rel="noopener noreferrer"
             data-track="hero-cinematic-cta"
             className="od-hero-cta group inline-flex items-center gap-3 font-semibold rounded-lg"
-            style={{ fontSize: "clamp(14px, 1vw, 16px)" }}
+            style={{ fontSize: "var(--text-body)" }}
           >
             Marcar diagnóstico gratuito
             <ArrowRight
@@ -213,35 +210,32 @@ export default function HeroCinematic() {
             />
           </a>
         </motion.div>
-      </div>
 
-      {/* ─── Stats — absolute floor, full-width ─── */}
-      <motion.div
-        {...fadeUp(0.72)}
-        className="absolute inset-x-0 bottom-0 z-10 px-6 sm:px-10 lg:px-20 pb-8 sm:pb-10"
-        style={{ borderTop: "1px solid rgba(39,39,42,0.4)" }}
-      >
-        <div className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 pt-6">
+        {/* ─── Stats — inline row below CTA ─── */}
+        <motion.div
+          {...fadeUp(0.72)}
+          className="flex flex-wrap items-center gap-6 mt-8"
+        >
           {STATS.map((stat) => (
             <div key={stat.label}>
               <p
                 className="font-display font-black text-white leading-none"
-                style={{ fontSize: "clamp(26px, 2.6vw, 40px)" }}
+                style={{ fontSize: "clamp(1.625rem, 2.6vw, 2.5rem)" }}
               >
                 {stat.value}
               </p>
               <p
                 className="text-zinc-600 font-semibold uppercase mt-1.5"
-                style={{ fontSize: 9, letterSpacing: "0.22em" }}
+                style={{ fontSize: "var(--text-small)", letterSpacing: "0.22em" }}
               >
                 {stat.label}
               </p>
             </div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
 
-      {/* ─── Scroll indicator ─── */}
+      {/* ─── Scroll indicator — bottom-right ─── */}
       <div
         className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-3 pointer-events-none"
         aria-hidden="true"
