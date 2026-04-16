@@ -96,8 +96,8 @@ export default function BlogPreviewHome() {
   const featuredIcon = CATEGORY_ICONS[featured.category] ?? "📝"
 
   return (
-    <section className="od-section sm:py-16 lg:py-20 bg-[#09090b]">
-      <div className="od-container px-4">
+    <section className="od-section sm:py-16 lg:py-20 bg-[#09090b] od-reveal-section">
+      <div className="od-container px-4 od-stagger-children">
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-14 od-reveal">

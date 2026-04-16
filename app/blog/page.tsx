@@ -30,7 +30,9 @@ export default function BlogPage() {
     <main className="od-page">
       <Navigation />
       <BlogCollectionSchema />
-      <BlogClient articles={BLOG_ARTICLES_LIST} />
+      <div className="od-reveal-section">
+        <BlogClient articles={BLOG_ARTICLES_LIST} />
+      </div>
       <Footer />
     </main>
   )

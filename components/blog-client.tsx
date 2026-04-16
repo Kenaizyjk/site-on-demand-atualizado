@@ -85,7 +85,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                     >
                         <div className="blog-container od-reveal">
                             <Link href={`/blog/${featuredArticle.slug}`} className="group block">
-                                <div className="blog-surface relative overflow-hidden flex flex-col lg:flex-row min-h-[420px]">
+                                <div className="blog-surface relative overflow-hidden flex flex-col lg:flex-row">
                                     {/* Image Part */}
                                     <div className="relative lg:w-3/5 overflow-hidden order-1 lg:order-2 aspect-video lg:aspect-auto">
                                         <Image
@@ -107,9 +107,6 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                             </span>
                                             <span className="text-cyan-300 font-medium text-sm">
                                                 {featuredArticle.category}
-                                            </span>
-                                            <span className={`px-3 py-1 bg-[#0b111a] border text-xs font-bold rounded-lg uppercase tracking-wider ${getSeal(featuredArticle.category).className}`}>
-                                                {getSeal(featuredArticle.category).label}
                                             </span>
                                         </div>
 
@@ -137,9 +134,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                                 </div>
                                             </div>
 
-                                            <div className="flex items-center justify-center w-12 h-12 rounded-full border border-cyan-500 text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300 transform group-hover:translate-x-1">
-                                                <ArrowRight className="w-5 h-5" />
-                                            </div>
+                                            <span className="text-sm font-medium text-cyan-400">Ler artigo →</span>
                                         </div>
                                     </div>
                                 </div>
@@ -164,49 +159,6 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
                         {filteredArticles.map((article, idx) => (
                             <React.Fragment key={article.slug}>
-                                {/* Injete o Lead Magnet após o 2º card (idx === 2) no grid */}
-                                {idx === 2 && activeCategory === "Todos" && (
-                            <div className="col-span-1 md:col-span-2 lg:col-span-3 rounded-3xl bg-[#0b111a]/80 border border-[#1f2a3a]/70 p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 my-6 relative overflow-hidden">
-                                        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10 mix-blend-overlay"></div>
-                                        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-
-                                        <div className="relative z-10 max-w-xl">
-                                            <div className="flex items-center gap-2 text-indigo-400 mb-4 font-semibold text-sm uppercase tracking-wider">
-                                                <Sparkles className="w-4 h-4" />
-                                                Guia Gratuito
-                                            </div>
-                                            <h3 className="text-3xl font-black text-white mb-4">
-                                                Guia de Automação para Organizar o Atendimento
-                                            </h3>
-                                            <p className="text-slate-300 text-lg mb-0">
-                                                Como estruturamos fluxos para organizar qualificação e encaminhamentos com clareza.
-                                            </p>
-                                        </div>
-
-                                        <div className="relative z-10 w-full md:w-auto">
-                                    <form className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-                                        <input
-                                            type="email"
-                                            placeholder="Seu melhor e-mail corporativo"
-                                            className="px-5 py-4 rounded-xl bg-[#0f172a] border border-[#1f2a3a] text-white focus:outline-none focus:border-cyan-500 flex-grow"
-                                            required
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => window.open('https://wa.me/5531996966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
-                                            className="px-6 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-xl transition-colors whitespace-nowrap shadow-lg shadow-cyan-500/30 flex items-center justify-center gap-2"
-                                        >
-                                            Receber Guia
-                                            <Mail className="w-4 h-4" />
-                                        </button>
-                                    </form>
-                                    <p className="text-xs text-slate-500 mt-4 text-center md:text-left">
-                                        Sem spam. Cancele quando quiser.
-                                    </p>
-                                </div>
-                            </div>
-                        )}
-
                                 {/* Normal Article Card */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
@@ -226,9 +178,6 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                             <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                                                 <span className="px-3 py-1 bg-[#0f172a]/80 backdrop-blur-md rounded-md text-xs font-semibold text-slate-200 uppercase tracking-wider border border-[#1f2a3a]/70">
                                                     {article.category}
-                                                </span>
-                                                <span className={`px-3 py-1 bg-[#0b111a]/80 backdrop-blur-md rounded-md text-xs font-semibold uppercase tracking-wider border ${getSeal(article.category).className}`}>
-                                                    {getSeal(article.category).label}
                                                 </span>
                                             </div>
                                         </div>
