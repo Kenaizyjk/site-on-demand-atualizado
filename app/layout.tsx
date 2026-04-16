@@ -7,13 +7,12 @@ import { inter, plusJakarta } from './fonts'
 import { ErrorBoundary } from '@/components/error-boundary'
 import { OrganizationSchema, LocalBusinessSchema, ServiceSchema } from '@/components/schema-org'
 import AnalyticsTracker from '@/components/analytics-tracker'
-import WhatsAppStickyBar from '@/components/whatsapp-sticky-bar'
+import RevealProvider from '@/components/motion/RevealProvider'
 import {
   COMPANY_NAME,
   WEBSITE_URL,
   SEO_DEFAULTS,
 } from '@/lib/constants'
-import CursorGlow from '@/components/cursor-glow'
 
 // ============================================
 // VIEWPORT (exported separately per Next.js spec)
@@ -183,10 +182,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NJ3XP3G"
         height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
-        <CursorGlow />
+        <RevealProvider />
         <ErrorBoundary>
           {children}
-          <WhatsAppStickyBar />
         </ErrorBoundary>
         <Analytics />
         <AnalyticsTracker />

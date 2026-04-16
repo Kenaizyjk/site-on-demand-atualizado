@@ -54,46 +54,13 @@
   --glow-cyan: rgba(6, 182, 212, 0.22);
   --glow-purple: rgba(6, 182, 212, 0.08);
 
-  /* Legacy aliases for compatibility (mapping to new Zinc palette) */
-  --primary-blue: #09090b;
-  --deep-black: #09090b;
-  --light-gray: #b4b4bc;
-  --white: #ffffff;
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Typography scale */
+  --text-display: 4rem;
+  --text-h1: 3rem;
+  --text-h2: 2rem;
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.75rem;
 }
 
 @theme inline {
@@ -149,34 +116,6 @@
   body {
     position: relative;
     overflow-x: hidden;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Grain noise overlay — textura premium (zero bundle, CSS puro) */
-  html::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0%25' y='0%25' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 300px 300px;
-    opacity: 0.018;
-    pointer-events: none;
-    z-index: 9998;
   }
 
   .od-page {
@@ -387,24 +326,9 @@ html {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-slide-up,
-  .animate-fade-in,
-  .od-reveal {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-}
-
 /* ============================================
    DESIGN SYSTEM — Utilitários Premium
    ============================================ */
-
-/* Tipografia Display */
-.font-display {
-  font-family: var(--font-display), system-ui, sans-serif;
-}
 
 /* Cards com efeito 3D no hover */
 .od-card-3d {
@@ -458,16 +382,6 @@ html {
 @keyframes flowDash {
   from { stroke-dashoffset: 32; }
   to { stroke-dashoffset: 0; }
-}
-
-/* Reduced motion — Premium utilities */
-@media (prefers-reduced-motion: reduce) {
-  .od-card-3d:hover {
-    transform: translateY(-2px);
-  }
-  .od-shimmer-hover:hover {
-    animation: none;
-  }
 }
 
 /* ============================================
@@ -530,41 +444,6 @@ html {
 .od-reveal-scale[data-revealed="true"] {
   opacity: 1;
   transform: scale(1) translate3d(0, 0, 0);
-}
-
-/* ============================================
-   CURSOR GLOW
-   ============================================ */
-
-/**
- * The div is positioned via JS `transform: translate(x,y)`.
- * Top/left are fixed at 0 so the GPU only composites the transform.
- */
-.od-cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  background: radial-gradient(
-    circle at center,
-    rgba(6, 182, 212, 0.04) 0%,
-    transparent 70%
-  );
-  /* Smooth cursor lag — feels like it's "pulling" toward the cursor */
-  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-  will-change: transform;
-  /* Hide on touch / mobile via media query */
-}
-
-@media (hover: none) {
-  /* Touch-primary devices — hide the glow entirely */
-  .od-cursor-glow {
-    display: none;
-  }
 }
 
 /* ============================================
@@ -649,23 +528,27 @@ html {
    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
+  .od-reveal,
   .od-reveal-section,
   .od-reveal-scale,
-  .od-stagger-children > * {
+  .od-stagger-children > *,
+  .animate-slide-up,
+  .animate-fade-in {
     opacity: 1;
     transform: none;
+    animation: none;
     transition: none;
   }
-
-  .od-cursor-glow {
-    display: none;
+  .od-card-3d:hover {
+    transform: translateY(-2px);
   }
-
+  .od-shimmer-hover:hover {
+    animation: none;
+  }
   .od-cta-button,
   .od-nav-cta {
     transition: none;
   }
-
   .od-cta-button:hover {
     transform: none;
   }

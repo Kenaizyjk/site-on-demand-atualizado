@@ -11,7 +11,6 @@ import ContactForm from "@/components/contact-form"
 import FinalCTA from "@/components/final-cta"
 import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
-import NewsletterPopup from "@/components/newsletter-popup"
 
 export default function Home() {
   return (
@@ -49,7 +48,6 @@ export default function Home() {
       <hr className="od-divider" />
       <Footer />
       <WhatsAppFloat />
-      <NewsletterPopup />
     </main>
   )
 }
