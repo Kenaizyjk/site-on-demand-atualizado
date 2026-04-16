@@ -3,27 +3,33 @@
 import React, { useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Clock, Mail, Sparkles, User } from "lucide-react"
+import { ArrowRight, Clock, User } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import type { BlogArticleListItem } from "@/lib/blog-data"
 
 export default function BlogClient({ articles }: { articles: BlogArticleListItem[] }) {
     const [activeCategory, setActiveCategory] = useState("Todos")
-    const sealMap: Record<string, { label: string; className: string }> = {
-        "Google Ads": { label: "Selo Performance", className: "text-[#7dd3fc] border-[#225070]" },
-        "Automacao": { label: "Selo Automacao", className: "text-[#a7f3d0] border-[#1f3a2e]" },
-        "SEO Local": { label: "Selo Local", className: "text-[#fcd34d] border-[#4b3b1a]" },
-        "IA & Marketing": { label: "Selo IA", className: "text-[#c4b5fd] border-[#3a2e5a]" },
-        "Meta Ads": { label: "Selo Escala", className: "text-[#60a5fa] border-[#1f3352]" },
-        "SEO": { label: "Selo SEO", className: "text-[#86efac] border-[#1f3a2b]" },
-        "Trafego Pago": { label: "Selo Trafego", className: "text-[#f97316] border-[#4b2e1a]" },
-        "Estrategia": { label: "Selo Estrategia", className: "text-[#a78bfa] border-[#3a2e5a]" },
-        "Redes Sociais": { label: "Selo Social", className: "text-[#fb7185] border-[#4b1a2e]" },
-    }
-    const getSeal = (category: string) =>
-        sealMap[category] ?? { label: "Selo Editorial", className: "text-[#94a3b8] border-[#233246]" }
 
-    if (!articles.length) {
+    // Derivar categorias únicas
+    const categories = useMemo(() => {
+        const cats = new Set(articles.map((a) => a.category))
+        return ["Todos", ...Array.from(cats)]
+    }, [articles])
+
+    // Identificar o post destaque (primeiro com featured: true)
+    const featuredArticle = articles.length ? (articles.find((a) => a.featured) || articles[0]) : null
+
+    // Filtrar os outros artigos (excluindo o destaque se estiver no topo, ou não)
+    const filteredArticles = useMemo(() => {
+        if (!featuredArticle) return []
+        let filtered = articles.filter((a) => a.slug !== featuredArticle.slug)
+        if (activeCategory !== "Todos") {
+            filtered = filtered.filter((a) => a.category === activeCategory)
+        }
+        return filtered
+    }, [articles, activeCategory, featuredArticle])
+
+    if (!articles.length || !featuredArticle) {
         return (
             <section className="od-section py-16 px-4">
                 <div className="od-container text-center">
@@ -33,24 +39,6 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
             </section>
         )
     }
-
-    // Derivar categorias únicas
-    const categories = useMemo(() => {
-        const cats = new Set(articles.map((a) => a.category))
-        return ["Todos", ...Array.from(cats)]
-    }, [articles])
-
-    // Identificar o post destaque (primeiro com featured: true)
-    const featuredArticle = articles.find((a) => a.featured) || articles[0]
-
-    // Filtrar os outros artigos (excluindo o destaque se estiver no topo, ou não)
-    const filteredArticles = useMemo(() => {
-        let filtered = articles.filter((a) => a.slug !== featuredArticle.slug)
-        if (activeCategory !== "Todos") {
-            filtered = filtered.filter((a) => a.category === activeCategory)
-        }
-        return filtered
-    }, [articles, activeCategory, featuredArticle.slug])
 
     return (
         <div className="w-full">

@@ -105,44 +105,6 @@ export default async function BlogArticlePage({ params }: Props) {
     className: "text-[#94a3b8] border-[#233246]",
   }
 
-  const ctaVariants: Record<string, { title: string; description: string; ctaLabel: string }> = {
-    "10-erros-google-ads": {
-      title: "Destrave sua performance em 30 dias",
-      description: "Receba um diagnóstico direto com prioridades e cortes de desperdício.",
-      ctaLabel: "Quero destravar",
-    },
-    "automacao-whatsapp-leads": {
-      title: "Organize seu atendimento com fluxo real",
-      description: "Mapeamos seu atendimento e entregamos um fluxo pronto para operar.",
-      ctaLabel: "Quero o fluxo",
-    },
-    "gmb-local-seo": {
-      title: "Apareça quando o cliente busca por você",
-      description: "Ajustamos seu GMB com foco em presença local e conversão.",
-      ctaLabel: "Quero otimizar",
-    },
-    "ia-marketing-2025": {
-      title: "Use IA como vantagem, não como risco",
-      description: "Mostramos onde aplicar IA com segurança e resultado.",
-      ctaLabel: "Quero aplicar IA",
-    },
-    "meta-ads-segmentacao": {
-      title: "Segmentação mais simples, CPA menor",
-      description: "Montamos a estrutura de testes e escala com foco em resultados.",
-      ctaLabel: "Quero segmentar",
-    },
-    "funil-vendas-seo": {
-      title: "SEO que vira venda, não só tráfego",
-      description: "Alinhamos conteúdo e jornada para converter com consistência.",
-      ctaLabel: "Quero estruturar",
-    },
-  }
-  const ctaVariant = ctaVariants[article.slug] ?? {
-    title: "Organize suas campanhas com método",
-    description: "Se quiser um olhar externo e direto, podemos revisar seu cenário e apontar próximos passos.",
-    ctaLabel: "Agendar conversa",
-  }
-
   // The inline CTA HTML string to inject into the markdown payload
   const ctaHtml = `
     <aside class="my-8 rounded-lg border border-cyan-500/30 bg-cyan-500/5 px-5 py-4 text-sm">
