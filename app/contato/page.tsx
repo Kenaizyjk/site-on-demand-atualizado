@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import PageHero from '@/components/page-hero'
 
 export const metadata: Metadata = {
   title: 'Contato | On Demand Digital',
@@ -38,73 +39,56 @@ const steps = [
   },
 ]
 
-const faqs = [
-  {
-    pergunta: 'Tem compromisso de fechar?',
-    resposta:
-      'Nenhum. A conversa é para entender o seu negócio, não para te vender algo que talvez não faça sentido. Se fizer, a proposta vem depois, com calma.',
-  },
-  {
-    pergunta: 'Quanto tempo dura a conversa?',
-    resposta:
-      'Em média 30 minutos. Se necessário, estendemos um pouco. Respeitamos seu tempo: sabemos que você tem uma empresa para tocar.',
-  },
-  {
-    pergunta: 'Para quem é esse diagnóstico?',
-    resposta:
-      'Para donos e gestores de pequenas e médias empresas locais (clínicas, restaurantes, e-commerces) que querem crescer com marketing digital e ainda não sabem bem por onde começar (ou recomeçar).',
-  },
-  {
-    pergunta: 'Atendem fora de BH?',
-    resposta:
-      'Sim. Atendemos remotamente todo o Brasil. Mas nosso foco em SEO local e GMB é mais relevante para empresas com operação física, independente da cidade.',
-  },
-]
-
 export default function ContatoPage() {
   return (
     <div className="od-page">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section-lg pt-32">
-        <div className="od-container text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-6">
-            Diagnóstico gratuito
-          </span>
-          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+      <PageHero
+        eyebrow="Diagnóstico gratuito"
+        title={
+          <>
             Diagnóstico Gratuito{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               de 30 Minutos
             </span>
-          </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            Entendemos seu negócio antes de qualquer proposta. Sem pitch. Sem pressão.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        subtitle="Entendemos seu negócio antes de qualquer proposta. Sem pitch. Sem pressão."
+      />
 
       {/* O que acontece na conversa */}
-      <section className="od-section">
+      <section className="od-section od-reveal-section">
         <div className="od-container">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
               O que acontece
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2
+              className="font-display font-black tracking-tight text-white"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               O que cabe em 30 minutos
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto od-stagger-children">
             {steps.map((s) => (
               <div
                 key={s.numero}
                 className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors"
               >
-                <div className="font-display font-black text-4xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-4 leading-none">
+                <div
+                  className="font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-4 leading-none"
+                  style={{ fontSize: "var(--text-h1)" }}
+                >
                   {s.numero}
                 </div>
-                <h3 className="font-display font-black text-lg text-white mb-3">{s.titulo}</h3>
+                <h3
+                  className="font-display font-black text-white mb-3"
+                  style={{ fontSize: "var(--text-body)" }}
+                >
+                  {s.titulo}
+                </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">{s.descricao}</p>
               </div>
             ))}
@@ -112,15 +96,18 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      {/* CTA principal */}
-      <section className="od-section bg-zinc-950/40">
+      {/* CTA principal — WhatsApp */}
+      <section className="od-section bg-zinc-950/40 od-reveal-section">
         <div className="od-container">
           <div className="max-w-2xl mx-auto rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-zinc-900/80 to-zinc-950/80 p-8 md:p-12 text-center">
             <div className="text-5xl mb-6">💬</div>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+            <h2
+              className="font-display font-black tracking-tight text-white mb-4"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Falar agora pelo WhatsApp
             </h2>
-            <p className="text-zinc-400 mb-8 leading-relaxed">
+            <p className="text-zinc-400 mb-8 leading-relaxed" style={{ fontSize: "var(--text-body)" }}>
               Clique abaixo e já vá com uma ideia do que quer resolver. Quanto mais
               contexto, melhor o diagnóstico.
             </p>
@@ -151,11 +138,14 @@ export default function ContatoPage() {
       </section>
 
       {/* Alternativa por email */}
-      <section className="od-section">
+      <section className="od-section od-reveal-section">
         <div className="od-container">
           <div className="max-w-xl mx-auto rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 text-center hover:border-violet-500/30 transition-colors">
             <div className="text-2xl mb-3">✉️</div>
-            <h3 className="font-display font-black text-lg text-white mb-2">
+            <h3
+              className="font-display font-black text-white mb-2"
+              style={{ fontSize: "var(--text-body)" }}
+            >
               Prefere email?
             </h3>
             <p className="text-zinc-400 text-sm mb-4">
@@ -173,44 +163,20 @@ export default function ContatoPage() {
       </section>
 
       {/* Garantia */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section bg-zinc-950/40 od-reveal-section">
         <div className="od-container max-w-2xl mx-auto text-center">
           <div className="rounded-2xl border border-violet-500/20 bg-violet-500/5 p-8">
             <div className="text-3xl mb-4">🤝</div>
-            <h2 className="font-display font-black text-2xl text-white mb-3">
+            <h2
+              className="font-display font-black text-white mb-3"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Nossa garantia de valor
             </h2>
-            <p className="text-zinc-300 text-lg leading-relaxed">
+            <p className="text-zinc-300 leading-relaxed" style={{ fontSize: "var(--text-body)" }}>
               &ldquo;Se em 30 minutos você não aprender nada novo sobre o seu marketing,
               não pedimos nem email.&rdquo;
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="od-section">
-        <div className="od-container">
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
-              Dúvidas frequentes
-            </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
-              Antes de falar com a gente
-            </h2>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.pergunta}
-                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-violet-500/30 transition-colors"
-              >
-                <h3 className="font-display font-black text-white text-lg mb-3">
-                  {faq.pergunta}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{faq.resposta}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

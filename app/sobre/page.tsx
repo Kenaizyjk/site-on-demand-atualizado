@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import PageHero from '@/components/page-hero'
+import ManifestoStrip from '@/components/manifesto-strip'
+import TechStack from '@/components/tech-stack'
 
 export const metadata: Metadata = {
   title: 'Sobre | On Demand Digital',
@@ -92,37 +95,39 @@ export default function SobrePage() {
     <div className="od-page">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section-lg pt-32">
-        <div className="od-container text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
-            Sobre a agência
-          </span>
-          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+      <PageHero
+        eyebrow="Sobre a agência"
+        title={
+          <>
             Método. Transparência.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               Resultados que você consegue medir.
             </span>
-          </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            A On Demand Digital é uma agência de marketing digital em Belo Horizonte
-            focada em pequenas e médias empresas que querem crescer com consistência.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        subtitle="A On Demand Digital é uma agência de marketing digital em Belo Horizonte focada em pequenas e médias empresas que querem crescer com consistência."
+      />
+
+      {/* ManifestoStrip */}
+      <div className="od-reveal-section">
+        <ManifestoStrip />
+      </div>
 
       {/* A história */}
-      <section className="od-section">
+      <section className="od-section od-reveal-section">
         <div className="od-container">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             <div>
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
                 A história
               </span>
-              <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-6">
+              <h2
+                className="font-display font-black tracking-tight text-white mb-6"
+                style={{ fontSize: "var(--text-h2)" }}
+              >
                 Por que a On Demand existe
               </h2>
-              <div className="space-y-4 text-zinc-400 leading-relaxed">
+              <div className="space-y-4 text-zinc-400 leading-relaxed" style={{ fontSize: "var(--text-body)" }}>
                 <p>
                   A On Demand nasceu em 2022 para preencher um gap claro no mercado:
                   PMEs locais tinham acesso apenas a grandes agências que tratavam
@@ -142,13 +147,16 @@ export default function SobrePage() {
             </div>
 
             {/* Valores institucionais */}
-            <div className="space-y-4">
+            <div className="space-y-4 od-stagger-children">
               {valores.map((item) => (
                 <div
                   key={item.titulo}
                   className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors"
                 >
-                  <h3 className="font-display font-black text-white text-base mb-2">
+                  <h3
+                    className="font-display font-black text-white mb-2"
+                    style={{ fontSize: "var(--text-body)" }}
+                  >
                     {item.titulo}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
@@ -160,24 +168,30 @@ export default function SobrePage() {
       </section>
 
       {/* Filosofia */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section bg-zinc-950/40 od-reveal-section">
         <div className="od-container">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
               Filosofia
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2
+              className="font-display font-black tracking-tight text-white"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               O que guia cada decisão
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto od-stagger-children">
             {filosofia.map((item) => (
               <div
                 key={item.titulo}
                 className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-violet-500/30 transition-colors"
               >
                 <div className="text-3xl mb-4">{item.icone}</div>
-                <h3 className="font-display font-black text-lg text-white mb-3">
+                <h3
+                  className="font-display font-black text-white mb-3"
+                  style={{ fontSize: "var(--text-body)" }}
+                >
                   {item.titulo}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
@@ -188,17 +202,20 @@ export default function SobrePage() {
       </section>
 
       {/* Metodologia */}
-      <section className="od-section">
+      <section className="od-section od-reveal-section">
         <div className="od-container">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
               Metodologia
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2
+              className="font-display font-black tracking-tight text-white"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Como trabalhamos
             </h2>
           </div>
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto od-stagger-children">
             {metodologia.map((item) => (
               <div key={item.step} className="relative">
                 <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors h-full">
@@ -217,23 +234,29 @@ export default function SobrePage() {
       </section>
 
       {/* Números */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section bg-zinc-950/40 od-reveal-section">
         <div className="od-container">
           <div className="text-center mb-12">
             <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
               Em números
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2
+              className="font-display font-black tracking-tight text-white"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Resultados construídos ao longo do tempo
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto od-stagger-children">
             {numeros.map((item) => (
               <div
                 key={item.label}
                 className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 text-center hover:border-cyan-500/30 transition-colors"
               >
-                <div className="font-display font-black text-4xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-2">
+                <div
+                  className="font-display font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-2"
+                  style={{ fontSize: "var(--text-h1)" }}
+                >
                   {item.valor}
                 </div>
                 <div className="text-zinc-400 text-sm">{item.label}</div>
@@ -243,13 +266,21 @@ export default function SobrePage() {
         </div>
       </section>
 
+      {/* TechStack */}
+      <div className="od-reveal-section">
+        <TechStack />
+      </div>
+
       {/* CTA */}
-      <section className="od-section-lg">
+      <section className="od-section-lg od-reveal-section">
         <div className="od-container text-center max-w-2xl mx-auto">
-          <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+          <h2
+            className="font-display font-black tracking-tight text-white mb-4"
+            style={{ fontSize: "var(--text-h2)" }}
+          >
             Quer conversar com nossa equipe?
           </h2>
-          <p className="text-zinc-400 mb-8">
+          <p className="text-zinc-400 mb-8" style={{ fontSize: "var(--text-body)" }}>
             Diagnóstico gratuito de 30 minutos. Sem compromisso. Sem pitch de vendas no
             primeiro contato.
           </p>

@@ -1,8 +1,10 @@
+"use client"
+
 import Link from "next/link"
 import { Mail, Linkedin, Instagram } from "lucide-react"
+import { useState, useId } from "react"
 import {
   WHATSAPP_LINK,
-  WHATSAPP_NUMBER,
   COMPANY_EMAIL,
   COMPANY_PHONE,
 } from "@/lib/constants"
@@ -20,25 +22,126 @@ const WA_ICON = (
   </svg>
 )
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const WHATSAPP_ERR = "Algo deu errado. Tente pelo WhatsApp: (31) 99696-6686"
+
+type SubmitStatus = "idle" | "loading" | "success" | "error"
+
+function FooterNewsletter() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<SubmitStatus>("idle")
+  const [errMsg, setErrMsg] = useState("")
+  const id = useId()
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (status === "loading") return
+    if (!email.trim() || !EMAIL_RE.test(email)) {
+      setErrMsg("E-mail inválido. Verifique e tente novamente.")
+      return
+    }
+    setErrMsg("")
+    setStatus("loading")
+    try {
+      const r = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "footer" }),
+      })
+      const d = await r.json()
+      if (d.success) {
+        setStatus("success")
+        setEmail("")
+      } else {
+        setStatus("error")
+        setErrMsg(d.error ?? WHATSAPP_ERR)
+      }
+    } catch {
+      setStatus("error")
+      setErrMsg(WHATSAPP_ERR)
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="flex items-center gap-2 text-cyan-400" style={{ fontSize: "var(--text-small)" }}>
+        <span className="w-4 h-4 flex items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-500/10 text-cyan-400">✓</span>
+        Inscrição confirmada! Próxima análise chega em breve.
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="flex flex-col sm:flex-row gap-3">
+      <div className="flex-1">
+        <label htmlFor={id} className="sr-only">Seu e-mail para a newsletter</label>
+        <input
+          id={id}
+          type="email"
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); setErrMsg("") }}
+          placeholder="seu@email.com.br"
+          required
+          disabled={status === "loading"}
+          aria-label="Seu e-mail para a newsletter"
+          aria-invalid={!!errMsg}
+          className="w-full rounded-lg border border-zinc-700 bg-zinc-800/60 px-4 py-2.5 text-zinc-100 placeholder-zinc-500 transition-colors focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/25 disabled:opacity-50"
+          style={{ fontSize: "var(--text-small)" }}
+        />
+        {errMsg && (
+          <p role="alert" className="mt-1.5 text-red-400" style={{ fontSize: "var(--text-small)" }}>
+            {errMsg}
+          </p>
+        )}
+      </div>
+      <button
+        type="submit"
+        disabled={status === "loading" || !email}
+        className="whitespace-nowrap rounded-lg border border-zinc-600 px-4 py-2.5 font-semibold text-zinc-200 transition-all duration-200 hover:border-cyan-500/50 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+        style={{ fontSize: "var(--text-small)" }}
+      >
+        {status === "loading" ? "Enviando…" : "Quero receber"}
+      </button>
+    </form>
+  )
+}
+
 export default function Footer() {
   return (
-    <footer className="bg-[#09090b] py-10 sm:py-12 px-4" style={{
-      borderTop: "1px solid #27272a",
-    }}>
-      <div className="od-container">
+    <footer className="bg-[#09090b] px-4" style={{ borderTop: "1px solid #27272a" }}>
+      {/* ─── Slim newsletter bar ─── */}
+      <div
+        className="od-container py-6 sm:py-8"
+        style={{ borderBottom: "1px solid #27272a" }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+          <p
+            className="flex-shrink-0 text-zinc-400"
+            style={{ fontSize: "var(--text-small)" }}
+          >
+            Receba novidades práticas sobre marketing digital.
+          </p>
+          <div className="flex-1 max-w-lg">
+            <FooterNewsletter />
+          </div>
+        </div>
+      </div>
+
+      {/* ─── Main footer columns ─── */}
+      <div className="od-container py-10 sm:py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
 
           {/* Brand */}
           <div>
             <h3
-              className="font-bold text-2xl mb-4"
-              style={{
-                color: "#ffffff",
-              }}
+              className="font-bold text-2xl mb-4 text-white"
             >
               On Demand Digital
             </h3>
-            <p className="text-[#94a3b8] text-sm mb-4 leading-relaxed">
+            <p
+              className="text-[#94a3b8] mb-4 leading-relaxed"
+              style={{ fontSize: "var(--text-small)" }}
+            >
               Marketing digital com automação, estratégia e resultados mensuráveis.
             </p>
 
@@ -88,18 +191,22 @@ export default function Footer() {
               href="https://instagram.com/ondemanddigital"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#94a3b8] hover:text-[#06b6d4] transition-all duration-300 mt-2 inline-block"
+              className="text-[#94a3b8] hover:text-[#06b6d4] transition-all duration-300 mt-2 inline-block"
+              style={{ fontSize: "var(--text-small)" }}
             >
               @ondemanddigital
             </a>
           </div>
 
-          {/* Serviços — only real services, no Redes Sociais */}
+          {/* Serviços */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4
+              className="font-semibold mb-4 text-[#e2e8f0] uppercase"
+              style={{ fontSize: "var(--text-small)", letterSpacing: "0.07em" }}
+            >
               Serviços
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-[#94a3b8]" style={{ fontSize: "var(--text-small)" }}>
               <li>
                 <Link href="/#trafego-pago" className="hover:text-[#06b6d4] transition-colors duration-200">
                   Tráfego Pago
@@ -125,10 +232,13 @@ export default function Footer() {
 
           {/* Empresa */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4
+              className="font-semibold mb-4 text-[#e2e8f0] uppercase"
+              style={{ fontSize: "var(--text-small)", letterSpacing: "0.07em" }}
+            >
               Empresa
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-[#94a3b8]" style={{ fontSize: "var(--text-small)" }}>
               <li>
                 <Link href="/sobre" className="hover:text-[#06b6d4] transition-colors duration-200">
                   Sobre Nós
@@ -152,10 +262,13 @@ export default function Footer() {
             </ul>
 
             {/* Legal */}
-            <h4 className="font-semibold mt-6 mb-3 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4
+              className="font-semibold mt-6 mb-3 text-[#e2e8f0] uppercase"
+              style={{ fontSize: "var(--text-small)", letterSpacing: "0.07em" }}
+            >
               Legal
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-[#94a3b8]" style={{ fontSize: "var(--text-small)" }}>
               <li>
                 <Link href="/privacidade" className="hover:text-[#06b6d4] transition-colors duration-200">
                   Política de Privacidade
@@ -171,10 +284,13 @@ export default function Footer() {
 
           {/* Contato */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4
+              className="font-semibold mb-4 text-[#e2e8f0] uppercase"
+              style={{ fontSize: "var(--text-small)", letterSpacing: "0.07em" }}
+            >
               Contato
             </h4>
-            <ul className="space-y-3 text-[#94a3b8] text-sm">
+            <ul className="space-y-3 text-[#94a3b8]" style={{ fontSize: "var(--text-small)" }}>
               <li>
                 <a
                   href={WHATSAPP_LINK}
@@ -195,19 +311,6 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-
-            {/* CTA inline */}
-            <div className="mt-6">
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Quero+agendar+um+diagnóstico+gratuito`}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="footer-whatsapp-cta"
-                className="inline-flex items-center gap-2 px-[18px] py-[10px] rounded-lg text-sm font-semibold transition-all duration-200 border border-zinc-700 text-zinc-300 hover:border-cyan-500/40 hover:text-white hover:bg-cyan-500/5"
-              >
-                Marcar diagnóstico gratuito
-              </a>
-            </div>
           </div>
         </div>
 
@@ -222,7 +325,7 @@ export default function Footer() {
         />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-[#64748b] text-xs gap-3">
+        <div className="flex flex-col md:flex-row justify-between items-center text-[#64748b] gap-3" style={{ fontSize: "var(--text-small)" }}>
           <p className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
             <span>&copy; {new Date().getFullYear()} On Demand Digital. Todos os direitos reservados.</span>
             <span className="hidden sm:inline" aria-hidden="true">·</span>
