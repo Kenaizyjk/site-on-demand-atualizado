@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
+import PageHero from '@/components/page-hero'
+import { cases } from '@/lib/cases-data'
 
 export const metadata: Metadata = {
   title: 'Casos de Sucesso | On Demand Digital',
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   },
 }
 
-const cases = [
+const casesDetailed = [
   {
     segmento: 'Clínica Odontológica · BH',
     badge: 'SEO Local + Google Ads',
@@ -85,28 +87,51 @@ export default function CasosPage() {
     <div className="od-page">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section-lg pt-32">
-        <div className="od-container text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
-            Casos de sucesso
-          </span>
-          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+      <PageHero
+        eyebrow="Casos de sucesso"
+        title={
+          <>
             Resultados que nossos clientes{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
               conseguem contar
             </span>
-          </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            Números reais. Segmentos reais. Nada de caso genérico ou métrica inflada.
-          </p>
+          </>
+        }
+        subtitle="Números reais. Segmentos reais. Nada de caso genérico ou métrica inflada."
+      />
+
+      {/* Métricas destaque — do lib/cases-data */}
+      <section className="od-section od-reveal-section">
+        <div className="od-container max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-6 od-stagger-children">
+            {cases.map((c) => (
+              <div
+                key={c.slug}
+                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors text-center"
+              >
+                <p
+                  className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400 leading-none mb-2"
+                  style={{ fontSize: "var(--text-display)" }}
+                >
+                  {c.metric}
+                </p>
+                <p className="text-zinc-400 text-xs uppercase tracking-widest mb-3">{c.label}</p>
+                <p className="text-zinc-500 text-sm leading-relaxed">{c.story}</p>
+                {c.sector && (
+                  <span className="inline-block mt-3 text-xs text-zinc-600 uppercase tracking-widest">
+                    {c.sector}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Cases */}
-      <section className="od-section">
+      {/* Cases detalhados */}
+      <section className="od-section od-reveal-section">
         <div className="od-container max-w-5xl mx-auto space-y-10">
-          {cases.map((c, i) => (
+          {casesDetailed.map((c, i) => (
             <article
               key={i}
               className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 hover:border-violet-500/30 transition-colors overflow-hidden"
@@ -125,7 +150,10 @@ export default function CasosPage() {
                     {c.badge}
                   </span>
                 </div>
-                <h2 className="font-display font-black text-2xl md:text-3xl text-white mb-2">
+                <h2
+                  className="font-display font-black text-white mb-2"
+                  style={{ fontSize: "var(--text-h2)" }}
+                >
                   {c.destaque}
                 </h2>
                 <p className="text-zinc-500 text-sm">{c.periodo}</p>
@@ -164,7 +192,10 @@ export default function CasosPage() {
                         className="flex items-center justify-between rounded-xl border border-zinc-800/60 bg-zinc-950/60 px-4 py-3"
                       >
                         <span className="text-zinc-400 text-sm">{m.label}</span>
-                        <span className="font-display font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
+                        <span
+                          className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400"
+                          style={{ fontSize: "var(--text-h2)" }}
+                        >
                           {m.valor}
                         </span>
                       </div>
@@ -186,15 +217,18 @@ export default function CasosPage() {
       </section>
 
       {/* CTA */}
-      <section className="od-section-lg">
+      <section className="od-section-lg od-reveal-section">
         <div className="od-container text-center max-w-2xl mx-auto">
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-6">
             Próximo passo
           </span>
-          <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+          <h2
+            className="font-display font-black tracking-tight text-white mb-4"
+            style={{ fontSize: "var(--text-h2)" }}
+          >
             Quer ser o próximo caso de sucesso?
           </h2>
-          <p className="text-zinc-400 mb-8">
+          <p className="text-zinc-400 mb-8" style={{ fontSize: "var(--text-body)" }}>
             Diagnóstico gratuito de 30 minutos. Analisamos o seu negócio e identificamos as
             maiores oportunidades, sem compromisso.
           </p>
