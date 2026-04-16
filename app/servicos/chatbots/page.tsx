@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import PageHero from "@/components/page-hero"
 
 export const metadata: Metadata = {
   title: "Chatbots e Atendimento com IA - On Demand Digital",
@@ -29,37 +30,33 @@ export default function ChatbotsPage() {
     <main className="od-page bg-[#09090b] min-h-screen">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section pt-32 pb-20">
-        <div className="od-container px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
-              Servico
+      <PageHero
+        eyebrow="Serviço"
+        title={
+          <>
+            Chatbots e Atendimento{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+              com IA
             </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-              Chatbots e Atendimento{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-                com IA
-              </span>
-            </h1>
-            <p className="text-zinc-400 text-lg leading-relaxed">
-              Atendentes virtuais treinados com informacoes do seu negocio para responder perguntas, orientar clientes e apoiar o time comercial a qualquer hora.
-            </p>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+        subtitle="Atendentes virtuais treinados com informacoes do seu negocio para responder perguntas, orientar clientes e apoiar o time comercial a qualquer hora."
+      />
 
       {/* O que fazemos */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+            <h2
+              className="font-display font-black text-white mb-6"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               O que fazemos
             </h2>
-            <p className="text-zinc-400 leading-relaxed mb-4">
+            <p className="text-zinc-400 leading-relaxed mb-4" style={{ fontSize: "var(--text-body)" }}>
               Construimos chatbots com base em modelos de linguagem modernos, configurados especificamente para o seu negocio. O chatbot conhece seus servicos, precos, politicas e tom de comunicacao, respondendo com precisao e naturalidade.
             </p>
-            <p className="text-zinc-400 leading-relaxed">
+            <p className="text-zinc-400 leading-relaxed" style={{ fontSize: "var(--text-body)" }}>
               A integracao acontece principalmente via WhatsApp Business, mas pode ser estendida para sites, Instagram e outras plataformas conforme a necessidade.
             </p>
           </div>
@@ -67,13 +64,16 @@ export default function ChatbotsPage() {
       </section>
 
       {/* Casos de uso */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            <h2
+              className="font-display font-black text-white mb-8"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Casos de uso
             </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 od-stagger-children">
               {[
                 {
                   title: "Atendimento inicial",
@@ -94,7 +94,7 @@ export default function ChatbotsPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6"
+                  className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-amber-500/30 transition-colors"
                 >
                   <h3 className="text-white font-bold mb-3">{item.title}</h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">{item.body}</p>
@@ -106,13 +106,16 @@ export default function ChatbotsPage() {
       </section>
 
       {/* Como funciona */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            <h2
+              className="font-display font-black text-white mb-8"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Como funciona
             </h2>
-            <ol className="space-y-6">
+            <ol className="space-y-6 od-stagger-children">
               {[
                 {
                   step: "01",
@@ -151,13 +154,16 @@ export default function ChatbotsPage() {
       </section>
 
       {/* CTA */}
-      <section className="od-section py-20 border-t border-zinc-800/60">
+      <section className="od-section py-20 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-black text-white mb-4">
+            <h2
+              className="font-display font-black text-white mb-4"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Quer um atendente de IA para o seu negocio?
             </h2>
-            <p className="text-zinc-400 mb-8">
+            <p className="text-zinc-400 mb-8" style={{ fontSize: "var(--text-body)" }}>
               Fale com a gente e entenda como um chatbot bem treinado pode responder seus clientes com agilidade e liberar o time para o que realmente importa.
             </p>
             <a

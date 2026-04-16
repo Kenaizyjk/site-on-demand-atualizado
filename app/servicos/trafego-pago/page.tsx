@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import PageHero from "@/components/page-hero"
 
 export const metadata: Metadata = {
   title: "Trafego Pago - Meta Ads e Google Ads em BH",
@@ -29,34 +30,30 @@ export default function TrafegoPagoPage() {
     <main className="od-page bg-[#09090b] min-h-screen">
       <Navigation />
 
-      {/* Hero */}
-      <section className="od-section pt-32 pb-20">
-        <div className="od-container px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">
-              Servico
+      <PageHero
+        eyebrow="Serviço"
+        title={
+          <>
+            Trafego Pago.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">
+              Meta Ads e Google Ads
             </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
-              Trafego Pago.{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">
-                Meta Ads e Google Ads
-              </span>
-            </h1>
-            <p className="text-zinc-400 text-lg leading-relaxed">
-              Planejamento e gestao de campanhas pagas com foco em objetivos claros, segmentacao adequada ao seu publico e monitoramento continuo para ajustes precisos.
-            </p>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+        subtitle="Planejamento e gestao de campanhas pagas com foco em objetivos claros, segmentacao adequada ao seu publico e monitoramento continuo para ajustes precisos."
+      />
 
       {/* O que fazemos */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            <h2
+              className="font-display font-black text-white mb-8"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               O que fazemos
             </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 od-stagger-children">
               {[
                 {
                   title: "Estruturacao de campanhas",
@@ -77,7 +74,7 @@ export default function TrafegoPagoPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6"
+                  className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-cyan-500/30 transition-colors"
                 >
                   <h3 className="text-white font-bold mb-3">{item.title}</h3>
                   <p className="text-zinc-400 text-sm leading-relaxed">{item.body}</p>
@@ -89,16 +86,19 @@ export default function TrafegoPagoPage() {
       </section>
 
       {/* Para quem e indicado */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+            <h2
+              className="font-display font-black text-white mb-6"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Para quem e indicado
             </h2>
-            <p className="text-zinc-400 mb-8 leading-relaxed">
+            <p className="text-zinc-400 mb-8 leading-relaxed" style={{ fontSize: "var(--text-body)" }}>
               Trafego pago funciona bem para negocios que ja tem um produto ou servico validado e precisam de previsibilidade na aquisicao de clientes. Trabalhamos com:
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-3 od-stagger-children">
               {[
                 "Empresas locais que querem aumentar o volume de contatos e visitas",
                 "E-commerces que buscam reducao no custo de aquisicao por pedido",
@@ -116,13 +116,16 @@ export default function TrafegoPagoPage() {
       </section>
 
       {/* Como funciona o processo */}
-      <section className="od-section py-16 border-t border-zinc-800/60">
+      <section className="od-section py-16 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            <h2
+              className="font-display font-black text-white mb-8"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Como funciona o processo
             </h2>
-            <ol className="space-y-6">
+            <ol className="space-y-6 od-stagger-children">
               {[
                 {
                   step: "01",
@@ -161,13 +164,16 @@ export default function TrafegoPagoPage() {
       </section>
 
       {/* CTA */}
-      <section className="od-section py-20 border-t border-zinc-800/60">
+      <section className="od-section py-20 border-t border-zinc-800/60 od-reveal-section">
         <div className="od-container px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-black text-white mb-4">
+            <h2
+              className="font-display font-black text-white mb-4"
+              style={{ fontSize: "var(--text-h2)" }}
+            >
               Quer estruturar suas campanhas?
             </h2>
-            <p className="text-zinc-400 mb-8">
+            <p className="text-zinc-400 mb-8" style={{ fontSize: "var(--text-body)" }}>
               Fale com a gente. Fazemos um diagnostico rapido do que esta funcionando e do que pode melhorar nas suas campanhas atuais.
             </p>
             <a
