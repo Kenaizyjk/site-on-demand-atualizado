@@ -4,8 +4,11 @@ import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Termos de Uso',
-  description: 'Termos de uso da On Demand Digital.',
-  robots: { index: false, follow: false },
+  description: 'Termos de uso do site On Demand Digital. Condições de acesso, propriedade intelectual e limitações de responsabilidade.',
+  alternates: {
+    canonical: 'https://ondemanddigital.com.br/termos',
+  },
+  robots: { index: true, follow: true },
 }
 
 export default function TermosPage() {
@@ -53,7 +56,7 @@ export default function TermosPage() {
 
               <div>
                 <h2 className="text-xl font-bold text-white mb-3">7. Contato</h2>
-                <p>Dúvidas sobre estes termos? Entre em contato: <a href="mailto:contato@ondemanddigital.com.br" className="text-violet-400 hover:text-violet-300">contato@ondemanddigital.com.br</a></p>
+                <p>Dúvidas sobre estes termos? Entre em contato: <a href="mailto:contato@ondemanddigital.com.br" className="text-white/60 hover:text-white/80 underline underline-offset-2">contato@ondemanddigital.com.br</a></p>
               </div>
             </div>
           </div>

@@ -1,12 +1,12 @@
 export default function ManifestoStrip() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden">
-      {/* Linha topo */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-zinc-800" />
+    <section id="sobre" className="relative py-16 lg:py-24 overflow-hidden">
+      {/* Ambient blobs */}
+      <div className="od-blob od-blob--purple absolute top-0 left-1/4 w-[400px] h-[300px]" aria-hidden="true" />
+      <div className="od-blob od-blob--cyan absolute bottom-0 right-1/4 w-[300px] h-[250px]" aria-hidden="true" />
 
-      {/* Fundo diferenciado */}
-      <div className="absolute inset-0 bg-zinc-900/40" />
-      <div className="absolute inset-0 border-y border-zinc-800/50" />
+      {/* Glass container */}
+      <div className="absolute inset-0 od-glass" style={{ borderRadius: 0 }} />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Citação principal */}
@@ -22,7 +22,7 @@ export default function ManifestoStrip() {
         </blockquote>
 
         {/* Linha decorativa central */}
-        <div className="w-16 h-px bg-zinc-700 mx-auto mb-8" />
+        <div className="w-16 h-px mx-auto mb-8" style={{ background: "rgba(255,255,255,0.15)" }} />
 
         {/* Parágrafo de apoio */}
         <p className="text-[#b4b4bc] text-base sm:text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -30,9 +30,6 @@ export default function ManifestoStrip() {
           A gente entende por você.
         </p>
       </div>
-
-      {/* Linha base */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-zinc-800" />
     </section>
   )
 }

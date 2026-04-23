@@ -1,275 +1,345 @@
 "use client"
 
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { motion, useReducedMotion } from "framer-motion"
-import type { MotionProps } from "framer-motion"
+import { useRef } from "react"
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
 
-const WA_URL =
-  "https://wa.me/5531996966686?text=Olá%2C+vim+pelo+site+e+quero+entender+como+funciona"
+/**
+ * HeroCinematic — imagem de fundo com parallax de scroll "Ascensão ao topo"
+ * + texto que se forma letra por letra APÓS a intro cinematográfica
+ *
+ * Timing: CinematicIntro dura ~6.3s (5.5s play + 0.8s fade).
+ * Todas as animações do hero começam com BASE_DELAY para sincronizar.
+ */
 
-const STATS = [
-  { value: "30+", label: "Negócios atendidos" },
-  { value: "1:1", label: "Direto com quem executa" },
-  { value: "0", label: "Intermediários" },
-] as const
+/** Delay base — espera a intro cinematográfica terminar */
+const BASE = 6.5
+
+const TITLE_LINES = [
+  { text: "Agência", delay: BASE + 0.2 },
+  { text: "de", delay: BASE + 1.0 },
+  { text: "Marketing", delay: BASE + 1.4, gradient: true },
+]
+
+const CHAR_STAGGER = 0.045
 
 export default function HeroCinematic() {
-  const reduced = useReducedMotion()
+  const sectionRef = useRef<HTMLElement>(null)
+  const prefersReducedMotion = useReducedMotion()
 
-  function fadeUp(delay: number): MotionProps {
-    if (reduced) return { initial: false }
-    return {
-      initial: { opacity: 0, y: 28 },
-      animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] },
-    }
-  }
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
 
-  function fadeIn(delay: number): MotionProps {
-    if (reduced) return { initial: false }
-    return {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      transition: { duration: 1.1, delay },
-    }
-  }
+  // Parallax transforms — disabled when user prefers reduced motion
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"])
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.15])
+  const textY = useTransform(scrollYProgress, [0, 0.5], [0, -60])
+  const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0])
+  const ctaOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+
+  // Calcula o delay da linha + último char para saber quando a animação do título termina
+  const lastLine = TITLE_LINES[TITLE_LINES.length - 1]
+  const titleEnd = lastLine.delay + lastLine.text.length * CHAR_STAGGER + 0.6
+  const lineDelay = titleEnd + 0.2
+  const subDelay = titleEnd + 0.5
 
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative w-full overflow-hidden bg-[#09090b]"
       style={{ minHeight: "100svh" }}
       aria-label="Hero principal"
     >
-      {/* ─── Founder photo — right panel ─── */}
-      <motion.div
-        {...fadeIn(0.05)}
-        className="absolute inset-0 lg:left-[40%]"
-        aria-hidden="true"
-      >
-        {/* Photo — color treated for dark palette integration */}
-        <Image
-          src="/davi-honorato.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-[center_top]"
-          sizes="(max-width: 1024px) 100vw, 60vw"
-          style={{ filter: "saturate(0.82) brightness(0.88)" }}
-        />
+      <style>{`
+        @keyframes hero-char-in {
+          0% {
+            opacity: 0;
+            transform: translateY(30px) rotateX(40deg);
+            filter: blur(6px);
+          }
+          60% {
+            opacity: 0.8;
+            filter: blur(1px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+            filter: blur(0);
+          }
+        }
+        @keyframes hero-fade-up {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hero-line-grow {
+          from { width: 0; }
+          to   { width: 80px; }
+        }
 
-        {/* Combined overlay — left bleed + top/bottom vignette + right edge (3→1 div) */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: [
-              "linear-gradient(to right, #09090b 0%, #09090b 18%, rgba(9,9,11,0.9) 32%, rgba(9,9,11,0.45) 45%, rgba(9,9,11,0.1) 52%, transparent 62%)",
-              "linear-gradient(to bottom, rgba(9,9,11,0.8) 0%, transparent 28%, transparent 62%, #09090b 92%, #09090b 100%)",
-              "linear-gradient(to left, rgba(9,9,11,0.6) 0%, transparent 28%)",
-            ].join(", "),
-          }}
-        />
+        .hero-char {
+          display: inline-block;
+          opacity: 0;
+          animation: hero-char-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          will-change: opacity, transform, filter;
+        }
+        .hero-eyebrow {
+          opacity: 0;
+          animation: hero-fade-up 0.8s ease-out ${BASE}s forwards;
+        }
+        .hero-line {
+          width: 0;
+          animation: hero-line-grow 0.8s ease-out forwards;
+        }
+        .hero-subtitle {
+          opacity: 0;
+          animation: hero-fade-up 0.8s ease-out forwards;
+        }
 
-        {/* Mobile — 82% opacity veil for guaranteed readability + eyebrow contrast */}
-        <div className="absolute inset-0 bg-[#09090b]/82 lg:hidden" />
-      </motion.div>
+        /* Gradiente texto aplicado POR CARACTERE para não quebrar com opacity animation */
+        .hero-char-gradient {
+          background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.55) 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
-      {/* ─── Neon accent mark — 1px sharp, editorial ─── */}
-      <div
-        className="absolute pointer-events-none hidden lg:block"
-        style={{
-          top: "10%",
-          right: "6%",
-          width: 72,
-          height: 1,
-          background:
-            "linear-gradient(to right, transparent 0%, #06b6d4 18%, #06b6d4 82%, transparent 100%)",
-        }}
-        aria-hidden="true"
+        /* ── Scroll CTA — ring + seta ── */
+        @keyframes hero-scroll-line-grow {
+          from { height: 0; opacity: 0; }
+          to   { height: 40px; opacity: 1; }
+        }
+        .hero-scroll-cta {
+          opacity: 0;
+          animation: hero-fade-up 1s ease-out forwards;
+        }
+        .hero-scroll-ring {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        .hero-scroll-ring::before {
+          content: "";
+          position: absolute;
+          inset: -1px;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.15);
+          animation: hero-ring-sonar 3s ease-out infinite;
+        }
+        @keyframes hero-ring-sonar {
+          0%   { transform: scale(1); opacity: 0.6; }
+          100% { transform: scale(1.8); opacity: 0; }
+        }
+        @keyframes hero-arrow-bounce {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(3px); }
+        }
+        .hero-scroll-ring svg {
+          animation: hero-arrow-bounce 2s ease-in-out infinite;
+        }
+        .hero-scroll-track {
+          width: 1px;
+          height: 0;
+          opacity: 0;
+          background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+          animation: hero-scroll-line-grow 1s ease-out forwards;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-char,
+          .hero-eyebrow,
+          .hero-subtitle,
+          .hero-scroll-cta {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+          }
+          .hero-scroll-ring::before,
+          .hero-scroll-ring svg {
+            animation: none !important;
+          }
+          .hero-scroll-track {
+            animation: none !important;
+            height: 40px !important;
+            opacity: 1 !important;
+          }
+          .hero-line {
+            animation: none !important;
+            width: 80px !important;
+          }
+          #home img {
+            transform: none !important;
+          }
+        }
+      `}</style>
+
+      {/* ── Imagem de fundo com parallax ── */}
+      <motion.img
+        src="/hero-bg-planet.png"
+        alt="Planeta estilizado representando alcance global de marketing digital"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={
+          prefersReducedMotion
+            ? { transform: "scale(1.05)" }
+            : { y: bgY, scale: bgScale }
+        }
       />
 
-      {/* ─── Vertical rule — column-edge structural guide ─── */}
-      <motion.div
-        initial={reduced ? false : { scaleY: 0, opacity: 0 }}
-        animate={{ scaleY: 1, opacity: 1 }}
-        transition={{ duration: 1.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute hidden lg:block pointer-events-none"
-        style={{
-          left: "38%",
-          top: 0,
-          height: "30%",
-          width: 1,
-          transformOrigin: "top center",
-          willChange: "transform",
-          background:
-            "linear-gradient(to bottom, rgba(6,182,212,0.15) 0%, rgba(6,182,212,0.15) 75%, transparent 100%)",
-        }}
+      {/* ── Camadas de profundidade ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
+        style={{
+          background: "radial-gradient(ellipse 70% 60% at 50% 45%, transparent 20%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          height: "45%",
+          background: "linear-gradient(to top, rgba(9,9,11,1) 0%, rgba(9,9,11,0.7) 40%, transparent 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-y-0 left-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          width: "50%",
+          background: "linear-gradient(to right, rgba(0,0,0,0.5) 0%, transparent 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background: "radial-gradient(ellipse 50% 40% at 50% 40%, rgba(59,130,246,0.06) 0%, transparent 70%)",
+        }}
       />
 
-      {/* ─── Main content (flex column, padded) ─── */}
-      <div
-        className="relative z-10 flex flex-col px-6 sm:px-10 lg:px-20"
-        style={{ minHeight: "100svh", paddingTop: "5.5rem", paddingBottom: "max(10rem, 22svh)" }}
-      >
-        {/* Eyebrow */}
-        <motion.p
-          {...fadeUp(0.15)}
-          className="font-display text-zinc-500 font-semibold mb-8 sm:mb-10 lg:mb-12"
-          style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase" }}
-        >
-          Agência de Marketing Digital · Belo Horizonte
-        </motion.p>
-
-        {/* ── Headline — extreme size contrast ── */}
-        <h1
-          className="font-display font-black leading-none mb-7 sm:mb-9 lg:[max-width:min(640px,55vw)]"
-        >
-          <motion.span
-            {...fadeUp(0.22)}
-            className="block text-white"
-            style={{
-              fontSize: "clamp(56px, 11vw, 152px)",
-              letterSpacing: "-0.03em",
-              lineHeight: 0.87,
-            }}
-          >
-            MAIS
-          </motion.span>
-
-          <motion.span
-            {...fadeUp(0.3)}
-            className="block"
-            style={{
-              fontSize: "clamp(56px, 11vw, 152px)",
-              letterSpacing: "-0.03em",
-              lineHeight: 0.87,
-              color: "#06b6d4",
-            }}
-          >
-            CLIENTES.
-          </motion.span>
-
-          <motion.span
-            {...fadeUp(0.38)}
-            className="block text-white/30"
-            style={{
-              fontSize: "clamp(18px, 2.8vw, 42px)",
-              letterSpacing: "0.01em",
-              lineHeight: 1.3,
-              marginTop: "0.5em",
-              fontWeight: 300,
-              fontStyle: "italic",
-            }}
-          >
-            Menos desperdício.
-          </motion.span>
-        </h1>
-
-        {/* Horizontal rule — editorial separator */}
-        <motion.div
-          initial={reduced ? false : { scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.44, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 sm:mb-8"
-          style={{
-            height: 1,
-            background: "rgba(39,39,42,0.7)",
-            transformOrigin: "left center",
-            maxWidth: "min(380px, 100%)",
-          }}
-          aria-hidden="true"
-        />
-
-        {/* Subtitle */}
-        <motion.p
-          {...fadeUp(0.48)}
-          className="text-zinc-400 mb-10 sm:mb-12"
-          style={{
-            fontSize: "clamp(14px, 1.1vw, 16px)",
-            maxWidth: 360,
-            lineHeight: 1.8,
-          }}
-        >
-          Tráfego pago, SEO local e automação com IA — executados por quem realmente entende do seu negócio.
-          Sem camadas.
-        </motion.p>
-
-        {/* CTA */}
-        <motion.div {...fadeUp(0.56)}>
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="hero-cinematic-cta"
-            className="od-hero-cta group inline-flex items-center gap-3 font-semibold rounded-lg"
-            style={{ fontSize: "clamp(14px, 1vw, 16px)" }}
-          >
-            Marcar diagnóstico gratuito
-            <ArrowRight
-              className="w-4 h-4 transition-transform duration-[180ms] group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </a>
-        </motion.div>
-      </div>
-
-      {/* ─── Stats — absolute floor, full-width ─── */}
+      {/* ── Texto editorial com animação letra por letra ── */}
       <motion.div
-        {...fadeUp(0.72)}
-        className="absolute inset-x-0 bottom-0 z-10 px-6 sm:px-10 lg:px-20 pb-8 sm:pb-10"
-        style={{ borderTop: "1px solid rgba(39,39,42,0.4)" }}
+        className="absolute inset-0 flex items-center pointer-events-none"
+        style={
+          prefersReducedMotion
+            ? undefined
+            : { y: textY, opacity: textOpacity }
+        }
       >
-        <div className="flex flex-wrap gap-8 sm:gap-12 lg:gap-16 pt-6">
-          {STATS.map((stat) => (
-            <div key={stat.label}>
-              <p
-                className="font-display font-black text-white leading-none"
-                style={{ fontSize: "clamp(26px, 2.6vw, 40px)" }}
+        <div className="relative z-10 px-6 sm:px-10 lg:px-16 max-w-4xl">
+          {/* Eyebrow */}
+          <p
+            className="hero-eyebrow font-display text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] mb-4 sm:mb-6"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+          >
+            On Demand Digital
+          </p>
+
+          {/* Título — cada letra aparece individualmente */}
+          <h1
+            className="font-display font-extralight uppercase leading-[0.95] tracking-[0.12em] text-white"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
+            aria-label="Agência de Marketing"
+          >
+            {TITLE_LINES.map((line, lineIdx) => (
+              <span
+                key={lineIdx}
+                className={`block ${line.gradient ? "font-light" : ""}`}
+                aria-hidden="true"
               >
-                {stat.value}
-              </p>
-              <p
-                className="text-zinc-600 font-semibold uppercase mt-1.5"
-                style={{ fontSize: 9, letterSpacing: "0.22em" }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
+                {line.text.split("").map((char, charIdx) => (
+                  <span
+                    key={charIdx}
+                    className={`hero-char ${line.gradient ? "hero-char-gradient" : ""}`}
+                    style={{
+                      animationDelay: `${line.delay + charIdx * CHAR_STAGGER}s`,
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
+            ))}
+          </h1>
+
+          {/* Linha decorativa */}
+          <div
+            className="hero-line mt-6 sm:mt-8 h-px"
+            style={{
+              background: "linear-gradient(90deg, rgba(255,255,255,0.4), transparent)",
+              animationDelay: `${lineDelay}s`,
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Subtítulo */}
+          <p
+            className="hero-subtitle mt-4 sm:mt-6 text-sm sm:text-base font-light leading-relaxed max-w-md"
+            style={{
+              color: "rgba(255,255,255,0.45)",
+              animationDelay: `${subDelay}s`,
+            }}
+          >
+            Estratégia, tráfego pago e automação com IA para negócios que querem crescer com clareza.
+          </p>
         </div>
       </motion.div>
 
-      {/* ─── Scroll indicator ─── */}
-      <div
-        className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-3 pointer-events-none"
-        aria-hidden="true"
+      {/* ── Scroll CTA — editorial ── */}
+      <motion.div
+        style={
+          prefersReducedMotion
+            ? undefined
+            : { opacity: ctaOpacity }
+        }
       >
-        <p
-          className="text-zinc-700 font-medium uppercase"
-          style={{
-            fontSize: 9,
-            letterSpacing: "0.22em",
-            writingMode: "vertical-rl",
-            transform: "rotate(180deg)",
-          }}
+      <div
+        className="hero-scroll-cta absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 pointer-events-auto cursor-pointer group"
+        style={{ animationDelay: `${subDelay + 0.6}s` }}
+        onClick={() => {
+          document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" })
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label="Rolar para baixo"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" })
+          }
+        }}
+      >
+        {/* Label */}
+        <span
+          className="font-display text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.3em] transition-colors duration-300 group-hover:text-white/60"
+          style={{ color: "rgba(255,255,255,0.3)" }}
         >
-          Scroll
-        </p>
-        <motion.div
-          initial={reduced ? false : { scaleY: 0, opacity: 0 }}
-          animate={{ scaleY: 1, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            width: 1,
-            height: 52,
-            transformOrigin: "top center",
-            willChange: "transform",
-            background: "linear-gradient(to bottom, #3f3f46, transparent)",
-          }}
+          Explorar
+        </span>
+
+        {/* Ring com seta chevron */}
+        <div className="hero-scroll-ring group-hover:border-white/40 transition-colors duration-300">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 4.5L7 10.5L13 4.5" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+
+        {/* Linha vertical que cresce */}
+        <div
+          className="hero-scroll-track"
+          style={{ animationDelay: `${subDelay + 1.2}s` }}
         />
       </div>
+      </motion.div>
     </section>
   )
 }

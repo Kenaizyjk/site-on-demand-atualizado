@@ -257,7 +257,7 @@ export default function NewsletterPopup() {
     // glassmorphism
     'bg-zinc-900/95 backdrop-blur-xl',
     'border border-zinc-700/50',
-    // sombra dramática + glow violet
+    // sombra dramática + glow sutil
     'shadow-2xl',
     // transição de entrada
     'transition-all duration-300 ease-out',
@@ -271,9 +271,9 @@ export default function NewsletterPopup() {
         .popup-glow {
           box-shadow:
             0 25px 50px -12px rgba(0,0,0,0.9),
-            0 0 0 1px rgba(139,92,246,0.15),
-            0 0 40px -8px rgba(139,92,246,0.25),
-            0 0 80px -20px rgba(6,182,212,0.15);
+            0 0 0 1px rgba(255,255,255,0.08),
+            0 0 40px -8px rgba(255,255,255,0.06),
+            0 0 80px -20px rgba(255,255,255,0.04);
         }
         @keyframes popup-check-in {
           0%   { transform: scale(0); opacity: 0; }
@@ -301,7 +301,7 @@ export default function NewsletterPopup() {
         {/* ── Botão fechar ── */}
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60"
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
           aria-label="Fechar popup"
         >
           <IconClose />
@@ -311,7 +311,7 @@ export default function NewsletterPopup() {
         <div
           className="px-6 pt-6 pb-5"
           style={{
-            background: 'linear-gradient(135deg, rgba(139,92,246,0.18) 0%, rgba(6,182,212,0.12) 100%)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%)',
             borderBottom: '1px solid rgba(255,255,255,0.05)',
           }}
         >
@@ -320,17 +320,17 @@ export default function NewsletterPopup() {
             <div
               className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, rgba(139,92,246,0.35), rgba(6,182,212,0.25))',
-                border: '1px solid rgba(139,92,246,0.3)',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04))',
+                border: '1px solid rgba(255,255,255,0.1)',
               }}
             >
-              <span className="text-violet-300">
+              <span className="text-white/50">
                 <IconSparkles />
               </span>
             </div>
             <span
               className="text-xs font-bold uppercase tracking-widest"
-              style={{ color: 'rgba(139,92,246,0.9)' }}
+              style={{ color: 'rgba(255,255,255,0.5)' }}
             >
               Newsletter Semanal
             </span>
@@ -358,11 +358,11 @@ export default function NewsletterPopup() {
               <div
                 className="popup-check-in w-14 h-14 rounded-full flex items-center justify-center mb-4"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(139,92,246,0.3), rgba(6,182,212,0.2))',
-                  border: '1.5px solid rgba(139,92,246,0.4)',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04))',
+                  border: '1.5px solid rgba(255,255,255,0.1)',
                 }}
               >
-                <span className="text-violet-300">
+                <span className="text-white/50">
                   <IconCheck />
                 </span>
               </div>
@@ -410,7 +410,7 @@ export default function NewsletterPopup() {
                       'focus:outline-none focus:ring-2',
                       fieldError
                         ? 'border-red-500/60 focus:ring-red-500/30 focus:border-red-500/60'
-                        : 'border-zinc-700/60 hover:border-zinc-600 focus:border-violet-500/60 focus:ring-violet-500/25',
+                        : 'border-zinc-700/60 hover:border-zinc-600 focus:border-white/20 focus:ring-white/10',
                     ].join(' ')}
                   />
                 </div>
@@ -433,12 +433,11 @@ export default function NewsletterPopup() {
                 <button
                   type="submit"
                   disabled={status === 'loading' || !email}
-                  className="w-full py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 active:scale-[0.98]"
+                  className="w-full py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 active:scale-[0.98]"
                   style={{
-                    background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
-                    boxShadow: status !== 'loading' && email
-                      ? '0 4px 20px -4px rgba(139,92,246,0.5)'
-                      : 'none',
+                    background: 'rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    boxShadow: 'none',
                   }}
                 >
                   <span className="flex items-center justify-center gap-2">

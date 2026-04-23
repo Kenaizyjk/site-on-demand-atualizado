@@ -24,7 +24,14 @@ yarn-error.log*
 # vercel
 .vercel
 
+# superpowers
+.superpowers/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
+# claude code
+.claude/
+.playwright-mcp/
+CLAUDE-CODE-*.md

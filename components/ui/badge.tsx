@@ -15,9 +15,9 @@ function Badge({
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2",
+        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-[rgba(255,255,255,0.15)] focus:ring-offset-2",
         variant === "default" &&
-          "border-transparent bg-[#06b6d4] text-[#09090b]",
+          "border-white/10 bg-white/[0.04] text-white/60",
         variant === "secondary" &&
           "border-transparent bg-[#1e293b] text-[#e2e8f0]",
         variant === "destructive" &&

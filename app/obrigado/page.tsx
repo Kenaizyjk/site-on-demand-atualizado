@@ -5,10 +5,13 @@ import type { Metadata } from "next"
 import { BLOG_ARTICLES_LIST } from "@/lib/blog-data"
 
 export const metadata: Metadata = {
-  title: "Obrigado! Entraremos em Contato em Breve | On Demand Digital",
+  title: "Obrigado! Entraremos em Contato em Breve",
   description: "Recebemos sua mensagem e um especialista entrará em contato em até 24h. Enquanto isso, explore nossos materiais gratuitos.",
+  alternates: {
+    canonical: "https://ondemanddigital.com.br/obrigado",
+  },
   robots: {
-    index: false, // Don't index thank you pages
+    index: false,
     follow: true,
   },
 }

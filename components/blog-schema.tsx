@@ -37,7 +37,7 @@ export const BlogArticleSchema: FC<BlogArticleSchemaProps> = ({
       "@type": "Person",
       name: author,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/`,
-      sameAs: ["https://www.linkedin.com/in/daviluis", "https://twitter.com/daviluis"],
+      sameAs: ["https://www.linkedin.com/in/davi-honorato-209955367"],
     },
     datePublished: publishedDate,
     dateModified: modifiedDate || publishedDate,
@@ -47,7 +47,7 @@ export const BlogArticleSchema: FC<BlogArticleSchemaProps> = ({
     },
     image: {
       "@type": "ImageObject",
-      url: image || `${process.env.NEXT_PUBLIC_SITE_URL}/og-image.svg`,
+      url: image?.startsWith('http') ? image : `${process.env.NEXT_PUBLIC_SITE_URL}${image || '/og-image.svg'}`,
       width: 1200,
       height: 630,
     },

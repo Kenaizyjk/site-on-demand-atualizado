@@ -4,8 +4,11 @@ import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
-  description: 'Política de privacidade da On Demand Digital. Saiba como tratamos seus dados.',
-  robots: { index: false, follow: false },
+  description: 'Política de privacidade da On Demand Digital. Saiba como coletamos, usamos e protegemos seus dados conforme a LGPD.',
+  alternates: {
+    canonical: 'https://ondemanddigital.com.br/privacidade',
+  },
+  robots: { index: true, follow: true },
 }
 
 export default function PrivacidadePage() {
@@ -43,12 +46,12 @@ export default function PrivacidadePage() {
 
               <div>
                 <h2 className="text-xl font-bold text-white mb-3">5. Seus direitos (LGPD)</h2>
-                <p>De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar seus dados, corrigir dados incorretos, solicitar a exclusão dos seus dados, e revogar o consentimento a qualquer momento. Para exercer esses direitos, entre em contato: <a href="mailto:contato@ondemanddigital.com.br" className="text-violet-400 hover:text-violet-300">contato@ondemanddigital.com.br</a></p>
+                <p>De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: acessar seus dados, corrigir dados incorretos, solicitar a exclusão dos seus dados, e revogar o consentimento a qualquer momento. Para exercer esses direitos, entre em contato: <a href="mailto:contato@ondemanddigital.com.br" className="text-white/60 hover:text-white/80 underline underline-offset-2">contato@ondemanddigital.com.br</a></p>
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-white mb-3">6. Contato</h2>
-                <p>Dúvidas sobre nossa política de privacidade? Fale conosco em <a href="mailto:contato@ondemanddigital.com.br" className="text-violet-400 hover:text-violet-300">contato@ondemanddigital.com.br</a></p>
+                <p>Dúvidas sobre nossa política de privacidade? Fale conosco em <a href="mailto:contato@ondemanddigital.com.br" className="text-white/60 hover:text-white/80 underline underline-offset-2">contato@ondemanddigital.com.br</a></p>
               </div>
             </div>
           </div>

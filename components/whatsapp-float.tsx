@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { trackEvent, GA_EVENTS } from "@/lib/ga-events"
 import { WHATSAPP_NUMBER } from "@/lib/constants"
 
-const WA_MESSAGE = "Olá%2C+vim+pelo+site+da+On+Demand+Digital+e+quero+entender+como+funciona"
+const WA_MESSAGE = "Ol%C3%A1%2C+vim+pelo+site+da+On+Demand+Digital+e+quero+entender+como+funciona"
 
 export default function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(false)
@@ -33,7 +33,7 @@ export default function WhatsAppFloat() {
       }
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
-      className="fixed bottom-6 right-6 z-50 group hidden md:flex transition-all duration-500"
+      className="fixed bottom-6 right-6 z-50 group flex transition-all duration-500"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'scale(1)' : 'scale(0.6)',
@@ -44,7 +44,7 @@ export default function WhatsAppFloat() {
       <div className="relative flex items-center">
         {/* Tooltip */}
         <div
-          className={`absolute right-full mr-3 whitespace-nowrap bg-zinc-900 text-white text-xs font-semibold px-3 py-2 rounded-lg border border-zinc-700 shadow-xl transition-all duration-200 ${
+          className={`absolute right-full mr-3 whitespace-nowrap bg-zinc-900 text-white text-xs font-semibold px-3 py-2 rounded-lg border border-zinc-700 shadow-xl transition-all duration-200 hidden md:block ${
             showTooltip
               ? "opacity-100 translate-x-0"
               : "opacity-0 translate-x-2 pointer-events-none"

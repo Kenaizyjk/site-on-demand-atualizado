@@ -180,6 +180,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       </head>
       <body className="font-sans antialiased">
+        {/* Skip navigation link for screen readers */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-black focus:text-sm focus:font-semibold focus:outline-none focus:ring-2 focus:ring-white/50"
+        >
+          Pular para o conteúdo principal
+        </a>
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5NJ3XP3G"
         height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>

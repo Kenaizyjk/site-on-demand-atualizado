@@ -37,6 +37,6 @@ export const SEO_DEFAULTS = {
     'minas gerais',
     'agência marketing bh',
   ],
-  ogImage: `${WEBSITE_URL}/og-image.svg`,
-  twitterImage: `${WEBSITE_URL}/twitter-image.svg`,
+  ogImage: `${WEBSITE_URL}/og?title=${encodeURIComponent(`Ag\u00EAncia de Marketing Digital em BH | On Demand Digital`)}`,
+  twitterImage: `${WEBSITE_URL}/og?title=${encodeURIComponent(`Ag\u00EAncia de Marketing Digital em BH | On Demand Digital`)}`,
 } as const

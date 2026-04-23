@@ -11,7 +11,7 @@ export default function WhatsAppStickyBar() {
     return () => clearTimeout(timer)
   }, [])
 
-  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá%2C+vim+pelo+site+e+quero+entender+como+funciona`
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+entender+como+funciona`
 
   return (
     <a

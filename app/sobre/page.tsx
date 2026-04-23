@@ -3,17 +3,21 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'Sobre | On Demand Digital',
+  title: 'Sobre a Agência de Marketing Digital em BH',
   description:
     'Conheça a On Demand Digital: agência de marketing digital em BH. Método, transparência e resultado mensurável para negócios locais.',
   alternates: { canonical: 'https://ondemanddigital.com.br/sobre' },
   openGraph: {
-    title: 'Sobre | On Demand Digital',
+    title: 'Sobre a On Demand Digital',
     description:
       'Agência de marketing digital em BH. Método, transparência e resultado mensurável para negócios locais.',
     url: 'https://ondemanddigital.com.br/sobre',
     locale: 'pt_BR',
     type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -95,16 +99,16 @@ export default function SobrePage() {
       {/* Hero */}
       <section className="od-section-lg pt-32">
         <div className="od-container text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-white/50 text-xs font-semibold uppercase tracking-widest mb-6">
             Sobre a agência
           </span>
-          <h1 className="font-display font-black tracking-tight text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+          <h1 className="font-extralight uppercase tracking-[0.12em] text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
             Método. Transparência.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
               Resultados que você consegue medir.
             </span>
           </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
+          <p className="text-lg text-white/40 leading-relaxed">
             A On Demand Digital é uma agência de marketing digital em Belo Horizonte
             focada em pequenas e médias empresas que querem crescer com consistência.
           </p>
@@ -116,13 +120,13 @@ export default function SobrePage() {
         <div className="od-container">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
                 A história
               </span>
-              <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-6">
+              <h2 className="font-extralight uppercase tracking-[0.12em] text-3xl md:text-4xl text-white mb-6">
                 Por que a On Demand existe
               </h2>
-              <div className="space-y-4 text-zinc-400 leading-relaxed">
+              <div className="space-y-4 text-white/40 leading-relaxed">
                 <p>
                   A On Demand nasceu em 2022 para preencher um gap claro no mercado:
                   PMEs locais tinham acesso apenas a grandes agências que tratavam
@@ -146,12 +150,12 @@ export default function SobrePage() {
               {valores.map((item) => (
                 <div
                   key={item.titulo}
-                  className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors"
+                  className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 hover:border-white/[0.12] transition-colors"
                 >
-                  <h3 className="font-display font-black text-white text-base mb-2">
+                  <h3 className="font-extralight uppercase tracking-[0.12em] text-white text-base mb-2">
                     {item.titulo}
                   </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
+                  <p className="text-white/40 text-sm leading-relaxed">{item.descricao}</p>
                 </div>
               ))}
             </div>
@@ -160,13 +164,13 @@ export default function SobrePage() {
       </section>
 
       {/* Filosofia */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section">
         <div className="od-container">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
               Filosofia
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2 className="font-extralight uppercase tracking-[0.12em] text-3xl md:text-4xl text-white">
               O que guia cada decisão
             </h2>
           </div>
@@ -174,13 +178,13 @@ export default function SobrePage() {
             {filosofia.map((item) => (
               <div
                 key={item.titulo}
-                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-violet-500/30 transition-colors"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 hover:border-white/[0.12] transition-colors"
               >
                 <div className="text-3xl mb-4">{item.icone}</div>
-                <h3 className="font-display font-black text-lg text-white mb-3">
+                <h3 className="font-extralight uppercase tracking-[0.12em] text-lg text-white mb-3">
                   {item.titulo}
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
+                <p className="text-white/40 text-sm leading-relaxed">{item.descricao}</p>
               </div>
             ))}
           </div>
@@ -191,24 +195,24 @@ export default function SobrePage() {
       <section className="od-section">
         <div className="od-container">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest mb-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
               Metodologia
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2 className="font-extralight uppercase tracking-[0.12em] text-3xl md:text-4xl text-white">
               Como trabalhamos
             </h2>
           </div>
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {metodologia.map((item) => (
               <div key={item.step} className="relative">
-                <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 hover:border-cyan-500/30 transition-colors h-full">
-                  <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-3 font-display leading-none">
+                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 hover:border-white/[0.12] transition-colors h-full">
+                  <div className="text-4xl font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60 mb-3 leading-none">
                     {item.step}
                   </div>
-                  <h3 className="font-display font-black text-white text-lg mb-2">
+                  <h3 className="font-extralight uppercase tracking-[0.12em] text-white text-lg mb-2">
                     {item.titulo}
                   </h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{item.descricao}</p>
+                  <p className="text-white/40 text-sm leading-relaxed">{item.descricao}</p>
                 </div>
               </div>
             ))}
@@ -217,13 +221,13 @@ export default function SobrePage() {
       </section>
 
       {/* Números */}
-      <section className="od-section bg-zinc-950/40">
+      <section className="od-section">
         <div className="od-container">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-widest mb-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-white/50 text-xs font-semibold uppercase tracking-widest mb-4">
               Em números
             </span>
-            <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white">
+            <h2 className="font-extralight uppercase tracking-[0.12em] text-3xl md:text-4xl text-white">
               Resultados construídos ao longo do tempo
             </h2>
           </div>
@@ -231,12 +235,12 @@ export default function SobrePage() {
             {numeros.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 text-center hover:border-cyan-500/30 transition-colors"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 text-center hover:border-white/[0.12] transition-colors"
               >
-                <div className="font-display font-black text-4xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-violet-400 mb-2">
+                <div className="font-extralight text-4xl text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60 mb-2">
                   {item.valor}
                 </div>
-                <div className="text-zinc-400 text-sm">{item.label}</div>
+                <div className="text-white/40 text-sm">{item.label}</div>
               </div>
             ))}
           </div>
@@ -246,10 +250,10 @@ export default function SobrePage() {
       {/* CTA */}
       <section className="od-section-lg">
         <div className="od-container text-center max-w-2xl mx-auto">
-          <h2 className="font-display font-black tracking-tight text-3xl md:text-4xl text-white mb-4">
+          <h2 className="font-extralight uppercase tracking-[0.12em] text-3xl md:text-4xl text-white mb-4">
             Quer conversar com nossa equipe?
           </h2>
-          <p className="text-zinc-400 mb-8">
+          <p className="text-white/40 mb-8">
             Diagnóstico gratuito de 30 minutos. Sem compromisso. Sem pitch de vendas no
             primeiro contato.
           </p>
@@ -258,11 +262,12 @@ export default function SobrePage() {
             target="_blank"
             rel="noopener noreferrer"
             data-track="sobre-whatsapp-cta"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-bold rounded-xl shadow-lg hover:opacity-90 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold rounded-xl hover:opacity-90 hover:scale-[1.02] active:scale-[0.97] transition-all duration-200 text-lg"
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)' }}
           >
             Conversar com nossa equipe
           </a>
-          <p className="text-zinc-600 text-sm mt-4">
+          <p className="text-white/20 text-sm mt-4">
             Resposta em até 2 horas em dias úteis
           </p>
         </div>

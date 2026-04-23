@@ -250,29 +250,26 @@ export default function TechStack() {
     <section
       className="relative overflow-hidden py-20 lg:py-28"
       style={{
-        background: "#09090b",
+        background: "transparent",
         borderTop: "1px solid rgba(255,255,255,0.05)",
         borderBottom: "1px solid rgba(255,255,255,0.05)",
       }}
     >
-      {/* Ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] rounded-full"
-        style={{ background: "radial-gradient(ellipse, rgba(139,92,246,0.07) 0%, transparent 70%)" }}
-      />
+      {/* Ambient blobs */}
+      <div className="od-blob od-blob--purple absolute top-1/4 left-1/4 w-[500px] h-[300px]" aria-hidden="true" />
+      <div className="od-blob od-blob--cyan absolute bottom-1/4 right-1/4 w-[400px] h-[250px]" aria-hidden="true" />
 
       {/* Header */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center mb-14">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">
           Stack de ferramentas
         </p>
-        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+        <h2 className="text-3xl sm:text-4xl font-extralight uppercase tracking-[0.12em] text-white">
           Tecnologia que{" "}
           <span
             className="text-transparent"
             style={{
-              backgroundImage: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
+              backgroundImage: "linear-gradient(90deg, #ffffff, rgba(255,255,255,0.55))",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
@@ -294,12 +291,12 @@ export default function TechStack() {
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40"
-          style={{ background: "linear-gradient(to right, #09090b, transparent)" }}
+          style={{ background: "linear-gradient(to right, rgba(9,9,11,0.9), transparent)" }}
         />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40"
-          style={{ background: "linear-gradient(to left, #09090b, transparent)" }}
+          style={{ background: "linear-gradient(to left, rgba(9,9,11,0.9), transparent)" }}
         />
       </div>
 

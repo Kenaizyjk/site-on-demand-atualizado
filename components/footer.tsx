@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Mail, Linkedin, Instagram } from "lucide-react"
 import {
@@ -22,8 +24,12 @@ const WA_ICON = (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#09090b] py-10 sm:py-12 px-4" style={{
-      borderTop: "1px solid #27272a",
+    <footer className="py-10 sm:py-12 px-4 relative" style={{
+      background: "rgba(9,9,11,0.6)",
+      backdropFilter: "blur(16px)",
+      WebkitBackdropFilter: "blur(16px)",
+      borderTop: "1px solid rgba(255,255,255,0.04)",
+      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.02)",
     }}>
       <div className="od-container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
@@ -31,14 +37,15 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3
-              className="font-bold text-2xl mb-4"
+              className="font-extralight uppercase text-2xl mb-4"
               style={{
                 color: "#ffffff",
+                letterSpacing: "0.1em",
               }}
             >
               On Demand Digital
             </h3>
-            <p className="text-[#94a3b8] text-sm mb-4 leading-relaxed">
+            <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
               Marketing digital com automação, estratégia e resultados mensuráveis.
             </p>
 
@@ -49,7 +56,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track="footer-whatsapp-social"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 hover:bg-zinc-700/60 hover:border-zinc-600/60"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="WhatsApp"
                 aria-label="WhatsApp On Demand Digital"
               >
@@ -57,7 +65,8 @@ export default function Footer() {
               </a>
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 hover:bg-zinc-700/60 hover:border-zinc-600/60"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="Email"
                 aria-label={`Enviar e-mail para ${COMPANY_EMAIL}`}
               >
@@ -67,7 +76,8 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/ondemanddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 hover:bg-zinc-700/60 hover:border-zinc-600/60"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="LinkedIn"
                 aria-label="On Demand Digital no LinkedIn"
               >
@@ -77,7 +87,8 @@ export default function Footer() {
                 href="https://instagram.com/ondemanddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-zinc-800/60 border border-zinc-700/50 text-zinc-400 hover:bg-zinc-700/60 hover:border-zinc-600/60"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="Instagram @ondemanddigital"
                 aria-label="On Demand Digital no Instagram"
               >
@@ -88,35 +99,46 @@ export default function Footer() {
               href="https://instagram.com/ondemanddigital"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#94a3b8] hover:text-[#06b6d4] transition-all duration-300 mt-2 inline-block"
+              className="text-sm transition-all duration-300 mt-2 inline-block"
+              style={{ color: 'rgba(255,255,255,0.35)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}
             >
               @ondemanddigital
             </a>
           </div>
 
-          {/* Serviços — only real services, no Redes Sociais */}
+          {/* Serviços */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4 className="font-semibold mb-4 text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em", color: 'rgba(255,255,255,0.5)' }}>
               Serviços
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/#trafego-pago" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/#servicos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Tráfego Pago
                 </Link>
               </li>
               <li>
-                <Link href="/#seo-local" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/#casos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   SEO Local + GMB
                 </Link>
               </li>
               <li>
-                <Link href="/#automacao" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/#servicos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Automação com IA
                 </Link>
               </li>
               <li>
-                <Link href="/#sites" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/servicos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Sites em Next.js
                 </Link>
               </li>
@@ -125,44 +147,56 @@ export default function Footer() {
 
           {/* Empresa */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4 className="font-semibold mb-4 text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em", color: 'rgba(255,255,255,0.5)' }}>
               Empresa
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/sobre" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/sobre" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Sobre Nós
                 </Link>
               </li>
               <li>
-                <Link href="/casos" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/casos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Casos de Sucesso
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/blog" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/#faq" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/#faq" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Perguntas Frequentes
                 </Link>
               </li>
             </ul>
 
             {/* Legal */}
-            <h4 className="font-semibold mt-6 mb-3 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4 className="font-semibold mt-6 mb-3 text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em", color: 'rgba(255,255,255,0.5)' }}>
               Legal
             </h4>
-            <ul className="space-y-2.5 text-[#94a3b8] text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/privacidade" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/privacidade" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Política de Privacidade
                 </Link>
               </li>
               <li>
-                <Link href="/termos" className="hover:text-[#06b6d4] transition-colors duration-200">
+                <Link href="/termos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}>
                   Termos de Uso
                 </Link>
               </li>
@@ -171,17 +205,20 @@ export default function Footer() {
 
           {/* Contato */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#e2e8f0] text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em" }}>
+            <h4 className="font-semibold mb-4 text-sm tracking-wide uppercase" style={{ letterSpacing: "0.07em", color: 'rgba(255,255,255,0.5)' }}>
               Contato
             </h4>
-            <ul className="space-y-3 text-[#94a3b8] text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-track="footer-whatsapp-phone"
-                  className="hover:text-[#06b6d4] transition-colors duration-200"
+                  className="transition-colors duration-200"
+                  style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}
                 >
                   {COMPANY_PHONE}
                 </a>
@@ -189,7 +226,10 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${COMPANY_EMAIL}`}
-                  className="hover:text-[#06b6d4] transition-colors duration-200 break-all"
+                  className="transition-colors duration-200 break-all"
+                  style={{ color: 'rgba(255,255,255,0.35)' }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.6)' }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.35)' }}
                 >
                   {COMPANY_EMAIL}
                 </a>
@@ -199,11 +239,14 @@ export default function Footer() {
             {/* CTA inline */}
             <div className="mt-6">
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Quero+agendar+um+diagnóstico+gratuito`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Quero+agendar+um+diagn%C3%B3stico+gratuito`}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track="footer-whatsapp-cta"
-                className="inline-flex items-center gap-2 px-[18px] py-[10px] rounded-lg text-sm font-semibold transition-all duration-200 border border-zinc-700 text-zinc-300 hover:border-cyan-500/40 hover:text-white hover:bg-cyan-500/5"
+                className="inline-flex items-center gap-2 px-[18px] py-[10px] rounded-lg text-sm font-semibold transition-all duration-200 text-white"
+                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.08)' }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.06)' }}
               >
                 Marcar diagnóstico gratuito
               </a>
@@ -216,30 +259,37 @@ export default function Footer() {
           aria-hidden="true"
           style={{
             height: 1,
-            background: "#27272a",
+            background: "rgba(255,255,255,0.04)",
             marginBottom: "2rem",
           }}
         />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-[#64748b] text-xs gap-3">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs gap-3" style={{ color: 'rgba(255,255,255,0.25)' }}>
           <p className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center sm:text-left">
             <span>&copy; {new Date().getFullYear()} On Demand Digital. Todos os direitos reservados.</span>
-            <span className="hidden sm:inline" aria-hidden="true">·</span>
+            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
             <span>CNPJ: 60.803.333/0001-80</span>
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacidade" className="hover:text-[#94a3b8] transition-colors duration-200">
+            <Link href="/privacidade" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.25)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}>
               Privacidade
             </Link>
-            <span aria-hidden="true" className="text-[#334155]">·</span>
-            <Link href="/termos" className="hover:text-[#94a3b8] transition-colors duration-200">
+            <span aria-hidden="true" style={{ color: 'rgba(255,255,255,0.1)' }}>&middot;</span>
+            <Link href="/termos" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.25)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}>
               Termos
             </Link>
-            <span aria-hidden="true" className="text-[#334155]">·</span>
+            <span aria-hidden="true" style={{ color: 'rgba(255,255,255,0.1)' }}>&middot;</span>
             <a
               href={`mailto:${COMPANY_EMAIL}`}
-              className="hover:text-[#94a3b8] transition-colors duration-200"
+              className="transition-colors duration-200"
+              style={{ color: 'rgba(255,255,255,0.25)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}
             >
               {COMPANY_EMAIL}
             </a>

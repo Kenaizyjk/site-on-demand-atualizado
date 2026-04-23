@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
           </div>
           <div
             style={{
-              color: '#8b5cf6',
+              color: '#7c93b0',
               fontSize: 24,
               marginTop: 32,
             }}
@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
               left: 0,
               right: 0,
               height: 4,
-              background: 'linear-gradient(90deg, #8b5cf6, #06b6d4)',
+              background: 'linear-gradient(90deg, rgba(124,147,176,0.6), rgba(255,255,255,0.2))',
             }}
           />
         </div>

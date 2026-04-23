@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { WHATSAPP_NUMBER } from "@/lib/constants"
+import Script from "next/script"
 
 const faqs = [
   {
@@ -62,8 +63,18 @@ function AccordionItem({
 }) {
   return (
     <div
-      className="border-t border-zinc-800/70 last:border-b"
-      style={{ borderColor: isOpen ? "rgba(139,92,246,0.2)" : undefined }}
+      className="rounded-lg transition-all duration-300"
+      style={{
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderColor: isOpen ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.06)",
+        background: isOpen ? "rgba(255,255,255,0.02)" : "transparent",
+        padding: isOpen ? "0 1rem" : "0",
+        ...(isOpen ? {
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          boxShadow: "inset 3px 0 0 rgba(255,255,255,0.15)",
+        } : {}),
+      }}
     >
       <button
         onClick={onToggle}
@@ -79,9 +90,11 @@ function AccordionItem({
         <span
           className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300 mt-0.5"
           style={{
-            borderColor: isOpen ? "rgba(139,92,246,0.5)" : "rgba(63,63,70,0.8)",
-            background: isOpen ? "rgba(139,92,246,0.12)" : "transparent",
-            color: isOpen ? "#c4b5fd" : "#52525b",
+            borderColor: isOpen ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.1)",
+            background: isOpen ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.03)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            color: isOpen ? "rgba(255,255,255,0.7)" : "#52525b",
           }}
           aria-hidden="true"
         >
@@ -93,7 +106,7 @@ function AccordionItem({
         className="overflow-hidden transition-all duration-300 ease-out"
         style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
       >
-        <p className="text-[#b4b4bc] text-sm sm:text-base leading-relaxed pb-7 max-w-3xl">
+        <p className="text-white/[0.45] text-sm sm:text-base leading-relaxed pb-7 max-w-3xl">
           {answer}
         </p>
       </div>
@@ -104,18 +117,39 @@ function AccordionItem({
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
+  // FAQ structured data for Google rich results
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
-    <section id="faq" className="bg-[#09090b] py-24 lg:py-36">
+    <section id="faq" className="py-24 lg:py-36 relative">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
 
         {/* Header */}
         <div className="mb-16">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/30 mb-4">
             Dúvidas
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white leading-[1.05]">
+          <h2 className="text-4xl sm:text-5xl font-extralight uppercase tracking-[0.12em] text-white leading-[1.05]">
             Perguntas frequentes
           </h2>
+          {/* Decorative line */}
+          <div className="w-16 h-px mt-6" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.25) 0%, transparent 100%)" }} aria-hidden="true" />
         </div>
 
         {/* Accordion */}
@@ -133,16 +167,19 @@ export default function FAQ() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 pt-10 border-t border-zinc-800/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <p className="text-[#b4b4bc] text-sm">
+        <div className="mt-16 pt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <p className="text-white/[0.45] text-sm">
             Ainda tem dúvidas? A equipe responde direto pelo WhatsApp.
           </p>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%2C+tenho+uma+dúvida+sobre+os+serviços`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+os+servi%C3%A7os`}
             target="_blank"
             rel="noopener noreferrer"
             data-track="faq-whatsapp-cta"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 text-sm font-semibold hover:border-violet-500/40 hover:text-white transition-all duration-200 active:scale-[0.97]"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white/50 text-sm font-semibold hover:text-white transition-all duration-200 active:scale-[0.97]"
+            style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)" }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)" }}
           >
             Perguntar pelo WhatsApp
           </a>

@@ -25,207 +25,251 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: "como-aparecer-google-maps-belo-horizonte",
     title: "Como Aparecer no Google Maps de Belo Horizonte em 30 Dias",
-    excerpt: "Guia pratico para otimizar seu Google Meu Negocio e aparecer nas primeiras posicoes do Google Maps em BH. Passo a passo sem precisar de tecnico.",
-    coverImage: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+    excerpt: "Guia prático para otimizar seu Google Meu Negócio e aparecer nas primeiras posições do Google Maps em BH. Passo a passo sem precisar de técnico.",
+    coverImage: "/blog/cover-google-maps-bh.jpg",
     author: "Davi Honorato",
     publishedAt: "2026-03-15",
     category: "SEO Local",
-    tags: ["Google Meu Negocio", "SEO local", "BH", "Google Maps", "negocios locais"],
+    tags: ["Google Meu Negócio", "SEO local", "BH", "Google Maps", "negócios locais"],
     readTime: 8,
-    keywords: ["google maps belo horizonte", "google meu negocio BH", "SEO local BH"],
+    metaTitle: "Como Aparecer no Google Maps de BH em 30 Dias",
+    metaDescription: "Guia prático para otimizar seu Google Meu Negócio e aparecer nas primeiras posições do Google Maps em Belo Horizonte. Passo a passo completo.",
+    keywords: ["google maps belo horizonte", "google meu negócio BH", "SEO local BH"],
     featured: true,
+    tableOfContents: [
+      "Resumo rápido",
+      "Checklist relâmpago",
+      "Passo 1: Verificar e Completar o Perfil",
+      "Passo 2: Escolher a Categoria Certa",
+      "Passo 3: Fotos e Postagens Semanais",
+      "Passo 4: Avaliações e Respostas",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
+      "Próximos passos",
+    ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- Perfil completo e verificado e o primeiro passo.
-- Fotos reais e avaliacoes frequentes aumentam relevancia.
-- Consistencia de dados (NAP) e fundamental.
+- Perfil completo e verificado é o primeiro passo.
+- Fotos reais e avaliações frequentes aumentam relevância.
+- Consistência de dados (NAP) é fundamental.
 
 ---
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Perfil do Google Meu Negocio verificado
-- Nome, endereco e telefone consistentes
+- Perfil do Google Meu Negócio verificado
+- Nome, endereço e telefone consistentes
 - Categoria principal correta
 - Fotos reais e atualizadas
-- Respostas a todas as avaliacoes
+- Respostas a todas as avaliações
 
 ---
 
 ## Passo 1: Verificar e Completar o Perfil
 
-Acesse o Google Business Profile e garanta que todos os campos estao preenchidos. Nome, endereco, telefone, horario de funcionamento e descricao do negocio.
+Acesse o Google Business Profile e garanta que todos os campos estão preenchidos. Nome, endereço, telefone, horário de funcionamento e descrição do negócio.
 
 ---
 
 ## Passo 2: Escolher a Categoria Certa
 
-A categoria principal define em quais buscas voce aparece. Escolha a mais especifica possivel e adicione categorias secundarias relevantes.
+A categoria principal define em quais buscas você aparece. Escolha a mais específica possível e adicione categorias secundárias relevantes.
 
 ---
 
 ## Passo 3: Fotos e Postagens Semanais
 
-Negocio com fotos recentes recebe 42% mais pedidos de rota no Maps. Publique fotos reais e postagens semanais sobre novidades e promocoes.
+Negócio com fotos recentes recebe 42% mais pedidos de rota no Maps. Publique fotos reais e postagens semanais sobre novidades e promoções.
 
 ---
 
-## Passo 4: Avaliacoes e Respostas
+## Passo 4: Avaliações e Respostas
 
-Peca avaliacoes de forma natural e responda todas, positivas e negativas. Respostas rapidas mostram atencao ao cliente.
+Peça avaliações de forma natural e responda todas, positivas e negativas. Respostas rápidas mostram atenção ao cliente.
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-O Google Maps prioriza negocios que demonstram atividade constante. Postagens e avaliacoes recentes pesam mais do que um perfil bonito e parado.
+O Google Maps prioriza negócios que demonstram atividade constante. Postagens e avaliações recentes pesam mais do que um perfil bonito e parado.
 
 ---
 
 ## Exemplo real
 
-Uma clinica em BH que respondeu 100% das avaliacoes e postou semanalmente subiu de 15o para 3o no Maps em 28 dias.
+Uma clínica em BH que respondeu 100% das avaliações e postou semanalmente subiu de 15o para 3o no Maps em 28 dias.
 
 ---
 
 ## FAQ
 
-- **Quanto tempo leva para aparecer no Maps?** De 2 a 4 semanas com otimizacao constante.
-- **Preciso pagar para aparecer?** Nao. O perfil organico do Google Meu Negocio e gratuito.
-- **Avaliacoes falsas ajudam?** Nao. O Google detecta e pode penalizar seu perfil.
+- **Quanto tempo leva para aparecer no Maps?** De 2 a 4 semanas com otimização constante.
+- **Preciso pagar para aparecer?** Não. O perfil orgânico do Google Meu Negócio é gratuito.
+- **Avaliações falsas ajudam?** Não. O Google detecta e pode penalizar seu perfil.
 
 ---
 
 ## Resumo final
 
-- Perfil completo e verificado e prioridade.
-- Fotos e postagens semanais geram relevancia.
-- Avaliacoes reais e respostas rapidas fazem diferenca.
+- Perfil completo e verificado é prioridade.
+- Fotos e postagens semanais geram relevância.
+- Avaliações reais e respostas rápidas fazem diferença.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, revisamos seu perfil no Google Maps e entregamos um plano de otimizacao com prioridades claras.
+Se quiser, revisamos seu perfil no Google Maps e entregamos um plano de otimização com prioridades claras.
 `,
   },
   {
     slug: "trafego-pago-clinicas-bh-guia-2026",
-    title: "Trafego Pago para Clinicas em BH: Guia Completo 2026",
-    excerpt: "Como usar Google Ads e Meta Ads para gerar pacientes para sua clinica em Belo Horizonte. Estrategias que funcionam para clinicas odontologicas, medicas e de estetica.",
-    coverImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800",
+    title: "Tráfego Pago para Clínicas em BH: Guia Completo 2026",
+    excerpt: "Como usar Google Ads e Meta Ads para gerar pacientes para sua clínica em Belo Horizonte. Estratégias que funcionam para clínicas odontológicas, médicas e de estética.",
+    coverImage: "/blog/cover-trafego-pago-clinicas.jpg",
     author: "Davi Honorato",
     publishedAt: "2026-03-28",
     category: "Trafego Pago",
-    tags: ["Google Ads", "Meta Ads", "clinicas", "BH", "trafego pago"],
+    tags: ["Google Ads", "Meta Ads", "clínicas", "BH", "tráfego pago"],
     readTime: 12,
-    keywords: ["trafego pago clinicas BH", "google ads clinica belo horizonte", "marketing para clinicas"],
+    metaTitle: "Tráfego Pago para Clínicas em BH: Guia 2026",
+    metaDescription: "Como usar Google Ads e Meta Ads para gerar pacientes para sua clínica em Belo Horizonte. Estratégias testadas para clínicas odontológicas e médicas.",
+    keywords: ["tráfego pago clínicas BH", "google ads clínica belo horizonte", "marketing para clínicas"],
     featured: true,
+    tableOfContents: [
+      "Resumo rápido",
+      "Checklist relâmpago",
+      "Google Ads para Clínicas",
+      "Meta Ads para Clínicas",
+      "Landing Pages que Convertem",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
+      "Próximos passos",
+    ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
 - Google Ads captura demanda ativa; Meta Ads gera demanda.
-- Landing page dedicada e essencial para conversao.
-- Mensuracao correta define o sucesso.
+- Landing page dedicada é essencial para conversão.
+- Mensuração correta define o sucesso.
 
 ---
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Campanhas separadas por servico
+- Campanhas separadas por serviço
 - Landing pages dedicadas
-- Conversoes configuradas (formulario, WhatsApp, ligacao)
-- Orcamento minimo definido por canal
-- Rotina semanal de otimizacao
+- Conversões configuradas (formulário, WhatsApp, ligação)
+- Orçamento mínimo definido por canal
+- Rotina semanal de otimização
 
 ---
 
-## Google Ads para Clinicas
+## Google Ads para Clínicas
 
-Foque em termos com intencao local: "dentista BH", "clinica estetica Belo Horizonte". Use extensoes de local e chamada para facilitar o contato.
+Foque em termos com intenção local: "dentista BH", "clínica estética Belo Horizonte". Use extensões de local e chamada para facilitar o contato.
 
 ---
 
-## Meta Ads para Clinicas
+## Meta Ads para Clínicas
 
-Use campanhas de reconhecimento com antes/depois (respeitando normas do CFM) e retargeting para quem visitou o site. Segmente por regiao e interesse.
+Use campanhas de reconhecimento com antes/depois (respeitando normas do CFM) e retargeting para quem visitou o site. Segmente por região e interesse.
 
 ---
 
 ## Landing Pages que Convertem
 
-A pagina de destino precisa ter: proposta clara, prova social, formulario simples e CTA para WhatsApp. Evite menus e distracao.
+A página de destino precisa ter: proposta clara, prova social, formulário simples e CTA para WhatsApp. Evite menus e distração.
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-Clinicas que separam campanhas por servico e usam landing pages dedicadas reduzem o custo por lead em ate 40%.
+Clínicas que separam campanhas por serviço e usam landing pages dedicadas reduzem o custo por lead em até 40%.
 
 ---
 
 ## Exemplo real
 
-Uma clinica odontologica em BH reduziu o CPA de R$85 para R$32 em 30 dias ao separar campanhas por servico e criar landing pages especificas.
+Uma clínica odontológica em BH reduziu o CPA de R$85 para R$32 em 30 dias ao separar campanhas por serviço e criar landing pages específicas.
 
 ---
 
 ## FAQ
 
-- **Quanto investir no inicio?** De R$1.500 a R$3.000/mes por canal para ter dados suficientes.
-- **Google ou Meta primeiro?** Google Ads primeiro se ha demanda de busca; Meta se precisa gerar consciencia.
-- **Quanto tempo para ver resultado?** De 2 a 4 semanas com otimizacao constante.
+- **Quanto investir no início?** De R$1.500 a R$3.000/mês por canal para ter dados suficientes.
+- **Google ou Meta primeiro?** Google Ads primeiro se há demanda de busca; Meta se precisa gerar consciência.
+- **Quanto tempo para ver resultado?** De 2 a 4 semanas com otimização constante.
 
 ---
 
 ## Resumo final
 
-- Separe campanhas por servico.
+- Separe campanhas por serviço.
 - Use landing pages dedicadas.
 - Mensure tudo e otimize semanalmente.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar suas campanhas e entregar um plano com prioridades claras para sua clinica.
+Se quiser, podemos revisar suas campanhas e entregar um plano com prioridades claras para sua clínica.
 `,
   },
   {
     slug: "automacao-n8n-pequenas-empresas-brasil",
-    title: "Automacao com n8n: Como Pequenas Empresas Brasileiras Estao Usando IA",
-    excerpt: "Conheca casos reais de automacao com n8n em PMEs brasileiras. Como automatizar atendimento no WhatsApp, follow-up de leads e atualizacao de CRM sem contratar mais pessoas.",
-    coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800",
+    title: "Automação com n8n: Como Pequenas Empresas Brasileiras Estão Usando IA",
+    excerpt: "Conheça casos reais de automação com n8n em PMEs brasileiras. Como automatizar atendimento no WhatsApp, follow-up de leads e atualização de CRM sem contratar mais pessoas.",
+    coverImage: "/blog/cover-automacao-n8n.jpg",
     author: "Davi Honorato",
     publishedAt: "2026-04-02",
     category: "Automacao",
-    tags: ["n8n", "automacao", "WhatsApp", "IA", "PME"],
+    tags: ["n8n", "automação", "WhatsApp", "IA", "PME"],
     readTime: 10,
-    keywords: ["automacao n8n brasil", "automacao whatsapp negocios", "n8n pequenas empresas"],
+    metaTitle: "Automação com n8n: PMEs Brasileiras Usando IA",
+    metaDescription: "Casos reais de automação com n8n em PMEs brasileiras. Como automatizar WhatsApp, follow-up de leads e CRM sem contratar mais pessoas.",
+    keywords: ["automação n8n brasil", "automação whatsapp negócios", "n8n pequenas empresas"],
     featured: true,
+    tableOfContents: [
+      "Resumo rápido",
+      "Checklist relâmpago",
+      "O que é n8n",
+      "Caso 1: Atendimento WhatsApp Automatizado",
+      "Caso 2: Follow-up de Leads no CRM",
+      "Caso 3: Atualização Automática de CRM",
+      "Insight rápido",
+      "Exemplo real",
+      "FAQ",
+      "Resumo final",
+      "Próximos passos",
+    ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
 - n8n permite automatizar sem saber programar.
-- WhatsApp, CRM e e-mail sao os 3 fluxos mais comuns.
-- Automacao libera tempo para vender, nao para operar.
+- WhatsApp, CRM e e-mail são os 3 fluxos mais comuns.
+- Automação libera tempo para vender, não para operar.
 
 ---
 
-## Checklist relampago
+## Checklist relâmpago
 
 - Fluxo de atendimento mapeado
-- Integracao WhatsApp + CRM configurada
-- Follow-up automatico de leads
+- Integração WhatsApp + CRM configurada
+- Follow-up automático de leads
 - Alertas para transbordo humano
-- Dashboard de metricas ativo
+- Dashboard de métricas ativo
 
 ---
 
-## O que e n8n
+## O que é n8n
 
-Plataforma de automacao open-source que conecta ferramentas sem codigo. Ideal para PMEs que precisam de integracao sem custo alto.
+Plataforma de automação open-source que conecta ferramentas sem código. Ideal para PMEs que precisam de integração sem custo alto.
 
 ---
 
@@ -237,93 +281,96 @@ Uma loja de roupas em BH automatizou respostas iniciais no WhatsApp com n8n. Tem
 
 ## Caso 2: Follow-up de Leads no CRM
 
-Uma consultoria automatizou o follow-up de leads que nao responderam em 48h. Taxa de resposta subiu 35% sem esforco manual.
+Uma consultoria automatizou o follow-up de leads que não responderam em 48h. Taxa de resposta subiu 35% sem esforço manual.
 
 ---
 
-## Caso 3: Atualizacao Automatica de CRM
+## Caso 3: Atualização Automática de CRM
 
-Um escritorio de advocacia conectou formularios do site ao CRM via n8n. Eliminaram 4 horas semanais de entrada manual de dados.
+Um escritório de advocacia conectou formulários do site ao CRM via n8n. Eliminaram 4 horas semanais de entrada manual de dados.
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-Automacao nao e sobre substituir pessoas. E sobre liberar pessoas para fazer o que so pessoas fazem: vender, negociar e resolver problemas.
+Automação não é sobre substituir pessoas. É sobre liberar pessoas para fazer o que só pessoas fazem: vender, negociar e resolver problemas.
 
 ---
 
 ## Exemplo real
 
-Uma PME com 8 funcionarios automatizou 3 fluxos com n8n e economizou o equivalente a 1 funcionario em tempo operacional.
+Uma PME com 8 funcionários automatizou 3 fluxos com n8n e economizou o equivalente a 1 funcionário em tempo operacional.
 
 ---
 
 ## FAQ
 
-- **Preciso saber programar?** Nao. O n8n funciona com blocos visuais.
-- **Quanto custa?** A versao self-hosted e gratuita. A cloud comeca em US$20/mes.
+- **Preciso saber programar?** Não. O n8n funciona com blocos visuais.
+- **Quanto custa?** A versão self-hosted é gratuita. A cloud começa em US$20/mês.
 - **Quais ferramentas integram?** WhatsApp, Google Sheets, CRM, e-mail, Slack e centenas de outras.
 
 ---
 
 ## Resumo final
 
-- n8n e acessivel para PMEs.
+- n8n é acessível para PMEs.
 - Comece por atendimento e follow-up.
-- Automacao libera tempo e reduz erros.
+- Automação libera tempo e reduz erros.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos mapear seus fluxos e sugerir as automacoes com maior impacto para seu negocio.
+Se quiser, podemos mapear seus fluxos e sugerir as automações com maior impacto para seu negócio.
 `,
   },
   {
     slug: "10-erros-google-ads",
     title: "10 Erros em Google Ads que Travaram a Performance",
-    excerpt: "Os pontos cegos que drenam orcamento -- e como corrigir com metodo, sem achismo.",
-    coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=675&fit=crop&q=80",
+    excerpt: "Os pontos cegos que drenam orçamento -- e como corrigir com método, sem achismo.",
+    coverImage: "/blog/cover-10-erros-google-ads.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-15",
     readTime: 12,
     category: "Google Ads",
     tags: ["Google Ads", "SEM", "ROI", "Performance"],
+    metaTitle: "10 Erros em Google Ads que Travam Performance",
+    metaDescription: "Os pontos cegos que drenam orçamento no Google Ads e como corrigir cada um com método. Guia prático com exemplos reais e checklist.",
+    keywords: ["erros google ads", "otimizar google ads", "performance google ads", "ROI google ads"],
     featured: true,
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
+      "Resumo rápido",
+      "Checklist relâmpago",
       "Erro #1: Objetivo e Mensagem Difusos",
-      "Erro #2: Palavras-chave Sem Intencao",
-      "Erro #3: Pagina de Destino Fraca",
-      "Erro #4: Mensuracao Incompleta",
-      "Erro #5: Estrutura e Orcamento Confusos",
-      "Erro #6: Rotina de Otimizacao Ausente",
-      "Erro #7: Anuncios Sem Prova e Diferencial",
+      "Erro #2: Palavras-chave Sem Intenção",
+      "Erro #3: Página de Destino Fraca",
+      "Erro #4: Mensuração Incompleta",
+      "Erro #5: Estrutura e Orçamento Confusos",
+      "Erro #6: Rotina de Otimização Ausente",
+      "Erro #7: Anúncios Sem Prova e Diferencial",
       "Erro #8: Negativas Ignoradas",
-      "Erro #9: Lances Sem Estrategia",
+      "Erro #9: Lances Sem Estratégia",
       "Erro #10: Falta de Experimento",
-      "Insight rapido",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- A maioria das contas perde dinheiro em detalhes invisiveis.
-- Sem mensuracao, voce trabalha com opiniao, nao com dados.
+- A maioria das contas perde dinheiro em detalhes invisíveis.
+- Sem mensuração, você trabalha com opinião, não com dados.
 - Estrutura simples + rotina clara vencem a "complexidade bonita".
 
 ---
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Objetivo e publico definidos em uma frase
-- Anuncio e pagina dizendo a mesma promessa
-- Conversoes criticas registradas e testadas
+- Objetivo e público definidos em uma frase
+- Anúncio e página dizendo a mesma promessa
+- Conversões críticas registradas e testadas
 - Estrutura simples (poucas campanhas, muito foco)
 - Rotina semanal de cortes e ajustes
 
@@ -332,227 +379,230 @@ Se quiser, podemos mapear seus fluxos e sugerir as automacoes com maior impacto 
 ## Erro #1: Objetivo e Mensagem Difusos
 
 ### O problema
-Quando a campanha tenta falar com todo mundo, ela some no ruido. A mensagem fica generica e a intencao real do usuario e ignorada.
+Quando a campanha tenta falar com todo mundo, ela some no ruído. A mensagem fica genérica e a intenção real do usuário é ignorada.
 
 ### O ajuste
-Defina um objetivo unico e escreva anuncios para um publico especifico. A promessa precisa ser clara e restrita: o que voce entrega e para quem.
+Defina um objetivo único e escreva anúncios para um público específico. A promessa precisa ser clara e restrita: o que você entrega e para quem.
 
 ---
 
-## Erro #2: Palavras-chave Sem Intencao
+## Erro #2: Palavras-chave Sem Intenção
 
 ### O problema
-Palavras-chave amplas demais geram curiosos, nao compradores. O custo sobe e a conversao nao acompanha.
+Palavras-chave amplas demais geram curiosos, não compradores. O custo sobe e a conversão não acompanha.
 
 ### O ajuste
-Priorize termos com contexto, local e problema especifico. E assim que voce compra intencao de compra, nao volume vazio.
+Priorize termos com contexto, local e problema específico. É assim que você compra intenção de compra, não volume vazio.
 
-![Painel de performance e metricas de campanha](/blog/10-erros-01.jpg)
+![Painel de performance e métricas de campanha](/blog/10-erros-01.jpg)
 
 ---
 
-## Erro #3: Pagina de Destino Fraca
+## Erro #3: Página de Destino Fraca
 
 ### O problema
-Mesmo um anuncio excelente morre se a pagina nao responde as duvidas em segundos.
+Mesmo um anúncio excelente morre se a página não responde as dúvidas em segundos.
 
 ### O ajuste
-Garanta coerencia entre anuncio e pagina. A primeira dobra precisa explicar a proposta com clareza e empurrar para uma acao simples.
+Garanta coerência entre anúncio e página. A primeira dobra precisa explicar a proposta com clareza e empurrar para uma ação simples.
 
 ---
 
-## Erro #4: Mensuracao Incompleta
+## Erro #4: Mensuração Incompleta
 
 ### O problema
-Sem eventos bem configurados, voce otimiza no escuro e chama isso de estrategia.
+Sem eventos bem configurados, você otimiza no escuro e chama isso de estratégia.
 
 ### O ajuste
-Mapeie as acoes que realmente importam (formulario, ligacao, WhatsApp) e valide se estao sendo medidas de ponta a ponta.
+Mapeie as ações que realmente importam (formulário, ligação, WhatsApp) e valide se estão sendo medidas de ponta a ponta.
 
 ---
 
-## Erro #5: Estrutura e Orcamento Confusos
+## Erro #5: Estrutura e Orçamento Confusos
 
 ### O problema
-Muitas campanhas brigando entre si geram desperdicio, dados confusos e aprendizado lento.
+Muitas campanhas brigando entre si geram desperdício, dados confusos e aprendizado lento.
 
 ### O ajuste
-Mantenha a estrutura enxuta: poucas campanhas, objetivos claros e separacao por etapa de funil.
+Mantenha a estrutura enxuta: poucas campanhas, objetivos claros e separação por etapa de funil.
 
-![Equipe analisando resultados e definindo proximos passos](/blog/10-erros-02.jpg)
+![Equipe analisando resultados e definindo próximos passos](/blog/10-erros-02.jpg)
 
 ---
 
-## Erro #6: Rotina de Otimizacao Ausente
+## Erro #6: Rotina de Otimização Ausente
 
 ### O problema
-Campanhas precisam de revisao constante. Sem rotina, a conta envelhece rapido.
+Campanhas precisam de revisão constante. Sem rotina, a conta envelhece rápido.
 
 ### O ajuste
-Defina uma cadencia fixa de revisao para palavras-chave, anuncios e paginas. Pequenos cortes acumulados mudam o ROI.
+Defina uma cadência fixa de revisão para palavras-chave, anúncios e páginas. Pequenos cortes acumulados mudam o ROI.
 
 ---
 
-## Erro #7: Anuncios Sem Prova e Diferencial
+## Erro #7: Anúncios Sem Prova e Diferencial
 
 ### O problema
-Anuncios genericos nao criam confianca nem explicam por que voce e a escolha certa.
+Anúncios genéricos não criam confiança nem explicam por que você é a escolha certa.
 
 ### O ajuste
-Inclua prova real e um diferencial concreto. Resultados, casos e garantias claras reduzem a duvida do clique.
+Inclua prova real e um diferencial concreto. Resultados, casos e garantias claras reduzem a dúvida do clique.
 
 ---
 
 ## Erro #8: Negativas Ignoradas
 
 ### O problema
-Sem negativas, sua campanha banca cliques irrelevantes e queima verba em visitas sem intencao.
+Sem negativas, sua campanha banca cliques irrelevantes e queima verba em visitas sem intenção.
 
 ### O ajuste
-Revise o relatorio de termos de pesquisa com frequencia e adicione negativas. E um dos ajustes mais rapidos para melhorar ROI.
+Revise o relatório de termos de pesquisa com frequência e adicione negativas. É um dos ajustes mais rápidos para melhorar ROI.
 
-![Planejamento e organizacao de tarefas no marketing](/blog/10-erros-03.jpg)
+![Planejamento e organização de tarefas no marketing](/blog/10-erros-03.jpg)
 
 ---
 
-## Erro #9: Lances Sem Estrategia
+## Erro #9: Lances Sem Estratégia
 
 ### O problema
-Trocar estrategia toda semana ou escolher um modelo sem dados suficientes trava o aprendizado.
+Trocar estratégia toda semana ou escolher um modelo sem dados suficientes trava o aprendizado.
 
 ### O ajuste
-Escolha uma estrategia alinhada ao objetivo e mantenha tempo suficiente para estabilizar.
+Escolha uma estratégia alinhada ao objetivo e mantenha tempo suficiente para estabilizar.
 
 ---
 
 ## Erro #10: Falta de Experimento
 
 ### O problema
-Sem testes, voce fica preso ao "mais do mesmo" e perde ganhos faceis em CTR, CPC e CPA.
+Sem testes, você fica preso ao "mais do mesmo" e perde ganhos fáceis em CTR, CPC e CPA.
 
 ### O ajuste
-Teste titulos, descricoes e variacoes de pagina. Ganhos pequenos, acumulados, mudam o custo final do lead.
+Teste títulos, descrições e variações de página. Ganhos pequenos, acumulados, mudam o custo final do lead.
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-Quanto mais simples a estrutura, mais rapido voce aprende o que funciona. Complexidade sem controle parece profissional, mas custa caro.
+Quanto mais simples a estrutura, mais rápido você aprende o que funciona. Complexidade sem controle parece profissional, mas custa caro.
 
 ---
 
 ## Exemplo real
 
-Ao simplificar de 9 campanhas para 3, o CPA caiu 28% em 21 dias porque o orcamento parou de se fragmentar.
+Ao simplificar de 9 campanhas para 3, o CPA caiu 28% em 21 dias porque o orçamento parou de se fragmentar.
 
 ---
 
 ## FAQ
 
-- **Como saber se a conta esta "saudavel"?** Quando conversoes estao estaveis e as palavras-chave negativas crescem semana a semana.
-- **Preciso trocar estrategia de lances sempre?** Nao. Troque apenas quando houver dados suficientes e um objetivo claro.
+- **Como saber se a conta está "saudável"?** Quando conversões estão estáveis e as palavras-chave negativas crescem semana a semana.
+- **Preciso trocar estratégia de lances sempre?** Não. Troque apenas quando houver dados suficientes e um objetivo claro.
 - **Quanto tempo para ver melhora?** Em geral, 2 a 4 semanas com rotina consistente.
 
 ---
 
 ## Resumo final
 
-- Uma conta saudavel e simples, medida e revisada toda semana.
-- Corte ruido, compre intencao e otimize com metodo.
+- Uma conta saudável é simples, medida e revisada toda semana.
+- Corte ruído, compre intenção e otimize com método.
 - Pequenos ajustes acumulados fazem o ROI aparecer.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
 Se quiser, revisamos sua conta e entregamos um plano de ajustes com prioridades claras.
 `,
   },
   {
     slug: "automacao-whatsapp-leads",
-    title: "Automacao no WhatsApp: Estrutura e Boas Praticas",
-    excerpt: "Como organizar atendimento e qualificacao com n8n e boas praticas.",
-    coverImage: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&h=675&fit=crop&q=80",
+    title: "Automação no WhatsApp: Estrutura e Boas Práticas",
+    excerpt: "Como organizar atendimento e qualificação com n8n e boas práticas.",
+    coverImage: "/blog/cover-automacao-whatsapp.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-12",
     readTime: 15,
     category: "Automacao",
-    tags: ["WhatsApp", "n8n", "Automacao", "Leads"],
+    tags: ["WhatsApp", "n8n", "Automação", "Leads"],
+    metaTitle: "Automação no WhatsApp: Estrutura e Boas Práticas",
+    metaDescription: "Como organizar atendimento e qualificação de leads no WhatsApp com n8n. Fluxo completo com hand-off humano e boas práticas de mensagens.",
+    keywords: ["automação whatsapp", "n8n whatsapp", "qualificação leads whatsapp", "chatbot whatsapp"],
     featured: true,
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
+      "Resumo rápido",
+      "Checklist relâmpago",
       "Mapa do Atendimento",
-      "Qualificacao com Perguntas-Chave",
+      "Qualificação com Perguntas-Chave",
       "Hand-off para Humanos",
-      "Boas Praticas de Mensagens",
-      "Checklist de Implementacao",
-      "Insight rapido",
+      "Boas Práticas de Mensagens",
+      "Checklist de Implementação",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
 - Primeiro desenhe o fluxo, depois automatize.
-- Qualificacao enxuta gera respostas rapidas.
-- Hand-off humano evita friccao e perda de venda.
+- Qualificação enxuta gera respostas rápidas.
+- Hand-off humano evita fricção e perda de venda.
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Fluxo desenhado antes da automacao
+- Fluxo desenhado antes da automação
 - Perguntas-chave reduzidas ao essencial
 - Regras de transbordo bem definidas
 - Mensagens curtas e objetivas
 - Registro de dados no CRM
 
-![Fluxo de automacao e integracoes entre ferramentas](/blog/whatsapp-01.jpg)
+![Fluxo de automação e integrações entre ferramentas](/blog/whatsapp-01.jpg)
 
 ---
 
 ## Mapa do Atendimento
 
-Antes de automatizar, desenhe o fluxo: entrada do lead, qualificacao, agendamento e fechamento. Sem esse mapa, o bot vira ruido.
+Antes de automatizar, desenhe o fluxo: entrada do lead, qualificação, agendamento e fechamento. Sem esse mapa, o bot vira ruído.
 
 ![Equipe analisando mapa de atendimento e jornada](/blog/whatsapp-02.jpg)
 
 ---
 
-## Qualificacao com Perguntas-Chave
+## Qualificação com Perguntas-Chave
 
-Use poucas perguntas e foque no que realmente define prioridade: orcamento, urgencia e objetivo. O ideal e caber em 3 a 5 perguntas.
+Use poucas perguntas e foque no que realmente define prioridade: orçamento, urgência e objetivo. O ideal é caber em 3 a 5 perguntas.
 
 ---
 
 ## Hand-off para Humanos
 
-Automacao eficiente sempre tem transbordo para pessoa quando ha duvida, lead quente ou excecao. Isso reduz desgaste e aumenta conversao.
+Automação eficiente sempre tem transbordo para pessoa quando há dúvida, lead quente ou exceção. Isso reduz desgaste e aumenta conversão.
 
 ---
 
-## Boas Praticas de Mensagens
+## Boas Práticas de Mensagens
 
 - Mensagens curtas e claras
-- Opcoes objetivas (botoes ou respostas rapidas)
-- Confirmacoes visuais de proximo passo
-- Tempo de resposta previsivel
+- Opções objetivas (botões ou respostas rápidas)
+- Confirmações visuais de próximo passo
+- Tempo de resposta previsível
 
-![Mensagens organizadas e prontas para resposta rapida](/blog/whatsapp-03.jpg)
+![Mensagens organizadas e prontas para resposta rápida](/blog/whatsapp-03.jpg)
 
 ---
 
-## Checklist de Implementacao
+## Checklist de Implementação
 
-- Mensagens de entrada e saida prontas
+- Mensagens de entrada e saída prontas
 - Regras de SLA configuradas
 - Registro de dados no CRM
 - Testes com 10 casos reais
 
 ---
 
-## Insight rapido
+## Insight rápido
 
 Fluxo sem hand-off humano vira gargalo. Uma regra simples de transbordo evita perda de vendas.
 
@@ -560,300 +610,309 @@ Fluxo sem hand-off humano vira gargalo. Uma regra simples de transbordo evita pe
 
 ## Exemplo real
 
-Ao reduzir o script para 4 perguntas e criar hand-off, o tempo medio de resposta caiu de 18 para 3 minutos.
+Ao reduzir o script para 4 perguntas e criar hand-off, o tempo médio de resposta caiu de 18 para 3 minutos.
 
 ---
 
 ## FAQ
 
-- **Quantas perguntas o bot deve fazer?** De 3 a 5 perguntas no maximo.
-- **Quando passar para humano?** Lead quente, excecao ou duvida nao prevista.
-- **O que medir primeiro?** Tempo de resposta e taxa de conversao em agendamento.
+- **Quantas perguntas o bot deve fazer?** De 3 a 5 perguntas no máximo.
+- **Quando passar para humano?** Lead quente, exceção ou dúvida não prevista.
+- **O que medir primeiro?** Tempo de resposta e taxa de conversão em agendamento.
 
 ---
 
 ## Resumo final
 
-- Fluxo claro antes da automacao.
+- Fluxo claro antes da automação.
 - Perguntas curtas, respostas objetivas.
 - Transbordo humano evita perda de venda.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
+Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
 `,
   },
   {
     slug: "gmb-local-seo",
-    title: "GMB Local: Boas Praticas de Presenca no Google",
-    excerpt: "Como organizar Google Meu Negocio e melhorar a visibilidade local.",
-    coverImage: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=675&fit=crop&q=80",
+    title: "GMB Local: Boas Práticas de Presença no Google",
+    excerpt: "Como organizar Google Meu Negócio e melhorar a visibilidade local.",
+    coverImage: "/blog/cover-gmb-local-seo.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-10",
     readTime: 10,
     category: "SEO Local",
     tags: ["GMB", "SEO Local", "Local Search", "Leads"],
+    metaTitle: "GMB Local: Boas Práticas de Presença no Google",
+    metaDescription: "Como organizar seu Google Meu Negócio e melhorar a visibilidade local. Checklist completo com postagens, fotos e avaliações.",
+    keywords: ["google meu negócio", "GMB boas práticas", "presença local google", "SEO local"],
     featured: true,
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
+      "Resumo rápido",
+      "Checklist relâmpago",
       "Perfil Completo e Coerente",
       "Postagens e Fotos",
-      "Avaliacoes e Respostas",
-      "Otimizacao por Categoria",
-      "Insight rapido",
+      "Avaliações e Respostas",
+      "Otimização por Categoria",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- Consistencia de dados aumenta confianca do Google.
+- Consistência de dados aumenta confiança do Google.
 - Postagens frequentes sinalizam atividade.
-- Responder avaliacoes melhora conversao.
+- Responder avaliações melhora conversão.
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Nome, endereco e telefone consistentes
+- Nome, endereço e telefone consistentes
 - Categoria correta e atualizada
 - Fotos recentes e reais
-- Respostas rapidas a avaliacoes
+- Respostas rápidas a avaliações
 - Postagens semanais
 
-![Painel de presenca local e dados organizados](/blog/gmb-01.jpg)
+![Painel de presença local e dados organizados](/blog/gmb-01.jpg)
 
 ---
 
 ## Perfil Completo e Coerente
 
-Dados basicos consistentes (nome, endereco, telefone) aumentam confianca e reduzem inconsistencias no Google.
+Dados básicos consistentes (nome, endereço, telefone) aumentam confiança e reduzem inconsistências no Google.
 
-![Trabalho de campo e presenca local no Google](/blog/gmb-02.jpg)
+![Trabalho de campo e presença local no Google](/blog/gmb-02.jpg)
 
 ---
 
 ## Postagens e Fotos
 
-Atualizacoes semanais com fotos reais ajudam a melhorar o engajamento e a relevancia local.
+Atualizações semanais com fotos reais ajudam a melhorar o engajamento e a relevância local.
 
 ---
 
-## Avaliacoes e Respostas
+## Avaliações e Respostas
 
-Responder avaliacoes demonstra atencao ao cliente e melhora a percepcao da marca. Foque em respostas objetivas.
+Responder avaliações demonstra atenção ao cliente e melhora a percepção da marca. Foque em respostas objetivas.
 
-![Atendimento e resposta a avaliacoes em tempo real](/blog/gmb-03.jpg)
-
----
-
-## Otimizacao por Categoria
-
-Selecione categorias especificas e atualize atributos de servicos para aparecer nas buscas certas.
+![Atendimento e resposta a avaliações em tempo real](/blog/gmb-03.jpg)
 
 ---
 
-## Insight rapido
+## Otimização por Categoria
 
-Para buscas locais, prova social pesa mais do que qualquer descricao bonita.
+Selecione categorias específicas e atualize atributos de serviços para aparecer nas buscas certas.
+
+---
+
+## Insight rápido
+
+Para buscas locais, prova social pesa mais do que qualquer descrição bonita.
 
 ---
 
 ## Exemplo real
 
-Ao responder 100% das avaliacoes em 30 dias, o volume de chamadas subiu 22% sem mudar anuncios.
+Ao responder 100% das avaliações em 30 dias, o volume de chamadas subiu 22% sem mudar anúncios.
 
 ---
 
 ## FAQ
 
-- **Quantas fotos devo postar?** Pelo menos 5 novas por mes.
-- **Responder avaliacao negativa ajuda?** Sim, mostra postura e aumenta confianca.
-- **Postagens no GMB fazem diferenca?** Sim, sinalizam atividade e relevancia.
+- **Quantas fotos devo postar?** Pelo menos 5 novas por mês.
+- **Responder avaliação negativa ajuda?** Sim, mostra postura e aumenta confiança.
+- **Postagens no GMB fazem diferença?** Sim, sinalizam atividade e relevância.
 
 ---
 
 ## Resumo final
 
-- Consistencia de dados e prioridade.
-- Fotos e postagens frequentes geram relevancia.
-- Respostas rapidas aumentam confianca.
+- Consistência de dados é prioridade.
+- Fotos e postagens frequentes geram relevância.
+- Respostas rápidas aumentam confiança.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
+Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
 `,
   },
   {
     slug: "ia-marketing-2025",
     title: "IA no Marketing: Onde Faz Sentido Usar",
-    excerpt: "Como IA apoia estrategia e operacao com responsabilidade.",
-    coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop&q=80",
+    excerpt: "Como IA apoia estratégia e operação com responsabilidade.",
+    coverImage: "/blog/cover-ia-marketing.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-08",
     readTime: 11,
     category: "IA & Marketing",
-    tags: ["IA", "Marketing", "Automacao", "Futuro"],
+    tags: ["IA", "Marketing", "Automação", "Futuro"],
+    metaTitle: "IA no Marketing: Onde Faz Sentido Usar",
+    metaDescription: "Como IA apoia estratégia e operação de marketing com responsabilidade. Onde usar, onde evitar e exemplos práticos de resultados reais.",
+    keywords: ["IA marketing", "inteligência artificial marketing", "automação IA", "IA para negócios"],
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
-      "IA como Assistente, nao como Piloto",
+      "Resumo rápido",
+      "Checklist relâmpago",
+      "IA como Assistente, não como Piloto",
       "Onde a IA ajuda mais",
       "Onde a IA ainda erra",
-      "Insight rapido",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- IA acelera execucao, nao substitui estrategia.
-- Use IA para variacoes, analise e triagem.
-- Decisoes criticas seguem humanas.
+- IA acelera execução, não substitui estratégia.
+- Use IA para variações, análise e triagem.
+- Decisões críticas seguem humanas.
 
-## Checklist relampago
+## Checklist relâmpago
 
-- IA usada como assistente, nao piloto
-- Criterios humanos para decisao final
+- IA usada como assistente, não piloto
+- Critérios humanos para decisão final
 - Tarefas repetitivas automatizadas
-- Revisao de consistencia e qualidade
-- Metricas claras para avaliar ganhos
+- Revisão de consistência e qualidade
+- Métricas claras para avaliar ganhos
 
 ![Tecnologia e dados aplicados ao marketing](/blog/ia-01.jpg)
 
 ---
 
-## IA como Assistente, nao como Piloto
+## IA como Assistente, não como Piloto
 
-IA e excelente para rascunhos, variacoes e analise rapida. A estrategia continua sendo humana.
+IA é excelente para rascunhos, variações e análise rápida. A estratégia continua sendo humana.
 
-![Time discutindo estrategia com apoio de tecnologia](/blog/ia-02.jpg)
+![Time discutindo estratégia com apoio de tecnologia](/blog/ia-02.jpg)
 
 ---
 
 ## Onde a IA ajuda mais
 
-- Variacoes de criativos
+- Variações de criativos
 - Resumos de insights
-- Classificacao de leads
-- Revisao de consistencia de copy
+- Classificação de leads
+- Revisão de consistência de copy
 
-![Colaboracao e revisao de conteudo com IA](/blog/ia-03.jpg)
+![Colaboração e revisão de conteúdo com IA](/blog/ia-03.jpg)
 
 ---
 
 ## Onde a IA ainda erra
 
-Em decisoes que precisam de contexto de negocio e timing de mercado.
+Em decisões que precisam de contexto de negócio e timing de mercado.
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-IA e poderosa para volume. Estrategia continua sendo humana, porque contexto nao e dado.
+IA é poderosa para volume. Estratégia continua sendo humana, porque contexto não é dado.
 
 ---
 
 ## Exemplo real
 
-Ao usar IA para 20 variacoes de anuncio e validar manualmente, o CTR subiu sem perder coerencia de marca.
+Ao usar IA para 20 variações de anúncio e validar manualmente, o CTR subiu sem perder coerência de marca.
 
 ---
 
 ## FAQ
 
-- **IA substitui o time de marketing?** Nao. Ela acelera execucao.
-- **Onde IA gera mais impacto?** Variacoes, triagem e sumarizacao.
-- **IA pode errar feio?** Sim, principalmente em decisoes estrategicas.
+- **IA substitui o time de marketing?** Não. Ela acelera execução.
+- **Onde IA gera mais impacto?** Variações, triagem e sumarização.
+- **IA pode errar feio?** Sim, principalmente em decisões estratégicas.
 
 ---
 
 ## Resumo final
 
-- IA acelera execucao, nao substitui estrategia.
+- IA acelera execução, não substitui estratégia.
 - Use IA onde ela reduz tempo e custo.
-- Decisoes criticas continuam humanas.
+- Decisões críticas continuam humanas.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
+Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
 `,
   },
   {
     slug: "meta-ads-segmentacao",
-    title: "Segmentacao de Publico em Meta Ads: Guia Pratico",
-    excerpt: "Fundamentos de segmentacao com foco em clareza e testes.",
-    coverImage: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=675&fit=crop&q=80",
+    title: "Segmentação de Público em Meta Ads: Guia Prático",
+    excerpt: "Fundamentos de segmentação com foco em clareza e testes.",
+    coverImage: "/blog/cover-meta-ads-segmentacao.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-05",
     readTime: 13,
     category: "Meta Ads",
-    tags: ["Meta Ads", "Facebook Ads", "Publico", "Segmentacao"],
+    tags: ["Meta Ads", "Facebook Ads", "Público", "Segmentação"],
+    metaTitle: "Segmentação de Público em Meta Ads: Guia Prático",
+    metaDescription: "Fundamentos de segmentação em Meta Ads com foco em clareza e testes. Como testar públicos, escalar o que funciona e evitar hipersegmentação.",
+    keywords: ["segmentação meta ads", "público facebook ads", "meta ads guia", "escalar meta ads"],
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
-      "Comece pelo Basico",
+      "Resumo rápido",
+      "Checklist relâmpago",
+      "Comece pelo Básico",
       "Estrutura de Testes",
       "Sinais de Escala",
-      "Insight rapido",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- Hipersegmentacao nem sempre melhora CPA.
-- Teste poucas variaveis por vez.
-- Escale o que ja esta validado.
+- Hipersegmentação nem sempre melhora CPA.
+- Teste poucas variáveis por vez.
+- Escale o que já está validado.
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Publico amplo com criativo forte
-- Hipoteses separadas por conjunto
-- Testes com poucas variaveis
+- Público amplo com criativo forte
+- Hipóteses separadas por conjunto
+- Testes com poucas variáveis
 - Acompanhamento por CPA/qualidade
-- Escala so apos validacao
+- Escala só após validação
 
-![Painel de segmentacao e performance](/blog/meta-01.jpg)
+![Painel de segmentação e performance](/blog/meta-01.jpg)
 
 ---
 
-## Comece pelo Basico
+## Comece pelo Básico
 
-Segmentos amplos com bons criativos podem performar melhor do que hipersegmentacoes.
+Segmentos amplos com bons criativos podem performar melhor do que hipersegmentações.
 
-![Analise de publicos e resultados em equipe](/blog/meta-02.jpg)
+![Análise de públicos e resultados em equipe](/blog/meta-02.jpg)
 
 ---
 
 ## Estrutura de Testes
 
-Teste 2 a 3 publicos por vez. Avalie CTR, CPA e qualidade do lead antes de alterar a segmentacao.
+Teste 2 a 3 públicos por vez. Avalie CTR, CPA e qualidade do lead antes de alterar a segmentação.
 
 ---
 
 ## Sinais de Escala
 
-Escalar e repetir o que ja esta validado. Nao misture hipoteses diferentes no mesmo conjunto.
+Escalar é repetir o que já está validado. Não misture hipóteses diferentes no mesmo conjunto.
 
-![Planejamento de escala e otimizacao de anuncios](/blog/meta-03.jpg)
+![Planejamento de escala e otimização de anúncios](/blog/meta-03.jpg)
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-Escala nao e "colocar mais dinheiro". Escala e repetir o que ja foi validado, sem misturar hipoteses.
+Escala não é "colocar mais dinheiro". Escala é repetir o que já foi validado, sem misturar hipóteses.
 
 ---
 
@@ -865,119 +924,122 @@ Ao pausar conjuntos fracos e duplicar o melhor, o CPA caiu 17% em 14 dias.
 
 ## FAQ
 
-- **Quando escalar?** Quando CPA esta estavel por 7-10 dias.
-- **Escalo tudo?** Nao. Escale apenas o que ja provou performance.
+- **Quando escalar?** Quando CPA está estável por 7-10 dias.
+- **Escalo tudo?** Não. Escale apenas o que já provou performance.
 - **Quanto aumentar?** Em blocos de 15-30%, sem picos.
 
 ---
 
 ## Resumo final
 
-- Menos variaveis, mais controle.
-- Escale o que ja provou resultado.
-- Segmentacao simples ganha de hipersegmentacao.
+- Menos variáveis, mais controle.
+- Escale o que já provou resultado.
+- Segmentação simples ganha de hipersegmentação.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
+Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
 `,
   },
   {
     slug: "funil-vendas-seo",
     title: "Funil de Vendas com SEO: Estrutura em 3 Etapas",
-    excerpt: "Como alinhar conteudo e intencao de busca ao longo da jornada.",
-    coverImage: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1200&h=675&fit=crop&q=80",
+    excerpt: "Como alinhar conteúdo e intenção de busca ao longo da jornada.",
+    coverImage: "/blog/cover-funil-vendas-seo.jpg",
     author: "Davi Luiz",
     publishedAt: "2025-02-01",
     readTime: 14,
     category: "SEO",
-    tags: ["SEO", "Funil", "Conteudo", "Estrategia"],
+    tags: ["SEO", "Funil", "Conteúdo", "Estratégia"],
+    metaTitle: "Funil de Vendas com SEO: Estrutura em 3 Etapas",
+    metaDescription: "Como alinhar conteúdo e intenção de busca ao longo do funil de vendas. Estrutura prática de topo, meio e fundo de funil com SEO.",
+    keywords: ["funil vendas SEO", "SEO funil de vendas", "conteúdo funil", "estratégia SEO"],
     tableOfContents: [
-      "Resumo rapido",
-      "Checklist relampago",
+      "Resumo rápido",
+      "Checklist relâmpago",
       "Topo do Funil",
       "Meio do Funil",
       "Fundo do Funil",
-      "Insight rapido",
+      "Insight rápido",
       "Exemplo real",
       "FAQ",
       "Resumo final",
-      "Proximos passos",
+      "Próximos passos",
     ],
     content: `
-## Resumo rapido
+## Resumo rápido
 
-- Cada etapa do funil tem uma intencao diferente.
-- Conteudo certo no momento certo gera conversao.
-- SEO precisa de consistencia e prova social.
+- Cada etapa do funil tem uma intenção diferente.
+- Conteúdo certo no momento certo gera conversão.
+- SEO precisa de consistência e prova social.
 
-## Checklist relampago
+## Checklist relâmpago
 
-- Intencao mapeada por etapa
-- Conteudo alinhado ao funil
-- Paginas de conversao claras
-- Provas sociais visiveis
-- Rotina de publicacao continua
+- Intenção mapeada por etapa
+- Conteúdo alinhado ao funil
+- Páginas de conversão claras
+- Provas sociais visíveis
+- Rotina de publicação contínua
 
-![Planejamento de conteudo e funil](/blog/funil-01.jpg)
+![Planejamento de conteúdo e funil](/blog/funil-01.jpg)
 
 ---
 
 ## Topo do Funil
 
-Conteudos educativos para capturar duvidas iniciais e gerar consciencia.
+Conteúdos educativos para capturar dúvidas iniciais e gerar consciência.
 
-![Pesquisa e organizacao de temas para SEO](/blog/funil-02.jpg)
+![Pesquisa e organização de temas para SEO](/blog/funil-02.jpg)
 
 ---
 
 ## Meio do Funil
 
-Guias e comparativos que ajudam a escolher caminho e metodo.
+Guias e comparativos que ajudam a escolher caminho e método.
 
 ---
 
 ## Fundo do Funil
 
-Paginas com prova social, casos e CTA claro para conversao.
+Páginas com prova social, casos e CTA claro para conversão.
 
-![Resultados e conversao com foco em performance](/blog/funil-03.jpg)
+![Resultados e conversão com foco em performance](/blog/funil-03.jpg)
 
 ---
 
-## Insight rapido
+## Insight rápido
 
-SEO sem conversao vira trafego vazio. O fundo do funil e onde o dinheiro aparece.
+SEO sem conversão vira tráfego vazio. O fundo do funil é onde o dinheiro aparece.
 
 ---
 
 ## Exemplo real
 
-Ao adicionar prova social e CTA claro, a taxa de conversao subiu 1,9x em 30 dias.
+Ao adicionar prova social e CTA claro, a taxa de conversão subiu 1,9x em 30 dias.
 
 ---
 
 ## FAQ
 
 - **SEO precisa de quanto tempo?** 3 a 6 meses para maturar.
-- **Conteudo sem CTA funciona?** Para topo de funil, sim. Para venda, nao.
-- **Qual a metrica principal?** Conversao por etapa do funil.
+- **Conteúdo sem CTA funciona?** Para topo de funil, sim. Para venda, não.
+- **Qual a métrica principal?** Conversão por etapa do funil.
 
 ---
 
 ## Resumo final
 
-- Cada etapa tem intencao diferente.
-- Conteudo certo na hora certa converte.
-- Consistencia vence o volume.
+- Cada etapa tem intenção diferente.
+- Conteúdo certo na hora certa converte.
+- Consistência vence o volume.
 
 ---
 
-## Proximos passos
+## Próximos passos
 
-Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
+Se quiser, podemos revisar seu cenário e sugerir próximos passos de execução.
 `,
   },
 
@@ -987,14 +1049,24 @@ Se quiser, podemos revisar seu cenario e sugerir proximos passos de execucao.
     slug: "o-que-e-n8n-e-por-que-agencias-usam",
     title: "O que é n8n e por que agências de marketing estão usando",
     excerpt: "n8n é uma plataforma de automação open-source que conecta ferramentas sem precisar programar. Entenda por que virou a escolha principal de agências que querem escalar sem contratar.",
-    coverImage: "",
+    coverImage: "/blog/cover-o-que-e-n8n.jpg",
     coverGradient: "from-violet-950 via-violet-900 to-violet-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-10",
     category: "Automacao",
     tags: ["n8n", "automação", "agências", "ferramentas"],
     readTime: 5,
+    metaTitle: "O que é n8n e por que agências estão usando",
+    metaDescription: "n8n é uma plataforma de automação open-source que conecta ferramentas sem código. Entenda por que agências escolhem n8n para escalar.",
     keywords: ["o que é n8n", "n8n automação", "n8n agências marketing"],
+    tableOfContents: [
+      "O que é o n8n",
+      "Por que agências escolhem o n8n",
+      "Como funciona na prática",
+      "Quando faz sentido usar o n8n",
+      "Quando não faz sentido",
+      "Conclusão",
+    ],
     content: `
 ## O que é o n8n
 
@@ -1056,14 +1128,24 @@ O n8n não é para todos, mas para agências que operam com volume e precisam de
     slug: "como-automatizar-follow-up-leads-whatsapp",
     title: "Como automatizar o follow-up de leads no WhatsApp",
     excerpt: "A maioria dos negócios perde vendas por demora na resposta. Veja como montar um fluxo automático de follow-up no WhatsApp sem precisar de desenvolvedor.",
-    coverImage: "",
+    coverImage: "/blog/cover-follow-up-whatsapp.jpg",
     coverGradient: "from-violet-950 via-purple-900 to-violet-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-18",
     category: "Automacao",
     tags: ["WhatsApp", "follow-up", "automação", "leads", "n8n"],
     readTime: 6,
+    metaTitle: "Como automatizar follow-up de leads no WhatsApp",
+    metaDescription: "Monte um fluxo automático de follow-up no WhatsApp sem programar. Passo a passo com n8n para responder leads em minutos.",
     keywords: ["follow-up whatsapp automático", "automação leads whatsapp", "n8n whatsapp"],
+    tableOfContents: [
+      "O problema que custa caro",
+      "O que é um fluxo de follow-up automatizado",
+      "Como montar o fluxo (passo a passo)",
+      "Ferramentas necessárias",
+      "Erros comuns a evitar",
+      "Resultado esperado",
+    ],
     content: `
 ## O problema que custa caro
 
@@ -1130,14 +1212,23 @@ Com um fluxo bem configurado, o tempo de primeira resposta cai de horas para min
     slug: "ia-qualificacao-de-leads-o-que-funciona",
     title: "IA aplicada à qualificação de leads: o que funciona hoje",
     excerpt: "Usar IA para qualificar leads é possível e já está ao alcance de PMEs. Veja quais abordagens realmente funcionam e o que ainda é promessa de vendedor.",
-    coverImage: "",
+    coverImage: "/blog/cover-ia-qualificacao-leads.jpg",
     coverGradient: "from-violet-950 via-indigo-900 to-violet-900",
     author: "Davi Honorato",
     publishedAt: "2026-01-25",
     category: "Automacao",
     tags: ["IA", "qualificação de leads", "automação", "chatbot"],
     readTime: 7,
+    metaTitle: "IA para qualificação de leads: o que funciona",
+    metaDescription: "Abordagens reais de IA para qualificar leads em PMEs. Chatbots, análise de comportamento e classificação automática com exemplos práticos.",
     keywords: ["ia qualificação leads", "automação qualificação leads", "chatbot qualificação"],
+    tableOfContents: [
+      "O que significa qualificar leads com IA",
+      "O que funciona de verdade hoje",
+      "O que ainda não funciona bem",
+      "Como começar sem complicar",
+      "Conclusão",
+    ],
     content: `
 ## O que significa qualificar leads com IA
 
@@ -1192,14 +1283,24 @@ IA para qualificação de leads não precisa ser complexa para funcionar. O mais
     slug: "chatbots-para-clinicas-quando-vale-a-pena",
     title: "Chatbots para clínicas: quando vale a pena implementar",
     excerpt: "Chatbots podem reduzir a carga do atendimento em clínicas, mas só quando bem configurados. Entenda em quais situações vale implementar e o que evitar.",
-    coverImage: "",
+    coverImage: "/blog/cover-chatbots-clinicas.jpg",
     coverGradient: "from-violet-950 via-violet-800 to-purple-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-03",
     category: "Automacao",
     tags: ["chatbot", "clínicas", "automação", "WhatsApp", "atendimento"],
     readTime: 6,
+    metaTitle: "Chatbots para clínicas: quando vale implementar",
+    metaDescription: "Quando chatbots fazem sentido para clínicas e o que evitar. Estrutura recomendada com WhatsApp, agendamento e transbordo humano.",
     keywords: ["chatbot clínica", "automação atendimento clínica", "whatsapp clínica"],
+    tableOfContents: [
+      "O contexto das clínicas",
+      "Quando o chatbot faz sentido para clínicas",
+      "O que o chatbot não deve fazer em clínicas",
+      "Estrutura recomendada para clínicas",
+      "Ferramentas usadas",
+      "Conclusão",
+    ],
     content: `
 ## O contexto das clínicas
 
@@ -1257,14 +1358,24 @@ O chatbot em clínica não é sobre substituir a recepcionista. É sobre garanti
     slug: "como-criar-fluxo-de-onboarding-automatico",
     title: "Como criar um fluxo de onboarding automático para novos clientes",
     excerpt: "Os primeiros dias após a compra definem a retenção. Veja como criar um onboarding automático que entrega valor imediato e reduz o churn nos primeiros 30 dias.",
-    coverImage: "",
+    coverImage: "/blog/cover-onboarding-automatico.jpg",
     coverGradient: "from-violet-900 via-violet-800 to-indigo-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-12",
     category: "Automacao",
     tags: ["onboarding", "automação", "retenção", "churn", "n8n"],
     readTime: 7,
+    metaTitle: "Onboarding automático para novos clientes",
+    metaDescription: "Crie um fluxo de onboarding automático que entrega valor imediato e reduz churn nos primeiros 30 dias. Estrutura de 7 dias com n8n.",
     keywords: ["onboarding automático clientes", "automação onboarding", "reduzir churn"],
+    tableOfContents: [
+      "Por que o onboarding importa tanto",
+      "O que é um fluxo de onboarding automático",
+      "Estrutura de um onboarding em 7 dias",
+      "Ferramentas para montar o fluxo",
+      "Erros comuns no onboarding",
+      "Resultado esperado",
+    ],
     content: `
 ## Por que o onboarding importa tanto
 
@@ -1329,14 +1440,24 @@ Clientes que passam por um onboarding estruturado têm taxa de retenção signif
     slug: "google-ads-vs-meta-ads-qual-escolher",
     title: "Google Ads vs Meta Ads: qual escolher para o seu negócio",
     excerpt: "A escolha entre Google e Meta depende do seu objetivo, do seu produto e do comportamento do seu cliente. Entenda as diferenças reais antes de investir.",
-    coverImage: "",
+    coverImage: "/blog/cover-google-ads-vs-meta-ads.jpg",
     coverGradient: "from-cyan-950 via-cyan-900 to-sky-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-08",
     category: "Trafego Pago",
     tags: ["Google Ads", "Meta Ads", "tráfego pago", "comparativo"],
     readTime: 5,
+    metaTitle: "Google Ads vs Meta Ads: qual escolher",
+    metaDescription: "Entenda as diferenças reais entre Google Ads e Meta Ads. Critérios práticos para decidir qual plataforma usar conforme seu negócio.",
     keywords: ["google ads vs meta ads", "qual plataforma de anúncios usar", "google ou facebook ads"],
+    tableOfContents: [
+      "A pergunta mais comum em marketing digital",
+      "A diferença fundamental",
+      "Quando o Google Ads faz mais sentido",
+      "Quando o Meta Ads faz mais sentido",
+      "E se eu precisar dos dois?",
+      "Conclusão",
+    ],
     content: `
 ## A pergunta mais comum em marketing digital
 
@@ -1392,14 +1513,23 @@ A escolha certa não é sobre qual plataforma é melhor. É sobre qual plataform
     slug: "como-estruturar-campanha-google-ads-do-zero",
     title: "Como estruturar uma campanha de Google Ads do zero",
     excerpt: "Criar uma campanha no Google sem estrutura é jogar dinheiro fora. Veja o passo a passo para montar campanhas que convertem desde a primeira semana.",
-    coverImage: "",
+    coverImage: "/blog/cover-estruturar-campanha-google-ads.jpg",
     coverGradient: "from-cyan-950 via-sky-900 to-cyan-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-20",
     category: "Trafego Pago",
     tags: ["Google Ads", "campanhas", "estrutura", "tráfego pago"],
     readTime: 8,
+    metaTitle: "Como estruturar campanha Google Ads do zero",
+    metaDescription: "Passo a passo para montar uma campanha de Google Ads que converte desde a primeira semana. Estrutura, palavras-chave e lances.",
     keywords: ["como criar campanha google ads", "google ads do zero", "estrutura google ads"],
+    tableOfContents: [
+      "Por que estrutura importa",
+      "Os três níveis de uma conta Google Ads",
+      "Passo a passo para a primeira campanha",
+      "O que monitorar na primeira semana",
+      "Conclusão",
+    ],
     content: `
 ## Por que estrutura importa
 
@@ -1460,14 +1590,26 @@ Estrutura simples vence estrutura complexa no início. Uma campanha bem configur
     slug: "erros-comuns-em-anuncios-que-desperdicam-verba",
     title: "Erros comuns em anúncios que desperdiçam verba",
     excerpt: "A maioria do orçamento perdido em tráfego pago vai embora por causa de erros básicos e evitáveis. Veja os mais comuns e como corrigir cada um.",
-    coverImage: "",
+    coverImage: "/blog/cover-erros-anuncios-verba.jpg",
     coverGradient: "from-cyan-900 via-sky-900 to-blue-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-05",
     category: "Trafego Pago",
     tags: ["Google Ads", "Meta Ads", "erros", "otimização"],
     readTime: 6,
+    metaTitle: "Erros em anúncios que desperdiçam verba",
+    metaDescription: "Os erros mais comuns em Google Ads e Meta Ads que desperdiçam orçamento. Como identificar e corrigir cada ponto de vazamento.",
     keywords: ["erros google ads", "desperdício de verba anúncios", "otimização campanhas"],
+    tableOfContents: [
+      "O dinheiro some, mas onde?",
+      "Erro 1: Páginas de destino que não convertem",
+      "Erro 2: Palavras-chave sem intenção de compra",
+      "Erro 3: Ausência de palavras-chave negativas",
+      "Erro 4: Sem acompanhamento de conversões",
+      "Erro 5: Mudar a estratégia de lances antes do tempo",
+      "Erro 6: Não fazer testes de anúncios",
+      "Conclusão",
+    ],
     content: `
 ## O dinheiro some, mas onde?
 
@@ -1533,14 +1675,24 @@ Corrigir esses erros não exige mais orçamento. Exige atenção, rotina e dispo
     slug: "como-calcular-se-investimento-em-trafego-esta-valendo",
     title: "Como calcular se seu investimento em tráfego pago está valendo",
     excerpt: "Muita gente investe em anúncios sem saber se está tendo lucro ou prejuízo. Aprenda as métricas certas para avaliar o retorno do seu tráfego pago.",
-    coverImage: "",
+    coverImage: "/blog/cover-calcular-investimento-trafego.jpg",
     coverGradient: "from-cyan-950 via-teal-900 to-cyan-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-18",
     category: "Trafego Pago",
     tags: ["ROI", "métricas", "tráfego pago", "ROAS", "CPA"],
     readTime: 7,
+    metaTitle: "Como calcular ROI do tráfego pago",
+    metaDescription: "Aprenda a calcular se seu investimento em anúncios está valendo. Métricas certas: CPC, CPL, CPA e ROAS com exemplos práticos.",
     keywords: ["calcular ROI tráfego pago", "ROAS google ads", "CPA custo por aquisição"],
+    tableOfContents: [
+      "A pergunta que todo empresário deveria saber responder",
+      "As métricas que importam",
+      "Como calcular na prática",
+      "Qual é o CPA aceitável para o meu negócio?",
+      "O que fazer quando o número não fecha",
+      "Conclusão",
+    ],
     content: `
 ## A pergunta que todo empresário deveria saber responder
 
@@ -1602,14 +1754,24 @@ Tráfego pago sem mensuração é aposta, não estratégia. Configure o acompanh
     slug: "remarketing-por-que-concorrentes-estao-na-frente",
     title: "Remarketing: por que seus concorrentes aparecem em todo lugar",
     excerpt: "Já reparou que depois de acessar um site você passa a ver anúncios dele em todo lugar? Isso é remarketing, e seus concorrentes provavelmente já estão usando.",
-    coverImage: "",
+    coverImage: "/blog/cover-remarketing.jpg",
     coverGradient: "from-sky-950 via-cyan-900 to-sky-800",
     author: "Davi Honorato",
     publishedAt: "2026-03-02",
     category: "Trafego Pago",
     tags: ["remarketing", "retargeting", "Google Ads", "Meta Ads"],
     readTime: 5,
+    metaTitle: "Remarketing: por que concorrentes aparecem em tudo",
+    metaDescription: "Entenda o que é remarketing, por que funciona e como configurar campanhas de retargeting no Google Ads e Meta Ads passo a passo.",
     keywords: ["o que é remarketing", "remarketing google ads", "retargeting como funciona"],
+    tableOfContents: [
+      "O que é remarketing",
+      "Por que funciona",
+      "Tipos de remarketing",
+      "Como configurar o básico",
+      "O que falar no anúncio de remarketing",
+      "Conclusão",
+    ],
     content: `
 ## O que é remarketing
 
@@ -1669,14 +1831,24 @@ Remarketing não é perseguição — é presença estratégica. Marcas que apar
     slug: "por-que-gmb-precisa-de-postagens-semanais",
     title: "Por que seu Google Meu Negócio precisa de postagens semanais",
     excerpt: "Perfil no GMB sem postagens é perfil parado. O Google valoriza atividade constante. Veja como postagens semanais impactam seu posicionamento local.",
-    coverImage: "",
+    coverImage: "/blog/cover-gmb-postagens-semanais.jpg",
     coverGradient: "from-emerald-950 via-emerald-900 to-teal-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-12",
     category: "SEO Local",
     tags: ["GMB", "Google Meu Negócio", "postagens", "SEO local"],
     readTime: 4,
+    metaTitle: "Por que o GMB precisa de postagens semanais",
+    metaDescription: "Perfil no Google Meu Negócio sem postagens perde posição. Veja como postagens semanais impactam o ranqueamento local e o que postar.",
     keywords: ["postagens google meu negócio", "GMB postagens semanais", "SEO local postagens"],
+    tableOfContents: [
+      "O perfil parado não ranqueia bem",
+      "O que conta como postagem no GMB",
+      "O que postar",
+      "Com que frequência",
+      "Como montar uma rotina sustentável",
+      "Conclusão",
+    ],
     content: `
 ## O perfil parado não ranqueia bem
 
@@ -1739,14 +1911,24 @@ Postagem semanal no GMB não é trabalho complexo. É consistência. E no SEO lo
     slug: "como-responder-avaliacoes-negativas-google",
     title: "Como responder avaliações negativas no Google sem prejudicar sua marca",
     excerpt: "Uma avaliação negativa respondida corretamente pode virar prova de profissionalismo. Veja o método certo para responder críticas no Google sem piorar a situação.",
-    coverImage: "",
+    coverImage: "/blog/cover-avaliacoes-negativas-google.jpg",
     coverGradient: "from-emerald-950 via-teal-900 to-emerald-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-28",
     category: "SEO Local",
     tags: ["Google", "avaliações", "reputação", "GMB", "SEO local"],
     readTime: 5,
+    metaTitle: "Como responder avaliações negativas no Google",
+    metaDescription: "Método em 4 passos para responder avaliações negativas no Google sem prejudicar sua marca. Exemplos práticos e o que nunca fazer.",
     keywords: ["como responder avaliação negativa google", "avaliação negativa google", "reputação online"],
+    tableOfContents: [
+      "Por que a resposta importa mais do que a nota",
+      "O que nunca fazer em uma resposta",
+      "O método em 4 passos",
+      "Exemplo de estrutura",
+      "Quando a avaliação é falsa ou abusiva",
+      "Conclusão",
+    ],
     content: `
 ## Por que a resposta importa mais do que a nota
 
@@ -1804,14 +1986,23 @@ Nenhum negócio tem apenas avaliações 5 estrelas. O que diferencia marcas fort
     slug: "seo-local-para-clinicas-guia-pratico",
     title: "SEO local para clínicas: o guia prático",
     excerpt: "Clínicas que aparecem no topo do Google Maps recebem mais ligações e agendamentos do que as que dependem só de indicação. Veja como otimizar seu SEO local passo a passo.",
-    coverImage: "",
+    coverImage: "/blog/cover-seo-local-clinicas.jpg",
     coverGradient: "from-emerald-950 via-emerald-800 to-teal-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-10",
     category: "SEO Local",
     tags: ["SEO local", "clínicas", "Google Maps", "GMB"],
     readTime: 8,
+    metaTitle: "SEO local para clínicas: guia prático",
+    metaDescription: "Guia prático de SEO local para clínicas. Como otimizar GMB, construir avaliações e aparecer no topo do Google Maps passo a passo.",
     keywords: ["SEO local clínicas", "como aparecer google maps clínica", "SEO clínica médica"],
+    tableOfContents: [
+      "Por que SEO local é diferente para clínicas",
+      "Os três pilares do SEO local para clínicas",
+      "SEO no site da clínica",
+      "Como monitorar os resultados",
+      "Conclusão",
+    ],
     content: `
 ## Por que SEO local é diferente para clínicas
 
@@ -1878,14 +2069,23 @@ SEO local para clínicas é uma maratona, não uma sprint. Os resultados aparece
     slug: "como-aparecer-no-pacote-local-google-maps",
     title: "Como aparecer no Pacote Local do Google Maps (os 3 primeiros resultados)",
     excerpt: "O Pacote Local são os 3 resultados que aparecem no Google com mapa. Estar neles é o equivalente digital de ter a loja mais movimentada da rua.",
-    coverImage: "",
+    coverImage: "/blog/cover-pacote-local-google-maps.jpg",
     coverGradient: "from-teal-950 via-emerald-900 to-teal-800",
     author: "Davi Honorato",
     publishedAt: "2026-02-22",
     category: "SEO Local",
     tags: ["Pacote Local", "Google Maps", "SEO local", "GMB"],
     readTime: 6,
+    metaTitle: "Como aparecer no Pacote Local do Google Maps",
+    metaDescription: "Aprenda a aparecer nos 3 primeiros resultados do Google Maps. Relevância, distância e proeminência explicados com ações práticas.",
     keywords: ["pacote local google", "aparecer google maps primeiros resultados", "3 pack google"],
+    tableOfContents: [
+      "O que é o Pacote Local",
+      "Como o Google decide quem aparece",
+      "O que fazer para entrar no Pacote Local",
+      "Quanto tempo leva",
+      "Conclusão",
+    ],
     content: `
 ## O que é o Pacote Local
 
@@ -1942,14 +2142,23 @@ Entrar no Pacote Local não é questão de sorte — é resultado de otimizaçã
     slug: "diferenca-seo-organico-e-seo-local",
     title: "Diferença entre SEO orgânico e SEO local: qual focar primeiro",
     excerpt: "SEO orgânico e SEO local são estratégias diferentes com objetivos diferentes. Entender a distinção é o primeiro passo para não desperdiçar esforço.",
-    coverImage: "",
+    coverImage: "/blog/cover-seo-organico-vs-local.jpg",
     coverGradient: "from-emerald-900 via-teal-900 to-green-900",
     author: "Davi Honorato",
     publishedAt: "2026-03-08",
     category: "SEO Local",
     tags: ["SEO orgânico", "SEO local", "diferença", "Google"],
     readTime: 5,
+    metaTitle: "SEO orgânico vs SEO local: qual focar primeiro",
+    metaDescription: "Entenda a diferença entre SEO orgânico e SEO local. Critérios práticos para decidir onde investir primeiro conforme seu tipo de negócio.",
     keywords: ["diferença seo orgânico local", "seo local vs seo orgânico", "qual seo focar"],
+    tableOfContents: [
+      "Dois tipos de SEO, dois objetivos diferentes",
+      "SEO Orgânico",
+      "SEO Local",
+      "Qual focar primeiro",
+      "Conclusão",
+    ],
     content: `
 ## Dois tipos de SEO, dois objetivos diferentes
 
@@ -2015,14 +2224,24 @@ SEO local e orgânico não se opõem: se complementam. Mas para uma PME local co
     slug: "quanto-investir-marketing-digital-pme",
     title: "Quanto investir em marketing digital para PMEs",
     excerpt: "Não existe um número único certo para todos os negócios. Mas existem critérios claros para definir o orçamento de marketing digital sem chute.",
-    coverImage: "",
+    coverImage: "/blog/cover-investir-marketing-digital-pme.jpg",
     coverGradient: "from-amber-950 via-orange-900 to-amber-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-15",
     category: "Estrategia",
     tags: ["orçamento", "marketing digital", "PME", "investimento"],
     readTime: 6,
+    metaTitle: "Quanto investir em marketing digital para PMEs",
+    metaDescription: "Critérios práticos para definir o orçamento de marketing digital. Referências de mercado, faixas de investimento e como calcular.",
     keywords: ["quanto investir marketing digital PME", "orçamento marketing digital", "quanto gastar com anúncios"],
+    tableOfContents: [
+      "Por que essa pergunta não tem resposta única",
+      "A referência de mercado",
+      "Mas e se eu não tenho esse percentual disponível?",
+      "O que nunca fazer",
+      "Como definir o número certo para você",
+      "Conclusão",
+    ],
     content: `
 ## Por que essa pergunta não tem resposta única
 
@@ -2081,14 +2300,23 @@ Marketing digital sem orçamento adequado não funciona. Mas orçamento sem estr
     slug: "funil-de-marketing-para-negocios-locais",
     title: "Funil de marketing para negócios locais: do anúncio ao agendamento",
     excerpt: "Um funil de marketing para negócios locais não precisa ser complexo. Precisa ser claro. Veja como estruturar a jornada do cliente do primeiro clique até o agendamento.",
-    coverImage: "",
+    coverImage: "/blog/cover-funil-marketing-negocios-locais.jpg",
     coverGradient: "from-amber-950 via-amber-900 to-orange-800",
     author: "Davi Honorato",
     publishedAt: "2026-01-30",
     category: "Estrategia",
     tags: ["funil", "marketing local", "conversão", "jornada do cliente"],
     readTime: 6,
+    metaTitle: "Funil de marketing para negócios locais",
+    metaDescription: "Como estruturar a jornada do cliente do primeiro clique até o agendamento. Funil simples e prático para negócios locais.",
     keywords: ["funil de marketing negócios locais", "jornada cliente negócio local", "funil conversão local"],
+    tableOfContents: [
+      "O que é o funil de marketing para negócios locais",
+      "As etapas do funil local",
+      "O erro mais comum no funil local",
+      "Como melhorar cada etapa",
+      "Conclusão",
+    ],
     content: `
 ## O que é o funil de marketing para negócios locais
 
@@ -2150,14 +2378,23 @@ Funil para negócios locais não precisa de tecnologia complexa. Precisa de cons
     slug: "metricas-que-donos-de-negocio-precisam-acompanhar",
     title: "Métricas que donos de negócio precisam acompanhar no marketing digital",
     excerpt: "Você não precisa acompanhar dezenas de métricas. Mas precisa das certas. Veja quais números realmente indicam se seu marketing está funcionando.",
-    coverImage: "",
+    coverImage: "/blog/cover-metricas-marketing-digital.jpg",
     coverGradient: "from-amber-900 via-orange-900 to-amber-900",
     author: "Davi Honorato",
     publishedAt: "2026-02-15",
     category: "Estrategia",
     tags: ["métricas", "KPIs", "marketing digital", "performance"],
     readTime: 5,
+    metaTitle: "Métricas essenciais de marketing digital para PMEs",
+    metaDescription: "Quais métricas de marketing digital realmente importam para donos de negócio. CPL, taxa de conversão, ROAS e como montar um painel simples.",
     keywords: ["métricas marketing digital PME", "KPIs marketing", "como medir marketing digital"],
+    tableOfContents: [
+      "O problema de acompanhar métricas erradas",
+      "As métricas que importam por objetivo",
+      "Como montar um painel simples",
+      "Revisão semanal vs mensal",
+      "Conclusão",
+    ],
     content: `
 ## O problema de acompanhar métricas erradas
 
@@ -2222,14 +2459,23 @@ Não existe marketing sem mensuração. Mas mensuração não precisa ser compli
     slug: "como-escolher-agencia-de-marketing-digital",
     title: "Como escolher uma agência de marketing digital: o que avaliar antes de contratar",
     excerpt: "Contratar a agência errada custa tempo e dinheiro. Veja quais critérios realmente importam na hora de escolher quem vai cuidar do seu marketing.",
-    coverImage: "",
+    coverImage: "/blog/cover-escolher-agencia-marketing.jpg",
     coverGradient: "from-orange-950 via-amber-900 to-orange-800",
     author: "Davi Honorato",
     publishedAt: "2026-03-05",
     category: "Estrategia",
     tags: ["agência", "marketing digital", "contratação", "critérios"],
     readTime: 6,
+    metaTitle: "Como escolher agência de marketing digital",
+    metaDescription: "Critérios práticos para escolher uma agência de marketing digital. O que avaliar, perguntas para fazer e sinais de alerta.",
     keywords: ["como escolher agência de marketing digital", "contratar agência marketing", "critérios agência marketing"],
+    tableOfContents: [
+      "Por que escolher mal custa caro",
+      "O que avaliar antes de contratar",
+      "Perguntas para fazer na primeira reunião",
+      "Sinais de alerta",
+      "Conclusão",
+    ],
     content: `
 ## Por que escolher mal custa caro
 
@@ -2293,14 +2539,26 @@ A agência certa não é necessariamente a maior, a mais barata ou a que tem o s
     slug: "marketing-digital-para-quem-esta-comecando-do-zero",
     title: "Marketing digital para quem está começando do zero",
     excerpt: "Se você nunca investiu em marketing digital e não sabe por onde começar, este guia é para você. Sem jargão, sem promessa de resultado milagroso.",
-    coverImage: "",
+    coverImage: "/blog/cover-marketing-digital-comecando-zero.jpg",
     coverGradient: "from-amber-950 via-amber-800 to-yellow-900",
     author: "Davi Honorato",
     publishedAt: "2026-03-20",
     category: "Estrategia",
     tags: ["começando", "marketing digital", "iniciantes", "PME"],
     readTime: 7,
+    metaTitle: "Marketing digital do zero: guia para iniciantes",
+    metaDescription: "Guia prático de marketing digital para quem está começando. Por onde começar, qual canal escolher e como medir resultados sem complicar.",
     keywords: ["como começar marketing digital", "marketing digital iniciantes PME", "marketing digital do zero"],
+    tableOfContents: [
+      "Por onde começar sem se perder",
+      "Passo 1: Monte sua base antes de investir em anúncios",
+      "Passo 2: Defina um canal principal",
+      "Passo 3: Defina o que você quer que aconteça",
+      "Passo 4: Comece pequeno, meça e expanda",
+      "Passo 5: Peça avaliações desde o dia 1",
+      "O que não fazer no começo",
+      "Conclusão",
+    ],
     content: `
 ## Por onde começar sem se perder
 

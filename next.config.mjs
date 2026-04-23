@@ -102,6 +102,7 @@ const nextConfig = {
   // ============================================
   async redirects() {
     return [
+      // www → non-www
       {
         source: '/:path*',
         has: [
@@ -111,6 +112,27 @@ const nextConfig = {
           },
         ],
         destination: 'https://ondemanddigital.com.br/:path*',
+        permanent: true,
+      },
+      // Deleted service sub-pages → main services page (301)
+      {
+        source: '/servicos/automacao',
+        destination: '/servicos',
+        permanent: true,
+      },
+      {
+        source: '/servicos/chatbots',
+        destination: '/servicos',
+        permanent: true,
+      },
+      {
+        source: '/servicos/seo-local',
+        destination: '/servicos',
+        permanent: true,
+      },
+      {
+        source: '/servicos/trafego-pago',
+        destination: '/servicos',
         permanent: true,
       },
     ]

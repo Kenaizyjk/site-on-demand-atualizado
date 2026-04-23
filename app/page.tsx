@@ -1,21 +1,26 @@
+import type { Metadata } from "next"
+import CinematicIntro from "@/components/cinematic-intro"
 import Navigation from "@/components/navigation"
 import HeroCinematic from "@/components/hero-cinematic"
 import ServicesSimple from "@/components/services-simple"
-import ManifestoStrip from "@/components/manifesto-strip"
-import TechStack from "@/components/tech-stack"
 import GMBShowcase from "@/components/gmb-showcase"
-import BlogPreviewHome from "@/components/blog-preview-home"
-import NewsletterSection from "@/components/newsletter-section"
 import FAQ from "@/components/faq"
 import ContactForm from "@/components/contact-form"
-import FinalCTA from "@/components/final-cta"
+import BlogPreviewHome from "@/components/blog-preview-home"
+import NewsletterSection from "@/components/newsletter-section"
 import Footer from "@/components/footer"
 import WhatsAppFloat from "@/components/whatsapp-float"
-import NewsletterPopup from "@/components/newsletter-popup"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://ondemanddigital.com.br',
+  },
+}
 
 export default function Home() {
   return (
     <main className="od-page">
+      <CinematicIntro />
       <Navigation />
 
       {/* 1. Hero */}
@@ -24,32 +29,24 @@ export default function Home() {
       {/* 2. Serviços */}
       <ServicesSimple />
 
-      {/* 3. Como Trabalhamos */}
-      <ManifestoStrip />
-      <TechStack />
-
-      {/* 4. Google Meu Negócio */}
+      {/* 3. Google Meu Negócio */}
       <GMBShowcase />
 
-      {/* 5. Blog */}
-      <BlogPreviewHome />
-
-      {/* 6. Newsletter */}
-      <NewsletterSection />
-
-      {/* 7. Dúvidas */}
+      {/* 4. Dúvidas */}
       <FAQ />
 
-      {/* 8. Contato */}
+      {/* 5. Contato */}
       <ContactForm />
 
-      {/* 9. CTA Final */}
-      <FinalCTA />
+      {/* 6. Blog */}
+      <BlogPreviewHome />
+
+      {/* 7. Newsletter */}
+      <NewsletterSection />
 
       <hr className="od-divider" />
       <Footer />
       <WhatsAppFloat />
-      <NewsletterPopup />
     </main>
   )
 }

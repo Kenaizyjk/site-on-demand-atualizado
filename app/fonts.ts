@@ -8,7 +8,7 @@ export const inter = Inter({
 
 export const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
+  weight: ['200', '600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 })
