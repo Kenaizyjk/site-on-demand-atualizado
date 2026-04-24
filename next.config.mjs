@@ -129,18 +129,7 @@ const nextConfig = {
   // ============================================
   async redirects() {
     return [
-      // www → non-www
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.ondemanddigital.com.br',
-          },
-        ],
-        destination: 'https://ondemanddigital.com.br/:path*',
-        permanent: true,
-      },
+      // www → non-www redirect is handled by Vercel domain config (not here, to avoid loops)
       // Deleted service sub-pages → main services page (301)
       {
         source: '/servicos/automacao',
