@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="od-page">
+    <main id="main-content" className="od-page">
       <CinematicIntro />
       <Navigation />
 

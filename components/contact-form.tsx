@@ -20,6 +20,7 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormData>(EMPTY)
   const [status, setStatus] = useState<Status>("idle")
   const [errors, setErrors] = useState<Partial<FormData>>({})
+  const [honeypot, setHoneypot] = useState("")
 
   function validate(): boolean {
     const e: Partial<FormData> = {}
@@ -44,6 +45,12 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!validate()) return
+
+    // Honeypot: if filled, silently fake success (bot detected)
+    if (honeypot) {
+      setStatus("success")
+      return
+    }
 
     setStatus("loading")
 
@@ -184,6 +191,23 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
+
+                {/* Honeypot anti-spam — invisible to real users */}
+                <div
+                  className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 {/* Name */}
                 <div>

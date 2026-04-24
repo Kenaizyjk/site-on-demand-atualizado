@@ -1,6 +1,7 @@
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, ChevronRight, Linkedin } from "lucide-react"
+import sanitizeHtml from "sanitize-html"
 
 const DAVI_PHOTO = "/davi-honorato.jpg"
 
@@ -11,6 +12,40 @@ const CATEGORY_DISPLAY_MAP: Record<string, string> = {
 }
 function getCategoryDisplayName(cat: string) {
   return CATEGORY_DISPLAY_MAP[cat] ?? cat
+}
+
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: [
+    'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'a', 'strong', 'em', 'ul', 'ol', 'li',
+    'code', 'pre', 'blockquote', 'img', 'br', 'hr',
+    'span', 'div', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'figure', 'figcaption', 'svg', 'path',
+  ],
+  allowedAttributes: {
+    '*': ['class', 'id', 'style'],
+    'a': ['href', 'target', 'rel'],
+    'img': ['src', 'alt', 'loading', 'width', 'height'],
+    'svg': ['xmlns', 'width', 'height', 'viewBox', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin'],
+    'path': ['d', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin'],
+  },
+  allowedSchemes: ['http', 'https', 'mailto'],
+  transformTags: {
+    'a': (tagName, attribs) => {
+      return {
+        tagName,
+        attribs: {
+          ...attribs,
+          rel: 'noopener noreferrer',
+          ...(attribs.target ? { target: attribs.target } : {}),
+        },
+      }
+    },
+  },
+}
+
+function sanitize(html: string): string {
+  return sanitizeHtml(html, SANITIZE_OPTIONS)
 }
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -169,22 +204,8 @@ export default async function BlogArticlePage({ params }: Props) {
     "prose-blockquote:my-10 prose-blockquote:rounded-r-xl prose-blockquote:border-l-2 prose-blockquote:border-white/[0.15] prose-blockquote:bg-transparent prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:text-white/[0.45] prose-blockquote:italic"
 
   return (
-    <main className="od-page">
+    <main id="main-content" className="od-page">
       <Navigation />
-
-      {/* JSON-LD Article Schema */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: article.title,
-        description: article.excerpt,
-        author: { '@type': 'Person', name: article.author },
-        datePublished: article.publishedAt,
-        dateModified: article.updatedAt ?? article.publishedAt,
-        publisher: { '@type': 'Organization', name: 'On Demand Digital', url: 'https://ondemanddigital.com.br' },
-        image: article.coverImage.startsWith('http') ? article.coverImage : `${siteUrl}${article.coverImage}`,
-        mainEntityOfPage: `${siteUrl}/blog/${article.slug}`,
-      }) }} />
 
       {/* Schemas */}
       <BlogArticleSchema
@@ -287,7 +308,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className={proseClassName}>
             <div
               dangerouslySetInnerHTML={{
-                __html: convertMarkdownToHtml(article.content ?? '', ctaHtml),
+                __html: sanitize(convertMarkdownToHtml(article.content ?? '', ctaHtml)),
               }}
             />
           </div>

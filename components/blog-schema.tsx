@@ -62,7 +62,7 @@ export const BlogArticleSchema: FC<BlogArticleSchemaProps> = ({
       },
     },
     articleBody: description,
-    wordCount: Math.floor((readTime * 250) / 60), // Estimativa de palavras baseada em tempo de leitura
+    wordCount: readTime * 250, // Estimativa: ~250 palavras/minuto de leitura
   }
 
   return (

@@ -133,17 +133,18 @@ export default function NewsletterPopup() {
   const [status, setStatus]   = useState<Status>('idle')
   const [message, setMessage] = useState('')
   const [fieldError, setFieldError] = useState('')
+  const [honeypot, setHoneypot] = useState('')
 
   const inputRef  = useRef<HTMLInputElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
 
   /* ── Trigger: scroll 60 % OU 8 s após load ── */
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY)) return
+    try { if (sessionStorage.getItem(SESSION_KEY)) return } catch { return }
 
     function trigger() {
-      if (sessionStorage.getItem(SESSION_KEY)) return
-      sessionStorage.setItem(SESSION_KEY, '1')
+      try { if (sessionStorage.getItem(SESSION_KEY)) return } catch { /* Safari private mode */ }
+      try { sessionStorage.setItem(SESSION_KEY, '1') } catch { /* Safari private mode */ }
       setOpen(true)
       // pequeno delay para o DOM montar antes da animação
       requestAnimationFrame(() => {
@@ -212,6 +213,13 @@ export default function NewsletterPopup() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setFieldError('')
+
+    // Honeypot: if filled, silently fake success (bot detected)
+    if (honeypot) {
+      setStatus('success')
+      setEmail('')
+      return
+    }
 
     if (!isValidEmail(email)) {
       setFieldError('Digite um e-mail válido.')
@@ -340,7 +348,7 @@ export default function NewsletterPopup() {
           <h2
             id="popup-title"
             className="text-lg font-bold leading-tight text-zinc-100 mb-1.5"
-            style={{ fontFamily: 'var(--font-plus-jakarta-sans, inherit)' }}
+            style={{ fontFamily: 'var(--font-display, inherit)' }}
           >
             Marketing digital que gera resultado de verdade
           </h2>
@@ -381,6 +389,23 @@ export default function NewsletterPopup() {
             /* Formulario */
             <>
               <form onSubmit={handleSubmit} noValidate>
+                {/* Honeypot anti-spam — invisible to real users */}
+                <div
+                  className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <label htmlFor="popup-website">Website</label>
+                  <input
+                    id="popup-website"
+                    name="website"
+                    type="text"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 {/* Input email */}
                 <div className="relative mb-3">
                   <span

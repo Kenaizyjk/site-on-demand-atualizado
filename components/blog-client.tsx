@@ -78,6 +78,23 @@ function getSeal(category: string) {
 export default function BlogClient({ articles }: { articles: BlogArticleListItem[] }) {
     const [activeCategory, setActiveCategory] = useState("Todos")
 
+    const categories = useMemo(() => {
+        if (!articles.length) return ["Todos"]
+        const cats = new Set(articles.map((a) => a.category))
+        return ["Todos", ...Array.from(cats)]
+    }, [articles])
+
+    const featuredArticle = articles.find((a) => a.featured) || articles[0]
+
+    const filteredArticles = useMemo(() => {
+        if (!articles.length || !featuredArticle) return []
+        let filtered = articles.filter((a) => a.slug !== featuredArticle.slug)
+        if (activeCategory !== "Todos") {
+            filtered = filtered.filter((a) => a.category === activeCategory)
+        }
+        return filtered
+    }, [articles, activeCategory, featuredArticle])
+
     if (!articles.length) {
         return (
             <section className="od-section py-16 px-4">
@@ -88,21 +105,6 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
             </section>
         )
     }
-
-    const categories = useMemo(() => {
-        const cats = new Set(articles.map((a) => a.category))
-        return ["Todos", ...Array.from(cats)]
-    }, [articles])
-
-    const featuredArticle = articles.find((a) => a.featured) || articles[0]
-
-    const filteredArticles = useMemo(() => {
-        let filtered = articles.filter((a) => a.slug !== featuredArticle.slug)
-        if (activeCategory !== "Todos") {
-            filtered = filtered.filter((a) => a.category === activeCategory)
-        }
-        return filtered
-    }, [articles, activeCategory, featuredArticle.slug])
 
     return (
         <div className="w-full">
@@ -354,24 +356,15 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                             </div>
 
                                             <div className="relative z-10 w-full md:w-auto">
-                                                <form className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-                                                    <input
-                                                        type="email"
-                                                        placeholder="Seu melhor e-mail corporativo"
-                                                        className="px-5 py-4 rounded-xl backdrop-blur-md text-white placeholder:text-white/25 focus:outline-none focus:border-white/20 focus:ring-2 focus:ring-white/5 flex-grow transition-all"
-                                                        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)' }}
-                                                        required
-                                                    />
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => window.open('https://wa.me/5531996966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
-                                                        className="px-6 py-4 text-white font-bold rounded-xl transition-all whitespace-nowrap flex items-center justify-center gap-2 hover:border-white/25"
-                                                        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)' }}
-                                                    >
-                                                        Receber Guia
-                                                        <Mail className="w-4 h-4" />
-                                                    </button>
-                                                </form>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => window.open('https://wa.me/5531996966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
+                                                    className="px-6 py-4 text-white font-bold rounded-xl transition-all whitespace-nowrap flex items-center justify-center gap-2 hover:border-white/25"
+                                                    style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)' }}
+                                                >
+                                                    Receber Guia
+                                                    <Mail className="w-4 h-4" />
+                                                </button>
                                                 <p className="text-xs text-white/20 mt-4 text-center md:text-left">
                                                     Sem spam. Cancele quando quiser.
                                                 </p>

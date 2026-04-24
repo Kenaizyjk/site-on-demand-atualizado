@@ -117,6 +117,7 @@ function useForm(source: string) {
   const [status, setStatus] = useState<SubmitStatus>("idle")
   const [message, setMessage] = useState("")
   const [err, setErr] = useState("")
+  const [honeypot, setHoneypot] = useState("")
   const id = useId()
 
   const validate = useCallback((v: string) => {
@@ -140,6 +141,12 @@ function useForm(source: string) {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    // Honeypot: if filled, silently fake success (bot detected)
+    if (honeypot) {
+      setStatus("success")
+      setEmail("")
+      return
+    }
     if (status === "loading" || !validate(email)) return
     setStatus("loading")
     setMessage("")
@@ -163,7 +170,7 @@ function useForm(source: string) {
     }
   }
 
-  return { email, status, message, err, id, validate, onChange, onSubmit }
+  return { email, status, message, err, id, honeypot, setHoneypot, validate, onChange, onSubmit }
 }
 
 /* ── Component ── */
@@ -478,6 +485,23 @@ export default function NewsletterSection({ source = "home" }: Props) {
                     noValidate
                     className="flex w-full flex-col gap-3 sm:flex-row"
                   >
+                    {/* Honeypot anti-spam — invisible to real users */}
+                    <div
+                      className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                      aria-hidden="true"
+                    >
+                      <label htmlFor={`${form.id}-company`}>Company</label>
+                      <input
+                        id={`${form.id}-company`}
+                        name="company"
+                        type="text"
+                        value={form.honeypot}
+                        onChange={(e) => form.setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
                     <div className="relative flex-1">
                       <label htmlFor={form.id} className="sr-only">
                         Seu email

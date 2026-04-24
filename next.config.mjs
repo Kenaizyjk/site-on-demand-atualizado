@@ -75,22 +75,49 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
+          // -------------------------------------------------
+          // Content Security Policy
+          // -------------------------------------------------
+          // 'unsafe-inline' in script-src: REQUIRED by Google Tag Manager.
+          //   GTM injects inline <script> tags at runtime and the GTM
+          //   bootstrap snippet itself is an inline script. A nonce-based
+          //   approach would only cover the bootstrap but NOT the scripts
+          //   GTM injects later, so 'unsafe-inline' is the pragmatic
+          //   choice while GTM is in use.
+          //
+          // 'unsafe-eval' has been REMOVED — it is not needed by Next.js
+          //   in production and dramatically weakens XSS protection.
+          //
+          // fonts.googleapis.com removed from script-src (it serves CSS,
+          //   not scripts — it already appears in style-src).
+          // -------------------------------------------------
           {
             key: 'Content-Security-Policy',
-            value: `
-              default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net https://tagmanager.google.com;
-              style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-              img-src 'self' data: https: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com;
-              font-src 'self' data: https://fonts.gstatic.com;
-              connect-src 'self' https://fonts.googleapis.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://region1.google-analytics.com https://www.googletagmanager.com;
-              frame-src 'self' https://www.youtube.com https://www.google.com;
-              object-src 'none';
-              base-uri 'self';
-              form-action 'self';
-              frame-ancestors 'self';
-              upgrade-insecure-requests;
-            `.replace(/\s{2,}/g, ' ').trim(),
+            value: [
+              "default-src 'self'",
+              // Scripts: self + GTM/GA/FB hosts. 'unsafe-inline' needed for GTM (see note above).
+              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://connect.facebook.net https://tagmanager.google.com",
+              // Styles: 'unsafe-inline' needed for Tailwind/Next.js runtime style injection.
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              // Images
+              "img-src 'self' data: https: blob:",
+              // Fonts
+              "font-src 'self' data: https://fonts.gstatic.com",
+              // XHR / fetch / WebSocket
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://region1.google-analytics.com https://www.googletagmanager.com",
+              // Iframes
+              "frame-src 'self' https://www.youtube.com https://www.google.com",
+              // Block <object>, <embed>, <applet>
+              "object-src 'none'",
+              // Restrict <base href>
+              "base-uri 'self'",
+              // Restrict form targets
+              "form-action 'self'",
+              // Prevent framing (clickjacking)
+              "frame-ancestors 'self'",
+              // Auto-upgrade http → https
+              "upgrade-insecure-requests",
+            ].join('; '),
           },
         ],
       },
@@ -108,7 +135,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.ondemanddigital.com',
+            value: 'www.ondemanddigital.com.br',
           },
         ],
         destination: 'https://ondemanddigital.com.br/:path*',

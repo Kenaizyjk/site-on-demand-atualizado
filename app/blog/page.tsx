@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="od-page">
+    <main id="main-content" className="od-page">
       <Navigation />
       <BlogCollectionSchema />
       <BlogClient articles={BLOG_ARTICLES_LIST} />

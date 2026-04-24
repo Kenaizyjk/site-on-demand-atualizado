@@ -21,7 +21,7 @@ export default function ObrigadoPage() {
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, 3)
   return (
-    <main className="od-page">
+    <main id="main-content" className="od-page">
       {/* Hero Success */}
       <section className="od-section py-20 bg-gradient-to-b from-[#0D1117] to-[#161B22] border-b border-[#30363D]">
         <div className="od-container max-w-4xl px-4 od-reveal text-center">

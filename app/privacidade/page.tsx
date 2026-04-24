@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PrivacidadePage() {
   return (
-    <main className="od-page">
+    <main id="main-content" className="od-page">
       <Navigation />
       <section className="od-section-lg pt-32">
         <div className="od-container px-4">
