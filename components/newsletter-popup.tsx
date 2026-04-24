@@ -255,13 +255,13 @@ export default function NewsletterPopup() {
 
   /* ── Estilos de transição ── */
   const backdropClass = [
-    'fixed inset-0 z-50 flex items-end justify-end p-4 sm:p-6 bg-black/40 backdrop-blur-sm',
+    'fixed inset-0 z-50 flex items-end justify-center sm:justify-end p-3 sm:p-6 bg-black/40 backdrop-blur-sm',
     'transition-opacity duration-300',
     visible ? 'opacity-100' : 'opacity-0',
   ].join(' ')
 
   const modalClass = [
-    'relative w-full max-w-sm rounded-2xl overflow-hidden',
+    'relative rounded-2xl overflow-hidden',
     // glassmorphism
     'bg-zinc-900/95 backdrop-blur-xl',
     'border border-zinc-700/50',
@@ -304,12 +304,12 @@ export default function NewsletterPopup() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="popup-title"
-        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-full max-w-sm ${modalClass} popup-glow`}
+        className={`fixed bottom-3 left-3 right-3 sm:left-auto sm:bottom-6 sm:right-6 z-50 w-auto sm:w-full sm:max-w-sm ${modalClass} popup-glow`}
       >
         {/* ── Botão fechar ── */}
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
+          className="absolute top-2 right-2 z-10 w-10 h-10 rounded-full flex items-center justify-center text-zinc-500 hover:text-zinc-200 hover:bg-zinc-700/60 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
           aria-label="Fechar popup"
         >
           <IconClose />

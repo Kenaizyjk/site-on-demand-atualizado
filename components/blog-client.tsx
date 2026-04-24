@@ -177,7 +177,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`
-                                    relative px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0
+                                    relative px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 min-h-[44px]
                                     ${activeCategory === cat
                                         ? "text-white"
                                         : "text-white/40 hover:text-white/70 hover:border-white/[0.12]"
@@ -238,7 +238,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                         </div>
 
                                         {/* Content */}
-                                        <div className="relative lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1 z-10">
+                                        <div className="relative lg:w-2/5 p-5 sm:p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1 z-10">
                                             {/* Badges */}
                                             <div className="flex items-center gap-2.5 mb-6 flex-wrap">
                                                 <span
@@ -255,7 +255,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                                 </span>
                                             </div>
 
-                                            <h2 className="text-3xl lg:text-4xl font-extralight uppercase tracking-[0.06em] text-white mb-5 leading-tight group-hover:text-white/80 transition-colors duration-300">
+                                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extralight uppercase tracking-[0.04em] sm:tracking-[0.06em] text-white mb-4 sm:mb-5 leading-tight group-hover:text-white/80 transition-colors duration-300">
                                                 {featuredArticle.title}
                                             </h2>
 
@@ -335,7 +335,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                         className="col-span-1 md:col-span-2 lg:col-span-3"
                                     >
                                         <div
-                                            className="rounded-2xl backdrop-blur-xl p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-2xl shadow-black/20"
+                                            className="rounded-2xl backdrop-blur-xl p-5 sm:p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 relative overflow-hidden shadow-2xl shadow-black/20"
                                             style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.08)' }}
                                         >
                                             {/* Decorative blobs — muted white */}
@@ -359,7 +359,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                                                 <button
                                                     type="button"
                                                     onClick={() => window.open('https://wa.me/5531996966686?text=Quero%20receber%20o%20guia%20de%20automa%C3%A7%C3%A3o%20do%20blog', '_blank')}
-                                                    className="px-6 py-4 text-white font-bold rounded-xl transition-all whitespace-nowrap flex items-center justify-center gap-2 hover:border-white/25"
+                                                    className="w-full md:w-auto px-6 py-4 text-white font-bold rounded-xl transition-all whitespace-nowrap flex items-center justify-center gap-2 hover:border-white/25 min-h-[48px]"
                                                     style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)' }}
                                                 >
                                                     Receber Guia
@@ -450,7 +450,7 @@ export default function BlogClient({ articles }: { articles: BlogArticleListItem
                             <p className="text-white/30 mb-6">Tente outra categoria ou volte para ver todos.</p>
                             <button
                                 onClick={() => setActiveCategory("Todos")}
-                                className="px-6 py-3 text-white font-bold rounded-xl transition-all hover:border-white/25"
+                                className="px-6 py-3 min-h-[44px] text-white font-bold rounded-xl transition-all hover:border-white/25"
                                 style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)' }}
                             >
                                 Ver todos os artigos

@@ -24,6 +24,7 @@ export default function WhatsAppStickyBar() {
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(100%)',
         pointerEvents: visible ? 'auto' : 'none',
+        paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
       }}
       aria-label="Falar via WhatsApp"
     >

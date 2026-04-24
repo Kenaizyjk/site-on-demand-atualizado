@@ -175,7 +175,7 @@ export default async function BlogArticlePage({ params }: Props) {
   }
 
   const ctaHtml = `
-    <div class="my-16 p-8 sm:p-10 rounded-2xl text-center relative overflow-hidden" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08)">
+    <div class="my-10 sm:my-16 p-6 sm:p-10 rounded-2xl text-center relative overflow-hidden" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08)">
       <div class="relative z-10 flex flex-col items-center">
         <h3 class="text-2xl sm:text-3xl font-extralight uppercase tracking-[0.06em] text-white mb-4">${ctaVariant.title}</h3>
         <p class="text-white/40 mb-8 max-w-lg mx-auto text-lg">${ctaVariant.description}</p>
@@ -188,9 +188,9 @@ export default async function BlogArticlePage({ params }: Props) {
   `
 
   const proseClassName =
-    "prose prose-invert prose-lg max-w-none " +
+    "prose prose-invert sm:prose-lg max-w-none " +
     "prose-headings:text-white prose-headings:font-extralight prose-headings:uppercase prose-headings:tracking-[0.08em] " +
-    "prose-h2:mt-20 prose-h2:mb-8 prose-h2:text-[1.75rem] prose-h2:leading-tight prose-h2:pl-5 prose-h2:border-l-2 prose-h2:border-white/[0.15] " +
+    "prose-h2:mt-14 prose-h2:mb-6 prose-h2:text-[1.35rem] prose-h2:leading-tight prose-h2:pl-4 prose-h2:border-l-2 prose-h2:border-white/[0.15] sm:prose-h2:mt-20 sm:prose-h2:mb-8 sm:prose-h2:text-[1.75rem] sm:prose-h2:pl-5 " +
     "prose-h3:mt-14 prose-h3:mb-6 prose-h3:text-[1.2rem] prose-h3:text-white/80 prose-h3:font-semibold prose-h3:normal-case prose-h3:tracking-normal " +
     "prose-p:my-7 prose-p:text-white/[0.55] prose-p:leading-[2.0] " +
     "prose-strong:text-white/80 prose-strong:font-semibold " +
@@ -200,8 +200,8 @@ export default async function BlogArticlePage({ params }: Props) {
     "prose-li:my-2 prose-li:text-white/[0.55] prose-li:marker:text-white/25 " +
     "prose-code:rounded-md prose-code:bg-white/[0.04] prose-code:px-2 prose-code:py-0.5 prose-code:text-white/60 prose-code:font-medium prose-code:before:content-none prose-code:after:content-none " +
     "prose-pre:my-10 prose-pre:overflow-x-auto prose-pre:rounded-2xl prose-pre:border prose-pre:border-white/[0.06] prose-pre:bg-white/[0.02] prose-pre:backdrop-blur-md " +
-    "prose-hr:my-16 prose-hr:border-white/[0.06] " +
-    "prose-blockquote:my-10 prose-blockquote:rounded-r-xl prose-blockquote:border-l-2 prose-blockquote:border-white/[0.15] prose-blockquote:bg-transparent prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:text-white/[0.45] prose-blockquote:italic"
+    "prose-hr:my-10 sm:prose-hr:my-16 prose-hr:border-white/[0.06] " +
+    "prose-blockquote:my-8 sm:prose-blockquote:my-10 prose-blockquote:rounded-r-xl prose-blockquote:border-l-2 prose-blockquote:border-white/[0.15] prose-blockquote:bg-transparent prose-blockquote:px-4 sm:prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:text-white/[0.45] prose-blockquote:italic"
 
   return (
     <main id="main-content" className="od-page">
@@ -227,7 +227,7 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* ============================================================ */}
       {/*  Immersive Cover Hero                                         */}
       {/* ============================================================ */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[70vh] flex items-end overflow-hidden">
         {/* Full-bleed cover image */}
         <div className="absolute inset-0">
           <Image
@@ -244,7 +244,7 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         {/* Content overlaying the image */}
-        <div className="relative z-10 w-full max-w-[720px] mx-auto px-6 pb-16 pt-40">
+        <div className="relative z-10 w-full max-w-[720px] mx-auto px-4 sm:px-6 pb-10 sm:pb-16 pt-28 sm:pt-40">
           {/* Back link */}
           <Link
             href="/blog"
@@ -302,7 +302,7 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* ============================================================ */}
       {/*  Article Content — Single Column, Centered                    */}
       {/* ============================================================ */}
-      <article className="relative px-6 pt-16 pb-20 lg:pt-20 lg:pb-28">
+      <article className="relative px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-28">
         <div className="max-w-[720px] mx-auto">
           {/* Prose content */}
           <div className={proseClassName}>
@@ -318,7 +318,7 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* ============================================================ */}
       {/*  Tags + Share                                                 */}
       {/* ============================================================ */}
-      <section className="px-6 pb-16">
+      <section className="px-4 sm:px-6 pb-16">
         <div className="max-w-[720px] mx-auto pt-10 border-t border-white/[0.06]">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex flex-wrap items-center gap-2">
@@ -335,7 +335,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${siteUrl}/blog/${article.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-white/[0.15] text-white/40 hover:text-white/70 rounded-lg transition-all"
+                className="flex items-center justify-center w-11 h-11 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-white/[0.15] text-white/40 hover:text-white/70 rounded-lg transition-all"
                 aria-label="Compartilhar no LinkedIn"
               >
                 <Share2 className="w-3.5 h-3.5" />
@@ -344,7 +344,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 href={`https://wa.me/?text=${encodeURIComponent(`${article.title} ${siteUrl}/blog/${article.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-white/[0.15] text-white/40 hover:text-white/70 rounded-lg transition-all"
+                className="flex items-center justify-center w-11 h-11 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-white/[0.15] text-white/40 hover:text-white/70 rounded-lg transition-all"
                 aria-label="Compartilhar no WhatsApp"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /></svg>
@@ -357,10 +357,10 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* ============================================================ */}
       {/*  Author Card                                                  */}
       {/* ============================================================ */}
-      <section className="px-6 pb-20">
+      <section className="px-4 sm:px-6 pb-20">
         <div className="max-w-[720px] mx-auto">
           <div
-            className="flex flex-col sm:flex-row items-center gap-6 p-8 rounded-2xl"
+            className="flex flex-col sm:flex-row items-center gap-6 p-6 sm:p-8 rounded-2xl"
             style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-white/[0.1] ring-offset-2 ring-offset-[#09090b] relative">
@@ -395,10 +395,10 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* ============================================================ */}
       {/*  Related Articles                                             */}
       {/* ============================================================ */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-24">
         <div className="max-w-[960px] mx-auto">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="text-2xl font-extralight uppercase tracking-[0.12em] text-white">
+          <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
+            <h2 className="text-xl sm:text-2xl font-extralight uppercase tracking-[0.08em] sm:tracking-[0.12em] text-white">
               Continue lendo
             </h2>
             <Link
@@ -476,10 +476,7 @@ function convertMarkdownToHtml(markdown: string, ctaHtml: string): string {
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
   html = html.replace(/\*(.*?)\*/g, '<em>$1</em>')
 
-  // Links
-  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-
-  // Images
+  // Images (MUST run before Links — otherwise ![alt](url) gets consumed as a link, leaving a stray "!")
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, src) => {
     const safeAlt = alt || "Imagem do artigo"
     return `
@@ -491,6 +488,9 @@ function convertMarkdownToHtml(markdown: string, ctaHtml: string): string {
       </figure>
     `
   })
+
+  // Links
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
 
   // Blockquotes
   html = html.replace(/^> (.*?)$/gm, '<blockquote>$1</blockquote>')

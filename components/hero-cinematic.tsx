@@ -320,7 +320,7 @@ export default function HeroCinematic() {
       >
         {/* Label */}
         <span
-          className="font-display text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.3em] transition-colors duration-300 group-hover:text-white/60"
+          className="font-display text-[11px] sm:text-[10px] font-semibold uppercase tracking-[0.3em] transition-colors duration-300 group-hover:text-white/60"
           style={{ color: "rgba(255,255,255,0.3)" }}
         >
           Explorar

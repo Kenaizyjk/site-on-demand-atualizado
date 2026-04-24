@@ -24,7 +24,7 @@ const WA_ICON = (
 
 export default function Footer() {
   return (
-    <footer className="py-10 sm:py-12 px-4 relative" style={{
+    <footer className="pt-10 pb-20 sm:py-12 px-4 relative" style={{
       background: "rgba(9,9,11,0.6)",
       backdropFilter: "blur(16px)",
       WebkitBackdropFilter: "blur(16px)",
@@ -32,7 +32,7 @@ export default function Footer() {
       boxShadow: "inset 0 1px 0 rgba(255,255,255,0.02)",
     }}>
       <div className="od-container">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10 sm:mb-12">
 
           {/* Brand */}
           <div>
@@ -56,7 +56,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-track="footer-whatsapp-social"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="WhatsApp"
                 aria-label="WhatsApp On Demand Digital"
@@ -65,7 +65,7 @@ export default function Footer() {
               </a>
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="Email"
                 aria-label={`Enviar e-mail para ${COMPANY_EMAIL}`}
@@ -76,7 +76,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/ondemanddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="LinkedIn"
                 aria-label="On Demand Digital no LinkedIn"
@@ -87,7 +87,7 @@ export default function Footer() {
                 href="https://instagram.com/ondemanddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.4)' }}
                 title="Instagram @ondemanddigital"
                 aria-label="On Demand Digital no Instagram"

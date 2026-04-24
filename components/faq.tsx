@@ -132,7 +132,7 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-24 lg:py-36 relative">
+    <section id="faq" className="py-16 sm:py-24 lg:py-36 relative">
       <Script
         id="faq-schema"
         type="application/ld+json"
@@ -145,7 +145,7 @@ export default function FAQ() {
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/30 mb-4">
             Dúvidas
           </p>
-          <h2 className="text-4xl sm:text-5xl font-extralight uppercase tracking-[0.12em] text-white leading-[1.05]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight uppercase tracking-[0.12em] text-white leading-[1.05]">
             Perguntas frequentes
           </h2>
           {/* Decorative line */}

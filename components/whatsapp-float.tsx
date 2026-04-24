@@ -33,7 +33,7 @@ export default function WhatsAppFloat() {
       }
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
-      className="fixed bottom-6 right-6 z-50 group flex transition-all duration-500"
+      className="fixed bottom-6 right-6 z-50 group hidden md:flex transition-all duration-500"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'scale(1)' : 'scale(0.6)',

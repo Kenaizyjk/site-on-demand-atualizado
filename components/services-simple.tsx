@@ -754,7 +754,7 @@ function SocialCalendar() {
   return (
     <div className="space-y-3">
       {/* Engagement metrics */}
-      <div className="grid grid-cols-4 gap-1.5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
         {engagementMetrics.map((metric) => {
           const Icon = metric.icon
           return (
@@ -796,7 +796,7 @@ function SocialCalendar() {
           </span>
         </div>
 
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-0.5 sm:gap-1">
           {weekDays.map((day, idx) => {
             const postCount = (weekPosts[idx] || []).length
             const isActive = activeDay === idx
@@ -804,7 +804,7 @@ function SocialCalendar() {
               <button
                 key={day}
                 onClick={() => { setActiveDay(idx); setActivePost(null) }}
-                className="flex flex-col items-center py-2 rounded-lg transition-all duration-200"
+                className="flex flex-col items-center py-2 rounded-lg transition-all duration-200 min-h-[44px]"
                 style={{
                   background: isActive
                     ? "rgba(255,255,255,0.06)"
@@ -815,7 +815,7 @@ function SocialCalendar() {
                 }}
               >
                 <span
-                  className="text-[9px] font-light uppercase"
+                  className="text-[8px] sm:text-[9px] font-light uppercase"
                   style={{
                     color: isActive
                       ? "rgba(255,255,255,0.7)"
@@ -825,7 +825,7 @@ function SocialCalendar() {
                   {day}
                 </span>
                 <span
-                  className="text-xs font-light mt-0.5"
+                  className="text-[11px] sm:text-xs font-light mt-0.5"
                   style={{ color: isActive ? "#e2e8f0" : "rgba(255,255,255,0.5)" }}
                 >
                   {14 + idx}
@@ -1093,7 +1093,7 @@ function WebsiteBuilder() {
         >
           Lighthouse Scores
         </p>
-        <div className="grid grid-cols-4 gap-1.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
           {lighthouseScores.map((item) => (
             <div
               key={item.label}
@@ -1190,7 +1190,7 @@ function WebsiteBuilder() {
         >
           Stack Tecnológico
         </p>
-        <div className="grid grid-cols-3 gap-1.5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
           {techStack.map((tech) => {
             const TechIcon = tech.icon
             return (

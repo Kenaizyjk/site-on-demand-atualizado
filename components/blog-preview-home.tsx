@@ -236,8 +236,9 @@ export default function BlogPreviewHome() {
                                                 year: "numeric",
                                             })}
                                         </span>
-                                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all duration-300" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                                            Ler artigo completo
+                                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all duration-300 whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                                            <span className="hidden sm:inline">Ler artigo completo</span>
+                                            <span className="sm:hidden">Ler artigo</span>
                                             <ArrowRight className="w-4 h-4" />
                                         </span>
                                     </div>

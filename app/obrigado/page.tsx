@@ -33,19 +33,19 @@ export default function ObrigadoPage() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-[#00d966] to-[#00d9ff] bg-clip-text text-transparent">
               Mensagem Recebida!
             </span>
           </h1>
 
-          <p className="text-xl text-[#E6E6FA]/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-xl text-[#E6E6FA]/80 mb-8 leading-relaxed max-w-2xl mx-auto">
             Obrigado pelo seu interesse na On Demand Digital.
             <strong className="text-white"> Um especialista entrará em contato em até 24 horas</strong> para agendar sua análise gratuita.
           </p>
 
           {/* Timeline */}
-          <div className="inline-block bg-[#161B22] border border-[#30363D] rounded-lg p-6 text-left">
+          <div className="w-full max-w-md mx-auto bg-[#161B22] border border-[#30363D] rounded-lg p-6 text-left">
             <p className="text-sm uppercase tracking-wider text-[#00d9ff] mb-4 font-semibold text-center">
               Próximos Passos
             </p>
@@ -243,10 +243,10 @@ export default function ObrigadoPage() {
       {/* CTA Final - WhatsApp Direto */}
       <section className="od-section py-16 bg-gradient-to-r from-[#00d966]/10 to-[#00d9ff]/10">
         <div className="od-container max-w-4xl px-4 od-reveal text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
             Não Quer Esperar?
           </h2>
-          <p className="text-xl text-[#E6E6FA]/80 mb-8 leading-relaxed">
+          <p className="text-base sm:text-xl text-[#E6E6FA]/80 mb-8 leading-relaxed">
             Fale agora mesmo com um especialista via WhatsApp
           </p>
           <a

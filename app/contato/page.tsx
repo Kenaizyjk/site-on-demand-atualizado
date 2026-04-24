@@ -133,7 +133,7 @@ export default function ContatoPage() {
               target="_blank"
               rel="noopener noreferrer"
               data-track="contato-whatsapp-cta"
-              className="od-cta-button inline-flex items-center gap-3 px-10 py-5 text-white font-bold rounded-xl text-xl"
+              className="od-cta-button inline-flex items-center gap-3 px-6 py-4 sm:px-10 sm:py-5 text-white font-bold rounded-xl text-base sm:text-xl"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

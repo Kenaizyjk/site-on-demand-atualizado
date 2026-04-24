@@ -200,7 +200,7 @@ export default function GMBShowcase() {
 
               {/* ── Action buttons ── */}
               <div className="px-3 pb-2.5">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 flex-wrap">
                   {[
                     { icon: Globe, label: "Site" },
                     { icon: Navigation, label: "Rotas" },
@@ -215,8 +215,6 @@ export default function GMBShowcase() {
                       {label}
                     </span>
                   ))}
-                </div>
-                <div className="flex items-center gap-1.5 mt-1.5">
                   <span className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-[#5f6368] text-white/40 text-[10px] font-medium">
                     <Phone className="w-3 h-3" />
                     Ligar

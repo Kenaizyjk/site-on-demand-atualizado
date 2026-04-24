@@ -81,9 +81,9 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contato" className="py-24 lg:py-36 relative overflow-hidden">
+    <section id="contato" className="py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
 
           {/* Left — copy */}
           <div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
             >
               Entre em contato
             </p>
-            <h2 className="text-4xl sm:text-5xl font-extralight uppercase tracking-[0.12em] text-white leading-[1.05] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extralight uppercase tracking-[0.12em] text-white leading-[1.05] mb-4">
               Pronto para marcar um{" "}
               <span
                 className="text-transparent"
@@ -170,7 +170,7 @@ export default function ContactForm() {
 
           {/* Right — form */}
           <div
-            className="od-glass-dense rounded-2xl p-8 sm:p-10"
+            className="od-glass-dense rounded-2xl p-5 sm:p-8 md:p-10"
             style={{ border: "1px solid rgba(255,255,255,0.06)" }}
           >
             {status === "success" ? (
