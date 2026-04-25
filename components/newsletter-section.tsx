@@ -185,7 +185,7 @@ export default function NewsletterSection({ source = "home" }: Props) {
       ref={sectionRef}
       id="newsletter"
       aria-labelledby="nl-heading"
-      className="relative py-12 sm:py-16"
+      className="relative py-16 sm:py-16"
     >
       <style>{`
         /* ── Newsletter card glass ── */
@@ -380,7 +380,7 @@ export default function NewsletterSection({ source = "home" }: Props) {
 
           {/* Content */}
           <div
-            className="od-nl-stagger relative z-[2] flex flex-col items-center gap-5 px-6 py-10 text-center sm:gap-6 sm:px-10 sm:py-12"
+            className="od-nl-stagger relative z-[2] flex flex-col items-center gap-5 px-4 py-8 text-center sm:gap-6 sm:px-10 sm:py-12"
             data-visible={inView}
           >
             {form.status === "success" ? (
@@ -528,7 +528,7 @@ export default function NewsletterSection({ source = "home" }: Props) {
                     <button
                       type="submit"
                       disabled={form.status === "loading"}
-                      className="od-nl-btn-v2 whitespace-nowrap px-7 py-3 text-sm sm:py-3.5"
+                      className="od-nl-btn-v2 whitespace-nowrap px-7 py-3.5 text-sm sm:py-3.5 w-full sm:w-auto"
                     >
                       {form.status === "loading" ? (
                         <span className="flex items-center justify-center gap-2">

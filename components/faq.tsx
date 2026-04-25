@@ -176,7 +176,7 @@ export default function FAQ() {
             target="_blank"
             rel="noopener noreferrer"
             data-track="faq-whatsapp-cta"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white/50 text-sm font-semibold hover:text-white transition-all duration-200 active:scale-[0.97]"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-3.5 sm:py-2.5 rounded-xl text-white/50 text-sm font-semibold hover:text-white transition-all duration-200 active:scale-[0.97]"
             style={{ border: "1px solid rgba(255,255,255,0.1)" }}
             onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)" }}
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)" }}

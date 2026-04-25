@@ -1062,7 +1062,7 @@ html {
   .od-cinematic-nav[data-expanded="true"] {
     flex-direction: column;
     align-items: center;
-    background: rgba(9, 9, 11, 0.97);
+    background: rgba(9, 9, 11, 1);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
@@ -1131,6 +1131,32 @@ html {
     min-height: 44px;
     margin-top: 0.75rem;
     opacity: 1;
+  }
+
+  /* ── Compact mode: collapse links when scrolled ── */
+  .od-cinematic-nav[data-scrolled="true"][data-expanded="true"] {
+    flex-direction: row;
+  }
+
+  .od-cinematic-nav[data-scrolled="true"] .od-nav-row[data-expanded="true"] {
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .od-cinematic-nav[data-scrolled="true"] .od-nav-links[data-visible="true"] {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .od-cinematic-nav[data-scrolled="true"] .od-nav-dot[data-expanded="true"] {
+    opacity: 1;
+    width: 4px;
+    margin: 0 0.5em;
+    animation: none;
+    transform: scale(1);
   }
 }
 

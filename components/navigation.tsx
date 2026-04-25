@@ -62,6 +62,7 @@ export default function Navigation() {
       ref={navRef}
       className="od-cinematic-nav"
       data-scrolled={isScrolled}
+      data-expanded={introOpen}
     >
       {/* Flex row: ON · links · DEMAND */}
       <div className="od-nav-row" data-expanded={introOpen}>

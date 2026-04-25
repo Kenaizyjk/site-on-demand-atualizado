@@ -158,7 +158,7 @@ export default function ContactForm() {
               </p>
               <a
                 href={`mailto:${COMPANY_EMAIL}`}
-                className="text-sm transition-colors duration-200"
+                className="text-sm transition-colors duration-200 inline-block py-2 sm:py-0"
                 style={{ color: "rgba(255,255,255,0.45)" }}
                 onMouseEnter={(e) => { e.currentTarget.style.color = "white" }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.45)" }}

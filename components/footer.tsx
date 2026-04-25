@@ -24,7 +24,7 @@ const WA_ICON = (
 
 export default function Footer() {
   return (
-    <footer className="pt-10 pb-20 sm:py-12 px-4 relative" style={{
+    <footer className="pt-12 pb-24 sm:py-12 px-4 sm:px-6 relative" style={{
       background: "rgba(9,9,11,0.6)",
       backdropFilter: "blur(16px)",
       WebkitBackdropFilter: "blur(16px)",
@@ -32,7 +32,7 @@ export default function Footer() {
       boxShadow: "inset 0 1px 0 rgba(255,255,255,0.02)",
     }}>
       <div className="od-container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8 mb-10 sm:mb-12">
 
           {/* Brand */}
           <div>
@@ -271,7 +271,7 @@ export default function Footer() {
             <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
             <span>CNPJ: 60.803.333/0001-80</span>
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
             <Link href="/privacidade" className="transition-colors duration-200" style={{ color: 'rgba(255,255,255,0.25)' }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)' }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.25)' }}>

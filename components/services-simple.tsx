@@ -197,7 +197,7 @@ function AdsDashboard() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className="flex-1 py-2.5 text-xs font-light uppercase tracking-wider transition-all duration-200"
+            className="flex-1 py-2.5 min-h-[44px] text-xs font-light uppercase tracking-wider transition-all duration-200"
             style={{
               background: activeTab === tab ? "rgba(255,255,255,0.05)" : "transparent",
               color: activeTab === tab ? "#e2e8f0" : "rgba(255,255,255,0.3)",
@@ -334,7 +334,7 @@ function N8nWorkflow() {
         </div>
         <button
           onClick={isRunning ? resetWorkflow : runWorkflow}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-light tracking-wide transition-all duration-200 hover:scale-105 active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-lg text-xs font-light tracking-wide transition-all duration-200 hover:scale-105 active:scale-95"
           style={{
             background: isRunning
               ? "rgba(255,255,255,0.04)"
@@ -991,7 +991,7 @@ function WebsiteBuilder() {
               <button
                 key={view}
                 onClick={() => setActiveView(view)}
-                className="px-2.5 py-1.5 transition-all duration-200"
+                className="px-2.5 py-1.5 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-200"
                 style={{
                   background: activeView === view
                     ? "rgba(255,255,255,0.06)"
@@ -1517,7 +1517,7 @@ export default function ServicesSimple() {
               O que fazemos
             </p>
             <h2
-              className="text-4xl sm:text-5xl md:text-6xl font-extralight uppercase tracking-[0.12em] leading-[1.05]"
+              className="text-3xl sm:text-5xl md:text-6xl font-extralight uppercase tracking-[0.12em] leading-[1.05]"
               style={{
                 background:
                   "linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.55) 100%)",
